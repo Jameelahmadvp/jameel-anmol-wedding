@@ -4,105 +4,638 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071329">
+
 <title>Jameel & Anmol | Wedding Invitation</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#160f1b;color:#fff4df;font-family:Georgia,serif;text-align:center;padding:18px}
-.cover,.card{max-width:480px;margin:auto;border:1px solid #e5c47b;border-radius:22px;background:radial-gradient(ellipse at top,#60354d,#201521 75%);padding:28px 20px;box-shadow:0 15px 50px #0008}
-.cover{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}
-.gold{color:#e5c47b}
-.kicker{font:11px Arial,sans-serif;letter-spacing:3px;color:#e5c47b}
-h1{font-size:clamp(32px,9vw,46px);font-weight:normal;line-height:1.2}
-.monogram{font-size:60px;margin:20px}
-.rule{height:1px;background:linear-gradient(90deg,transparent,#e5c47b,transparent);margin:20px auto;width:80%}
-button,.btn{display:inline-block;background:#e5c47b;color:#211421;border:1px solid #e5c47b;border-radius:30px;padding:13px 17px;margin:6px;text-decoration:none;font: bold 13px Arial,sans-serif;cursor:pointer}
-.btn.alt{background:transparent;color:#e5c47b}
-.hidden{display:none!important}
-.card{animation:appear .8s ease;margin:12px auto 25px}
-@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-@keyframes float{50%{transform:translateY(-8px)}}
-@keyframes heartbeat{50%{transform:scale(1.2)}}
-.couple{font-size:70px;display:flex;justify-content:center;align-items:center;gap:5px;margin:22px 0}
-.person{animation:float 3s ease-in-out infinite}
-.heart{font-size:25px;color:#ffc0cf;animation:heartbeat 1.4s infinite}
-.event{border:1px solid #a98756;border-radius:16px;padding:18px 12px;margin:16px 0;background:#190f1b88}
-.event h2{font-weight:normal;font-size:27px;margin:10px 0}
-.date{font-size:21px;color:#e5c47b}
-.time{font:12px Arial,sans-serif;letter-spacing:2px;margin:8px}
-.venue{font-size:18px;line-height:1.5}
-.small{font:12px Arial,sans-serif;color:#d8c7b7;line-height:1.7}
-#back{margin-top:15px}
+:root {
+  --gold: #e8c77e;
+  --cream: #fff5e6;
+  --night: #071329;
+  --wine: #741d35;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.kicker {
+  font: 10px/1.8 Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #f3d99b;
+}
+
+.rule {
+  height: 1px;
+  width: 75%;
+  max-width: 260px;
+  margin: 20px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f4dfa9, #c99a4c);
+  color: #211528;
+  text-decoration: none;
+  padding: 14px 20px;
+  margin: 7px 4px;
+  font: bold 11px Arial, sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 7px 24px #0005;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+.btn.alt {
+  background: transparent;
+  color: var(--gold);
+  box-shadow: none;
+}
+
+/* CINEMATIC COVER */
+
+.cover {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #071329;
+  cursor: pointer;
+}
+
+.hero-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  animation: cinematicZoom 22s ease-in-out infinite alternate;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      #06112615 0%,
+      #06112620 35%,
+      #0611268a 70%,
+      #061126f2 100%
+    );
+  pointer-events: none;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 520px);
+  padding: 35px 20px;
+  text-shadow: 0 2px 18px #000;
+  animation: riseIn 1.5s ease both;
+}
+
+.monogram {
+  font-size: 48px;
+  margin: 16px 0;
+  color: var(--gold);
+  text-shadow: 0 0 24px #e8c77e88;
+}
+
+.script {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: normal;
+  line-height: 1.08;
+  margin: 15px 0;
+  color: #fff8ed;
+}
+
+.date-label {
+  color: #f3d99b;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2.5px;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+
+.cover-intro {
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 16px auto 22px;
+}
+
+/* INVITATION CARD */
+
+.card {
+  position: relative;
+  width: min(100% - 22px, 500px);
+  margin: 18px auto 35px;
+  padding: 35px 19px;
+  border: 1px solid #b78d4b;
+  border-radius: 170px 170px 22px 22px;
+  background:
+    radial-gradient(
+      ellipse at top,
+      #26344c 0%,
+      #131d32 43%,
+      #080f20 100%
+    );
+  box-shadow: 0 20px 70px #0008;
+  animation: riseIn 1s ease both;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "✦  ·  ✧  ·  ✦  ·  ✧  ·  ✦";
+  display: block;
+  color: var(--gold);
+  letter-spacing: 6px;
+  font-size: 12px;
+  margin: 5px auto 24px;
+}
+
+.bismillah {
+  font-size: 25px;
+  color: var(--gold);
+  line-height: 1.8;
+  margin: 18px 0;
+}
+
+.card h1 {
+  font-weight: normal;
+  font-size: clamp(30px, 8vw, 43px);
+  line-height: 1.3;
+  margin: 20px 0;
+}
+
+.card-intro {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* ANIMATED COUPLE */
+
+.couple-scene {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  height: 185px;
+  margin: 25px auto;
+  overflow: hidden;
+  border: 1px solid #b78d4b66;
+  border-radius: 100px 100px 14px 14px;
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      #d7a24b55,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #0b1730,
+      #1a263b 70%,
+      #35212a
+    );
+}
+
+.couple-scene::before {
+  content: "☾   ✦   ·   ✧   ·   ✦";
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  color: #f1d99e;
+  letter-spacing: 7px;
+  font-size: 13px;
+}
+
+.person {
+  position: relative;
+  z-index: 1;
+  font-size: 72px;
+  line-height: 1.3;
+  filter: drop-shadow(0 5px 5px #0008);
+  animation: gentleSway 3s ease-in-out infinite;
+}
+
+.person.bride {
+  animation-delay: -1.2s;
+}
+
+.heart {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  margin: 0 1px;
+  color: #f6c7c9;
+  font-size: 23px;
+  animation: heartbeat 1.7s ease-in-out infinite;
+}
+
+/* FUNCTION PANELS */
+
+.event {
+  position: relative;
+  margin: 25px 0;
+  padding: 28px 13px 24px;
+  border: 1px solid #b78d4b;
+  border-radius: 135px 135px 18px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #321d2cbb,
+      #0b1426f0
+    );
+  box-shadow: inset 0 0 30px #e3bc7018;
+}
+
+.event::before {
+  content: "✦";
+  display: block;
+  color: var(--gold);
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.event h2 {
+  color: #fff2db;
+  font-weight: normal;
+  font-size: 35px;
+  margin: 10px 0 15px;
+}
+
+.event-date {
+  color: var(--gold);
+  font-size: 23px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.event-time {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2px;
+  color: #f3dfb9;
+  margin: 12px 0;
+}
+
+.venue {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.small {
+  color: #d9d0c7;
+  font: 11px/1.9 Arial, sans-serif;
+}
+
+.footer {
+  color: var(--gold);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 28px 0 12px;
+}
+
+/* ANIMATIONS */
+
+@keyframes cinematicZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleSway {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(2deg);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<section class="cover" id="cover" onclick="openInvite()">
-  <div class="kicker">BISMILLAH IR-RAHMAN IR-RAHEEM</div>
-  <div class="monogram">ج ✦ ا</div>
-  <p class="gold">YOU ARE CORDIALLY INVITED</p>
-  <h1>Jameel <span class="gold">&</span><br>Anmol</h1>
-  <div class="rule"></div>
-  <p>Two hearts, one beautiful journey.<br>Join us to celebrate our wedding.</p>
-  <button onclick="event.stopPropagation();openInvite()">✦ TAP TO OPEN ✦</button>
-  <p class="small">Baraat & Walima · January 2027</p>
+<!-- CINEMATIC COVER -->
+<section
+  class="cover"
+  id="cover"
+  onclick="openInvite()"
+  aria-label="Open wedding invitation"
+>
+  <img
+    class="hero-art"
+    src="angan-scene.jpg"
+    alt="A royal moonlit wedding courtyard with a floral Mughal arch"
+  >
+
+  <div class="cover-content">
+
+    <div class="kicker">
+      Bismillah ir-Rahman ir-Raheem
+    </div>
+
+    <div class="monogram">ج ✦ ا</div>
+
+    <div class="kicker">
+      Together with our families
+    </div>
+
+    <h1 class="script">
+      Jameel <span class="gold">&</span><br>
+      Anmol
+    </h1>
+
+    <div class="rule"></div>
+
+    <div class="date-label">
+      BARAAT & WALIMA<br>
+      JANUARY 2027
+    </div>
+
+    <p class="cover-intro">
+      Two hearts, one beautiful journey.<br>
+      Join us as we begin our forever.
+    </p>
+
+    <button
+      class="btn"
+      onclick="event.stopPropagation(); openInvite()"
+    >
+      ✦ OPEN THE INVITATION ✦
+    </button>
+
+    <p class="small">
+      Tap anywhere to enter
+    </p>
+
+  </div>
 </section>
 
+<!-- MAIN INVITATION -->
 <main id="invitation" class="hidden">
+
   <section class="card">
-    <div class="kicker">WITH THE BLESSINGS OF ALLAH</div>
-    <p class="gold" style="font-size:24px">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-    <p>Together with our families,</p>
-    <p>we joyfully invite you to celebrate the wedding of</p>
-    <h1>Jameel Ahmad<br><span class="gold">&</span><br>Anmol Fatima</h1>
-    <div class="couple">
-      <span class="person">🤵🏻</span><span class="heart">♥</span><span class="person">👰🏻</span>
+
+    <div class="kicker">
+      With the blessings of Allah
     </div>
+
+    <p class="bismillah">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </p>
+
     <div class="rule"></div>
-    <p>Your presence and prayers will make our celebrations more special.</p>
 
+    <p class="card-intro">
+      Together with our families,<br>
+      we joyfully invite you to celebrate<br>
+      the wedding of
+    </p>
+
+    <h1>
+      Jameel Ahmad<br>
+      <span class="gold">&</span><br>
+      Anmol Fatima
+    </h1>
+
+    <!-- Animated illustration -->
+    <div
+      class="couple-scene"
+      aria-label="Animated bride and groom illustration"
+    >
+      <span class="person groom">🤵🏻</span>
+      <span class="heart">♥</span>
+      <span class="person bride">👰🏻</span>
+    </div>
+
+    <p class="card-intro">
+      Your presence and prayers will make<br>
+      our celebrations even more special.
+    </p>
+
+    <div class="rule"></div>
+
+    <!-- BARAAT -->
     <section class="event">
-      <div class="kicker">CELEBRATION ONE</div>
+
+      <div class="kicker">
+        Celebration One
+      </div>
+
       <h2>Baraat</h2>
-      <div class="date">2 January 2027</div>
-      <div class="time">SATURDAY · 6:00 PM</div>
-      <div class="venue">Couples Marquee</div>
-      <p class="small">Opposite Expo Center, Johar Town, Lahore</p>
-      <a class="btn" target="_blank" rel="noopener"
-      href="https://www.google.com/maps/search/?api=1&query=Couples+Marquee+opposite+Expo+Center+Johar+Town+Lahore">📍 OPEN BARAAT MAP</a>
+
+      <div class="event-date">
+        2 January 2027
+      </div>
+
+      <div class="event-time">
+        SATURDAY · 6:00 PM
+      </div>
+
+      <div class="venue">
+        Couples Marquee
+      </div>
+
+      <p class="small">
+        Opposite Expo Center,<br>
+        Johar Town, Lahore
+      </p>
+
+      <a
+        class="btn"
+        href="https://www.google.com/maps/search/?api=1&query=Couples+Marquee+opposite+Expo+Center+Johar+Town+Lahore"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📍 OPEN BARAAT MAP
+      </a>
+
     </section>
 
+    <!-- WALIMA -->
     <section class="event">
-      <div class="kicker">CELEBRATION TWO</div>
+
+      <div class="kicker">
+        Celebration Two
+      </div>
+
       <h2>Walima</h2>
-      <div class="date">3 January 2027</div>
-      <div class="time">SUNDAY · 6:30 PM</div>
-      <div class="venue">Aiwan-e-Akbari</div>
-      <p class="small">Ferozpur Road, Lahore</p>
-      <a class="btn" target="_blank" rel="noopener"
-      href="https://www.google.com/maps/search/?api=1&query=Aiwan-e-Akbari+Ferozpur+Road+Lahore">📍 OPEN WALIMA MAP</a>
+
+      <div class="event-date">
+        3 January 2027
+      </div>
+
+      <div class="event-time">
+        SUNDAY · 6:30 PM
+      </div>
+
+      <div class="venue">
+        Aiwan-e-Akbari
+      </div>
+
+      <p class="small">
+        Ferozpur Road, Lahore
+      </p>
+
+      <a
+        class="btn"
+        href="https://www.google.com/maps/search/?api=1&query=Aiwan-e-Akbari+Ferozpur+Road+Lahore"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📍 OPEN WALIMA MAP
+      </a>
+
     </section>
 
-    <p class="gold">Your presence is our happiness.</p>
-    <a class="btn alt" target="_blank" rel="noopener"
-    href="https://wa.me/?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20RSVP%20for%20Jameel%20Ahmad%20and%20Anmol%20Fatima%27s%20wedding.">💌 RSVP ON WHATSAPP</a>
+    <div class="rule"></div>
+
+    <p class="footer">
+      Your presence is our happiness.
+    </p>
+
+    <p class="small">
+      We look forward to celebrating<br>
+      this beautiful beginning with you.
+    </p>
+
+    <a
+      class="btn alt"
+      href="https://wa.me/?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20RSVP%20for%20Jameel%20Ahmad%20and%20Anmol%20Fatima%27s%20wedding."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💌 RSVP ON WHATSAPP
+    </a>
+
     <br>
-    <button class="btn alt" id="back" onclick="showCover()">↶ BACK TO COVER</button>
-    <p class="small">With love, Jameel & Anmol</p>
+
+    <button
+      class="btn alt"
+      onclick="showCover()"
+    >
+      ↶ BACK TO COVER
+    </button>
+
+    <p class="small">
+      With love,<br>
+      Jameel & Anmol
+    </p>
+
+    <div class="kicker">
+      Forever begins here
+    </div>
+
   </section>
 </main>
 
 <script>
-function openInvite(){
-  document.getElementById('cover').classList.add('hidden');
-  document.getElementById('invitation').classList.remove('hidden');
-  window.scrollTo({top:0,behavior:'smooth'});
+function openInvite() {
+  document.getElementById("cover").classList.add("hidden");
+
+  document.getElementById("invitation").classList.remove("hidden");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
-function showCover(){
-  document.getElementById('invitation').classList.add('hidden');
-  document.getElementById('cover').classList.remove('hidden');
-  window.scrollTo({top:0,behavior:'smooth'});
+
+function showCover() {
+  document.getElementById("invitation").classList.add("hidden");
+
+  document.getElementById("cover").classList.remove("hidden");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 </script>
+
 </body>
-    </html>
-  
+</html>
