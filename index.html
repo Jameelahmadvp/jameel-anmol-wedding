@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jameel & Anmol | Wedding Invitation</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#160f1b;color:#fff4df;font-family:Georgia,serif;text-align:center;padding:18px}
+.cover,.card{max-width:480px;margin:auto;border:1px solid #e5c47b;border-radius:22px;background:radial-gradient(ellipse at top,#60354d,#201521 75%);padding:28px 20px;box-shadow:0 15px 50px #0008}
+.cover{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}
+.gold{color:#e5c47b}
+.kicker{font:11px Arial,sans-serif;letter-spacing:3px;color:#e5c47b}
+h1{font-size:clamp(32px,9vw,46px);font-weight:normal;line-height:1.2}
+.monogram{font-size:60px;margin:20px}
+.rule{height:1px;background:linear-gradient(90deg,transparent,#e5c47b,transparent);margin:20px auto;width:80%}
+button,.btn{display:inline-block;background:#e5c47b;color:#211421;border:1px solid #e5c47b;border-radius:30px;padding:13px 17px;margin:6px;text-decoration:none;font: bold 13px Arial,sans-serif;cursor:pointer}
+.btn.alt{background:transparent;color:#e5c47b}
+.hidden{display:none!important}
+.card{animation:appear .8s ease;margin:12px auto 25px}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{50%{transform:translateY(-8px)}}
+@keyframes heartbeat{50%{transform:scale(1.2)}}
+.couple{font-size:70px;display:flex;justify-content:center;align-items:center;gap:5px;margin:22px 0}
+.person{animation:float 3s ease-in-out infinite}
+.heart{font-size:25px;color:#ffc0cf;animation:heartbeat 1.4s infinite}
+.event{border:1px solid #a98756;border-radius:16px;padding:18px 12px;margin:16px 0;background:#190f1b88}
+.event h2{font-weight:normal;font-size:27px;margin:10px 0}
+.date{font-size:21px;color:#e5c47b}
+.time{font:12px Arial,sans-serif;letter-spacing:2px;margin:8px}
+.venue{font-size:18px;line-height:1.5}
+.small{font:12px Arial,sans-serif;color:#d8c7b7;line-height:1.7}
+#back{margin-top:15px}
+</style>
+</head>
+<body>
+
+<section class="cover" id="cover" onclick="openInvite()">
+  <div class="kicker">BISMILLAH IR-RAHMAN IR-RAHEEM</div>
+  <div class="monogram">ج ✦ ا</div>
+  <p class="gold">YOU ARE CORDIALLY INVITED</p>
+  <h1>Jameel <span class="gold">&</span><br>Anmol</h1>
+  <div class="rule"></div>
+  <p>Two hearts, one beautiful journey.<br>Join us to celebrate our wedding.</p>
+  <button onclick="event.stopPropagation();openInvite()">✦ TAP TO OPEN ✦</button>
+  <p class="small">Baraat & Walima · January 2027</p>
+</section>
+
+<main id="invitation" class="hidden">
+  <section class="card">
+    <div class="kicker">WITH THE BLESSINGS OF ALLAH</div>
+    <p class="gold" style="font-size:24px">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <p>Together with our families,</p>
+    <p>we joyfully invite you to celebrate the wedding of</p>
+    <h1>Jameel Ahmad<br><span class="gold">&</span><br>Anmol Fatima</h1>
+    <div class="couple">
+      <span class="person">🤵🏻</span><span class="heart">♥</span><span class="person">👰🏻</span>
+    </div>
+    <div class="rule"></div>
+    <p>Your presence and prayers will make our celebrations more special.</p>
+
+    <section class="event">
+      <div class="kicker">CELEBRATION ONE</div>
+      <h2>Baraat</h2>
+      <div class="date">2 January 2027</div>
+      <div class="time">SATURDAY · 6:00 PM</div>
+      <div class="venue">Couples Marquee</div>
+      <p class="small">Opposite Expo Center, Johar Town, Lahore</p>
+      <a class="btn" target="_blank" rel="noopener"
+      href="https://www.google.com/maps/search/?api=1&query=Couples+Marquee+opposite+Expo+Center+Johar+Town+Lahore">📍 OPEN BARAAT MAP</a>
+    </section>
+
+    <section class="event">
+      <div class="kicker">CELEBRATION TWO</div>
+      <h2>Walima</h2>
+      <div class="date">3 January 2027</div>
+      <div class="time">SUNDAY · 6:30 PM</div>
+      <div class="venue">Aiwan-e-Akbari</div>
+      <p class="small">Ferozpur Road, Lahore</p>
+      <a class="btn" target="_blank" rel="noopener"
+      href="https://www.google.com/maps/search/?api=1&query=Aiwan-e-Akbari+Ferozpur+Road+Lahore">📍 OPEN WALIMA MAP</a>
+    </section>
+
+    <p class="gold">Your presence is our happiness.</p>
+    <a class="btn alt" target="_blank" rel="noopener"
+    href="https://wa.me/?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20RSVP%20for%20Jameel%20Ahmad%20and%20Anmol%20Fatima%27s%20wedding.">💌 RSVP ON WHATSAPP</a>
+    <br>
+    <button class="btn alt" id="back" onclick="showCover()">↶ BACK TO COVER</button>
+    <p class="small">With love, Jameel & Anmol</p>
+  </section>
+</main>
+
+<script>
+function openInvite(){
+  document.getElementById('cover').classList.add('hidden');
+  document.getElementById('invitation').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showCover(){
+  document.getElementById('invitation').classList.add('hidden');
+  document.getElementById('cover').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+    </html>
+  
