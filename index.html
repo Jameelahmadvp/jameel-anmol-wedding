@@ -1,641 +1,651 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071329">
+<meta name="theme-color" content="#f8f7f5">
 
-<title>Jameel & Anmol | Wedding Invitation</title>
+<title>Jameel Ahmad & Anmol Fatima | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --gold: #e8c77e;
-  --cream: #fff5e6;
-  --night: #071329;
-  --wine: #741d35;
+  --paper: #fff;
+  --ivory: #faf9f7;
+  --silver: #d0d0d0;
+  --grey: #777;
+  --ink: #292526;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--night);
-  color: var(--cream);
-  font-family: Georgia, "Times New Roman", serif;
-  text-align: center;
+  min-height: 100vh;
+  color: var(--ink);
+  background: #eeece9;
+  font-family: 'Montserrat', sans-serif;
 }
 
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
+button { font: inherit; }
 
-.hidden {
-  display: none !important;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-.kicker {
-  font: 10px/1.8 Arial, sans-serif;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #f3d99b;
-}
-
-.rule {
-  height: 1px;
-  width: 75%;
-  max-width: 260px;
-  margin: 20px auto;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold),
-    transparent
-  );
-}
-
-/* BUTTONS */
-
-.btn {
-  display: inline-block;
-  border: 1px solid var(--gold);
-  border-radius: 50px;
-  background: linear-gradient(135deg, #f4dfa9, #c99a4c);
-  color: #211528;
-  text-decoration: none;
-  padding: 14px 20px;
-  margin: 7px 4px;
-  font: bold 11px Arial, sans-serif;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: 0 7px 24px #0005;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.btn:active {
-  transform: scale(.97);
-}
-
-.btn.alt {
-  background: transparent;
-  color: var(--gold);
-  box-shadow: none;
-}
-
-/* CINEMATIC COVER */
-
-.cover {
-  position: relative;
-  width: 100%;
-  min-height: 100svh;
-  overflow: hidden;
+.shell {
+  min-height: 100vh;
+  padding: 20px 12px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background: #071329;
-  cursor: pointer;
 }
 
-.hero-art {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  animation: cinematicZoom 22s ease-in-out infinite alternate;
+.top-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #777;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.cover::after {
-  content: "";
+.book {
+  width: min(88vw, 400px);
+  height: min(132vw, 590px);
+  min-height: 450px;
+  max-height: 70vh;
+  position: relative;
+  perspective: 1800px;
+  filter: drop-shadow(0 12px 22px #0002);
+}
+
+.page {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      #06112615 0%,
-      #06112620 35%,
-      #0611268a 70%,
-      #061126f2 100%
-    );
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 850ms cubic-bezier(.2,.7,.2,1);
+  border: 1px solid #aaa;
+  background: var(--paper);
+  overflow: hidden;
+  border-radius: 2px 7px 7px 2px;
+}
+
+.page.flipped {
+  transform: rotateY(-180deg);
   pointer-events: none;
 }
 
-.cover-content {
+.page-content {
   position: relative;
-  z-index: 2;
-  width: min(100%, 520px);
-  padding: 35px 20px;
-  text-shadow: 0 2px 18px #000;
-  animation: riseIn 1.5s ease both;
-}
-
-.monogram {
-  font-size: 48px;
-  margin: 16px 0;
-  color: var(--gold);
-  text-shadow: 0 0 24px #e8c77e88;
-}
-
-.script {
-  font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: clamp(48px, 12vw, 72px);
-  font-weight: normal;
-  line-height: 1.08;
-  margin: 15px 0;
-  color: #fff8ed;
-}
-
-.date-label {
-  color: #f3d99b;
-  font: 11px Arial, sans-serif;
-  letter-spacing: 2.5px;
-  line-height: 1.8;
-  margin: 20px 0;
-}
-
-.cover-intro {
-  font-size: 14px;
-  line-height: 1.9;
-  margin: 16px auto 22px;
-}
-
-/* INVITATION CARD */
-
-.card {
-  position: relative;
-  width: min(100% - 22px, 500px);
-  margin: 18px auto 35px;
-  padding: 35px 19px;
-  border: 1px solid #b78d4b;
-  border-radius: 170px 170px 22px 22px;
-  background:
-    radial-gradient(
-      ellipse at top,
-      #26344c 0%,
-      #131d32 43%,
-      #080f20 100%
-    );
-  box-shadow: 0 20px 70px #0008;
-  animation: riseIn 1s ease both;
-  overflow: hidden;
-}
-
-.card::before {
-  content: "✦  ·  ✧  ·  ✦  ·  ✧  ·  ✦";
-  display: block;
-  color: var(--gold);
-  letter-spacing: 6px;
-  font-size: 12px;
-  margin: 5px auto 24px;
-}
-
-.bismillah {
-  font-size: 25px;
-  color: var(--gold);
-  line-height: 1.8;
-  margin: 18px 0;
-}
-
-.card h1 {
-  font-weight: normal;
-  font-size: clamp(30px, 8vw, 43px);
-  line-height: 1.3;
-  margin: 20px 0;
-}
-
-.card-intro {
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-/* ANIMATED COUPLE */
-
-.couple-scene {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 5px;
+  isolation: isolate;
   width: 100%;
-  height: 185px;
-  margin: 25px auto;
+  height: 100%;
+  padding: 32px 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
-  border: 1px solid #b78d4b66;
-  border-radius: 100px 100px 14px 14px;
-  background:
-    radial-gradient(
-      ellipse at bottom,
-      #d7a24b55,
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
-      #0b1730,
-      #1a263b 70%,
-      #35212a
-    );
+  background: linear-gradient(145deg, #fff, #faf9f7);
 }
 
-.couple-scene::before {
-  content: "☾   ✦   ·   ✧   ·   ✦";
+.page-content::before {
+  content: "";
   position: absolute;
-  top: 22px;
-  left: 0;
-  right: 0;
-  color: #f1d99e;
-  letter-spacing: 7px;
-  font-size: 13px;
+  inset: 10px;
+  border: 1px solid #d4d4d4;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.person {
-  position: relative;
-  z-index: 1;
-  font-size: 72px;
-  line-height: 1.3;
-  filter: drop-shadow(0 5px 5px #0008);
-  animation: gentleSway 3s ease-in-out infinite;
+.floral {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  color: #d1d1d1;
+  opacity: .8;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.person.bride {
-  animation-delay: -1.2s;
+.floral svg {
+  width: 100%;
+  height: 100%;
 }
 
-.heart {
-  position: relative;
-  z-index: 2;
-  align-self: center;
-  margin: 0 1px;
-  color: #f6c7c9;
+.floral.tl { top: -17px; left: -17px; }
+.floral.tr { top: -17px; right: -17px; transform: scaleX(-1); }
+.floral.bl { bottom: -17px; left: -17px; transform: scaleY(-1); }
+.floral.br { bottom: -17px; right: -17px; transform: scale(-1); }
+
+.top-rule, .bottom-rule {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  height: 3px;
+  border-top: 1px solid #d0d0d0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.top-rule { top: 23px; }
+.bottom-rule { bottom: 23px; }
+
+.arabic {
+  font-family: serif;
   font-size: 23px;
-  animation: heartbeat 1.7s ease-in-out infinite;
-}
-
-/* FUNCTION PANELS */
-
-.event {
-  position: relative;
-  margin: 25px 0;
-  padding: 28px 13px 24px;
-  border: 1px solid #b78d4b;
-  border-radius: 135px 135px 18px 18px;
-  background:
-    linear-gradient(
-      180deg,
-      #321d2cbb,
-      #0b1426f0
-    );
-  box-shadow: inset 0 0 30px #e3bc7018;
-}
-
-.event::before {
-  content: "✦";
-  display: block;
-  color: var(--gold);
-  font-size: 20px;
   margin-bottom: 12px;
+  color: #292526;
 }
 
-.event h2 {
-  color: #fff2db;
-  font-weight: normal;
+.label {
+  font-size: 11px;
+  line-height: 1.8;
+  font-weight: 400;
+  letter-spacing: .2px;
+  color: #555;
+}
+
+.bold-label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
   font-size: 35px;
-  margin: 10px 0 15px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 6px 0 14px;
+  color: #292526;
 }
 
-.event-date {
-  color: var(--gold);
-  font-size: 23px;
-  line-height: 1.5;
+.couple-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(34px, 9vw, 43px);
+  line-height: 1.22;
+  font-weight: 400;
+  margin: 13px 0;
+  color: #292526;
+}
+
+.with {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.flourish {
+  width: 135px;
+  height: 17px;
+  position: relative;
+  margin: 3px auto 9px;
+}
+
+.flourish::before {
+  content: "❧  ❦  ❧";
+  position: absolute;
+  inset: 0;
+  color: #888;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.cover-content {
+  width: 100%;
+  margin: auto;
+}
+
+.cover .page-content {
+  background: #fff;
+}
+
+.cover-photo {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#ffffffb8, #ffffffc9),
+    url("angan-scene.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: slowZoom 24s ease-in-out infinite alternate;
+}
+
+.cover .page-content::before {
+  inset: 14px;
+  border: 1px solid #aaa;
+}
+
+.cover .couple-name {
+  font-size: clamp(40px, 10vw, 49px);
   margin: 10px 0;
 }
 
-.event-time {
-  font: 11px Arial, sans-serif;
+.cover .label { margin: 3px 0; }
+
+.cover-hint {
+  margin-top: 26px;
+  color: #666;
+  font-size: 9px;
   letter-spacing: 2px;
-  color: #f3dfb9;
-  margin: 12px 0;
+  animation: softPulse 2.2s infinite;
 }
 
-.venue {
-  font-size: 19px;
-  line-height: 1.6;
+.event-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  margin: 7px 0 2px;
+}
+
+.event-date {
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 7px 0;
+}
+
+.time {
+  font-size: 13px;
+  margin: 4px 0 13px;
+}
+
+.venue-label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.venue-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 27px;
+  line-height: 1.3;
+  margin: 7px 0;
+}
+
+.venue-address {
+  font-size: 11px;
+  line-height: 1.8;
+  max-width: 255px;
+}
+
+.map-link {
+  margin-top: 14px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  color: #444;
+  border: 1px solid #aaa;
+  padding: 9px 15px;
+}
+
+.photo-page .page-content {
+  background:
+    linear-gradient(#ffffffd9, #ffffffdf),
+    url("angan-scene.jpg") center / cover;
+}
+
+.closing-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 35px;
+  margin-top: 18px;
+}
+
+.rsvp {
   margin-top: 15px;
+  border: 1px solid #aaa;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 9px;
+  letter-spacing: 1.5px;
 }
 
-.small {
-  color: #d9d0c7;
-  font: 11px/1.9 Arial, sans-serif;
+.controls {
+  width: min(88vw, 400px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.control-btn {
+  border: 1px solid #aaa;
+  background: #fff;
+  color: #444;
+  padding: 10px 12px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.control-btn:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.counter {
+  font-size: 9px;
+  color: #666;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .footer {
-  color: var(--gold);
-  font-size: 22px;
-  font-style: italic;
-  line-height: 1.6;
-  margin: 28px 0 12px;
+  margin-top: 14px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #888;
+  text-align: center;
 }
 
-/* ANIMATIONS */
-
-@keyframes cinematicZoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.09);
-  }
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes softPulse {
+  0%,100% { opacity: .55; }
+  50% { opacity: 1; }
 }
 
-@keyframes gentleSway {
-  0%, 100% {
-    transform: translateY(0) rotate(-2deg);
+@media(max-width:380px) {
+  .book {
+    width: 92vw;
+    height: 128vw;
+    min-height: 425px;
+    max-height: 68vh;
   }
-  50% {
-    transform: translateY(-7px) rotate(2deg);
-  }
+
+  .page-content { padding: 28px 17px; }
+  .floral { width: 100px; height: 100px; }
+  .cover .couple-name { font-size: 38px; }
+  .section-title { font-size: 31px; }
+  .venue-name { font-size: 24px; }
+  .control-btn { padding: 9px 8px; }
 }
 
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    scroll-behavior: auto !important;
-  }
+@media(prefers-reduced-motion: reduce) {
+  .page { transition-duration: 200ms; }
+  .cover-photo, .cover-hint { animation: none; }
 }
 </style>
 </head>
 
 <body>
+<main class="shell">
+  <div class="top-label">Wedding Invitation</div>
 
-<!-- CINEMATIC COVER -->
-<section
-  class="cover"
-  id="cover"
-  onclick="openInvite()"
-  aria-label="Open wedding invitation"
->
-  <img
-    class="hero-art"
-    src="angan-scene.jpg"
-    alt="A royal moonlit wedding courtyard with a floral Mughal arch"
-  >
+  <div class="book" id="book">
 
-  <div class="cover-content">
+    <!-- PAGE 1: COVER -->
+    <section class="page cover" aria-label="Cover">
+      <div class="page-content">
+        <div class="cover-photo"></div>
+        <div class="top-rule"></div>
+        <div class="bottom-rule"></div>
 
-    <div class="kicker">
-      Bismillah ir-Rahman ir-Raheem
-    </div>
+        <div class="floral tl"></div>
+        <div class="floral tr"></div>
+        <div class="floral bl"></div>
+        <div class="floral br"></div>
 
-    <div class="monogram">ج ✦ ا</div>
+        <div class="cover-content">
+          <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <div class="bold-label">Wedding Invitation</div>
+          <div class="label">With the blessings of our families</div>
 
-    <div class="kicker">
-      Together with our families
-    </div>
+          <div class="couple-name">Jameel Ahmad</div>
+          <div class="with">With</div>
+          <div class="couple-name">Anmol Fatima</div>
 
-    <h1 class="script">
-      Jameel <span class="gold">&</span><br>
-      Anmol
-    </h1>
+          <div class="flourish"></div>
+          <div class="label">Together with love and prayers</div>
+          <div class="label">2nd &amp; 3rd January, 2027</div>
 
-    <div class="rule"></div>
+          <div class="cover-hint">TAP NEXT TO OPEN THE BOOKLET</div>
+        </div>
+      </div>
+    </section>
 
-    <div class="date-label">
-      BARAAT & WALIMA<br>
-      JANUARY 2027
-    </div>
+    <!-- PAGE 2: INVITATION -->
+    <section class="page" aria-label="Invitation">
+      <div class="page-content">
+        <div class="top-rule"></div>
+        <div class="bottom-rule"></div>
 
-    <p class="cover-intro">
-      Two hearts, one beautiful journey.<br>
-      Join us as we begin our forever.
-    </p>
+        <div class="floral tl"></div>
+        <div class="floral tr"></div>
+        <div class="floral bl"></div>
+        <div class="floral br"></div>
 
-    <button
-      class="btn"
-      onclick="event.stopPropagation(); openInvite()"
-    >
-      ✦ OPEN THE INVITATION ✦
-    </button>
+        <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <div class="bold-label">Request the pleasure of your company</div>
+        <div class="section-title">Wedding Ceremony</div>
+        <div class="label">of their beloved</div>
 
-    <p class="small">
-      Tap anywhere to enter
-    </p>
+        <div class="couple-name">Jameel Ahmad</div>
+        <div class="with">With</div>
+        <div class="couple-name">Anmol Fatima</div>
+
+        <div class="flourish"></div>
+        <div class="label">Your presence and prayers</div>
+        <div class="label">will make our celebration more special.</div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: BARAAT -->
+    <section class="page photo-page" aria-label="Baraat">
+      <div class="page-content">
+        <div class="top-rule"></div>
+        <div class="bottom-rule"></div>
+
+        <div class="floral tl"></div>
+        <div class="floral tr"></div>
+        <div class="floral bl"></div>
+        <div class="floral br"></div>
+
+        <div class="flourish"></div>
+        <div class="event-title">Baraat</div>
+        <div class="flourish"></div>
+
+        <div class="arabic">خوش آمدید</div>
+
+        <div class="event-date">Saturday, 2nd January, 2027</div>
+        <div class="time">At: 06:00 PM</div>
+
+        <div class="venue-label">Venue:</div>
+        <div class="venue-name">Couples Marquee</div>
+        <div class="venue-address">
+          Opposite Expo Center<br>
+          Johar Town, Lahore
+        </div>
+
+        <a class="map-link"
+           href="https://www.google.com/maps/search/?api=1&query=Couples+Marquee+opposite+Expo+Center+Johar+Town+Lahore"
+           target="_blank" rel="noopener">
+          VIEW LOCATION
+        </a>
+      </div>
+    </section>
+
+    <!-- PAGE 4: WALIMA -->
+    <section class="page photo-page" aria-label="Walima">
+      <div class="page-content">
+        <div class="top-rule"></div>
+        <div class="bottom-rule"></div>
+
+        <div class="floral tl"></div>
+        <div class="floral tr"></div>
+        <div class="floral bl"></div>
+        <div class="floral br"></div>
+
+        <div class="flourish"></div>
+        <div class="event-title">Walima</div>
+        <div class="flourish"></div>
+
+        <div class="arabic">خوش آمدید</div>
+
+        <div class="event-date">Sunday, 3rd January, 2027</div>
+        <div class="time">At: 06:30 PM</div>
+
+        <div class="venue-label">Venue:</div>
+        <div class="venue-name">Aiwan-e-Akbari</div>
+        <div class="venue-address">
+          Ferozpur Road<br>
+          Lahore
+        </div>
+
+        <a class="map-link"
+           href="https://www.google.com/maps/search/?api=1&query=Aiwan-e-Akbari+Ferozpur+Road+Lahore"
+           target="_blank" rel="noopener">
+          VIEW LOCATION
+        </a>
+      </div>
+    </section>
+
+    <!-- PAGE 5: CLOSING -->
+    <section class="page" aria-label="Closing">
+      <div class="page-content">
+        <div class="top-rule"></div>
+        <div class="bottom-rule"></div>
+
+        <div class="floral tl"></div>
+        <div class="floral tr"></div>
+        <div class="floral bl"></div>
+        <div class="floral br"></div>
+
+        <div class="arabic">الحمد لله</div>
+        <div class="section-title">With Love &amp; Duas</div>
+
+        <div class="flourish"></div>
+
+        <div class="label">We look forward to celebrating</div>
+        <div class="label">these beautiful moments with you.</div>
+
+        <div class="closing-name">Jameel &amp; Anmol</div>
+
+        <a class="rsvp"
+           href="https://wa.me/?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20respond%20to%20the%20wedding%20invitation%20of%20Jameel%20Ahmad%20and%20Anmol%20Fatima."
+           target="_blank" rel="noopener">
+          RSVP ON WHATSAPP
+        </a>
+      </div>
+    </section>
 
   </div>
-</section>
 
-<!-- MAIN INVITATION -->
-<main id="invitation" class="hidden">
+  <nav class="controls" aria-label="Book controls">
+    <button class="control-btn" id="prev" type="button">← PREVIOUS</button>
+    <div class="counter" id="counter">COVER · 1 / 5</div>
+    <button class="control-btn" id="next" type="button">NEXT →</button>
+  </nav>
 
-  <section class="card">
-
-    <div class="kicker">
-      With the blessings of Allah
-    </div>
-
-    <p class="bismillah">
-      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-    </p>
-
-    <div class="rule"></div>
-
-    <p class="card-intro">
-      Together with our families,<br>
-      we joyfully invite you to celebrate<br>
-      the wedding of
-    </p>
-
-    <h1>
-      Jameel Ahmad<br>
-      <span class="gold">&</span><br>
-      Anmol Fatima
-    </h1>
-
-    <!-- Animated illustration -->
-    <div
-      class="couple-scene"
-      aria-label="Animated bride and groom illustration"
-    >
-      <span class="person groom">🤵🏻</span>
-      <span class="heart">♥</span>
-      <span class="person bride">👰🏻</span>
-    </div>
-
-    <p class="card-intro">
-      Your presence and prayers will make<br>
-      our celebrations even more special.
-    </p>
-
-    <div class="rule"></div>
-
-    <!-- BARAAT -->
-    <section class="event">
-
-      <div class="kicker">
-        Celebration One
-      </div>
-
-      <h2>Baraat</h2>
-
-      <div class="event-date">
-        2 January 2027
-      </div>
-
-      <div class="event-time">
-        SATURDAY · 6:00 PM
-      </div>
-
-      <div class="venue">
-        Couples Marquee
-      </div>
-
-      <p class="small">
-        Opposite Expo Center,<br>
-        Johar Town, Lahore
-      </p>
-
-      <a
-        class="btn"
-        href="https://www.google.com/maps/search/?api=1&query=Couples+Marquee+opposite+Expo+Center+Johar+Town+Lahore"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📍 OPEN BARAAT MAP
-      </a>
-
-    </section>
-
-    <!-- WALIMA -->
-    <section class="event">
-
-      <div class="kicker">
-        Celebration Two
-      </div>
-
-      <h2>Walima</h2>
-
-      <div class="event-date">
-        3 January 2027
-      </div>
-
-      <div class="event-time">
-        SUNDAY · 6:30 PM
-      </div>
-
-      <div class="venue">
-        Aiwan-e-Akbari
-      </div>
-
-      <p class="small">
-        Ferozpur Road, Lahore
-      </p>
-
-      <a
-        class="btn"
-        href="https://www.google.com/maps/search/?api=1&query=Aiwan-e-Akbari+Ferozpur+Road+Lahore"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📍 OPEN WALIMA MAP
-      </a>
-
-    </section>
-
-    <div class="rule"></div>
-
-    <p class="footer">
-      Your presence is our happiness.
-    </p>
-
-    <p class="small">
-      We look forward to celebrating<br>
-      this beautiful beginning with you.
-    </p>
-
-    <a
-      class="btn alt"
-      href="https://wa.me/?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20RSVP%20for%20Jameel%20Ahmad%20and%20Anmol%20Fatima%27s%20wedding."
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      💌 RSVP ON WHATSAPP
-    </a>
-
-    <br>
-
-    <button
-      class="btn alt"
-      onclick="showCover()"
-    >
-      ↶ BACK TO COVER
-    </button>
-
-    <p class="small">
-      With love,<br>
-      Jameel & Anmol
-    </p>
-
-    <div class="kicker">
-      Forever begins here
-    </div>
-
-  </section>
+  <div class="footer">JAMEEL AHMAD &amp; ANMOL FATIMA</div>
 </main>
 
 <script>
-function openInvite() {
-  document.getElementById("cover").classList.add("hidden");
+(() => {
+  const pages = [...document.querySelectorAll(".page")];
+  const next = document.getElementById("next");
+  const prev = document.getElementById("prev");
+  const counter = document.getElementById("counter");
+  const book = document.getElementById("book");
 
-  document.getElementById("invitation").classList.remove("hidden");
+  const names = ["COVER", "INVITATION", "BARAAT", "WALIMA", "BLESSINGS"];
+  let current = 0;
+  let locked = false;
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  // Decorative floral corners, drawn with SVG instead of emoji.
+  const flower = `
+    <svg viewBox="0 0 140 140" fill="none"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
+      <g stroke="currentColor" stroke-width="1.4">
+        <path d="M0 8 C28 8 28 36 48 40 C29 47 19 65 19 82"/>
+        <path d="M8 0 C8 28 36 28 40 48 C47 29 65 19 82 19"/>
+        <path d="M13 14 C35 15 46 26 52 48"/>
+        <path d="M14 13 C15 35 26 46 48 52"/>
+        <path d="M48 40 C57 29 67 26 78 28"/>
+        <path d="M40 48 C29 57 26 67 28 78"/>
+        <path d="M18 80 C33 72 42 74 48 87 C34 91 28 103 29 116"/>
+        <path d="M80 18 C72 33 74 42 87 48 C91 34 103 28 116 29"/>
+        <path d="M48 87 C58 79 66 80 72 91 C62 96 58 105 60 116"/>
+        <path d="M87 48 C79 58 80 66 91 72 C96 62 105 58 116 60"/>
+        <path d="M29 116 C37 105 47 101 60 116"/>
+        <path d="M116 29 C105 37 101 47 116 60"/>
+        <circle cx="42" cy="42" r="7"/>
+        <circle cx="42" cy="42" r="3"/>
+        <path d="M42 31 C35 24 29 31 42 42 C55 31 49 24 42 31Z"/>
+        <path d="M31 42 C24 35 31 29 42 42 C31 55 24 49 31 42Z"/>
+        <path d="M53 42 C60 35 53 29 42 42 C53 55 60 49 53 42Z"/>
+        <path d="M42 53 C35 60 29 53 42 42 C55 53 49 60 42 53Z"/>
+      </g>
+    </svg>`;
+
+  document.querySelectorAll(".floral").forEach(el => {
+    el.innerHTML = flower;
   });
-}
 
-function showCover() {
-  document.getElementById("invitation").classList.add("hidden");
+  function render() {
+    pages.forEach((page, i) => {
+      const flipped = i < current;
+      page.classList.toggle("flipped", flipped);
+      page.style.zIndex = flipped ? i + 1 : pages.length - i + 5;
+      page.setAttribute("aria-hidden", flipped ? "true" : "false");
+    });
 
-  document.getElementById("cover").classList.remove("hidden");
+    counter.textContent = `${names[current]} · ${current + 1} / ${pages.length}`;
+    prev.disabled = current === 0;
+    next.disabled = current === pages.length - 1;
+    next.textContent = current === pages.length - 1 ? "END" : "NEXT →";
+  }
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  function turn(direction) {
+    if (locked) return;
+    const destination = current + direction;
+    if (destination < 0 || destination >= pages.length) return;
+
+    locked = true;
+    current = destination;
+    render();
+
+    window.setTimeout(() => { locked = false; }, 880);
+  }
+
+  next.addEventListener("click", () => turn(1));
+  prev.addEventListener("click", () => turn(-1));
+
+  book.addEventListener("click", e => {
+    if (e.target.closest("a")) return;
+    if (e.target.closest(".page")) {
+      const rect = book.getBoundingClientRect();
+      turn(e.clientX > rect.left + rect.width / 2 ? 1 : -1);
+    }
   });
-}
+
+  let startX = 0;
+  book.addEventListener("touchstart", e => {
+    startX = e.changedTouches[0].clientX;
+  }, {passive: true});
+
+  book.addEventListener("touchend", e => {
+    const delta = e.changedTouches[0].clientX - startX;
+    if (Math.abs(delta) > 55) turn(delta < 0 ? 1 : -1);
+  }, {passive: true});
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") turn(1);
+    if (e.key === "ArrowLeft") turn(-1);
+  });
+
+  render();
+})();
 </script>
-
 </body>
 </html>
