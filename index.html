@@ -3,22 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#c9b39a">
+<meta name="theme-color" content="#c8b19a">
 <title>Jameel & Anmol | Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --paper: #fff6e5;
-  --gold: #b88428;
-  --gold-light: #f5dfa0;
+  --gold: #bc8b32;
   --gold-dark: #75480e;
   --wine: #74333e;
   --ink: #392629;
-  --outer: #c8b19a;
 }
 
 * { box-sizing: border-box; }
@@ -32,18 +30,16 @@ html, body {
 
 body {
   color: var(--ink);
-  background:
-    radial-gradient(ellipse at center, #ead8c0 0%, #d2bca4 75%, #c4aa91 100%);
+  background: radial-gradient(ellipse at center, #ead8c0 0%, #d2bca4 75%, #c4aa91 100%);
   font-family: 'Cormorant Garamond', Georgia, serif;
   -webkit-tap-highlight-color: transparent;
-  touch-action: pan-y;
 }
 
 .book {
+  position: relative;
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  position: relative;
   overflow: hidden;
 }
 
@@ -51,20 +47,18 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 12px 14px 44px;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(22px);
-  transition: opacity .35s ease, transform .4s ease, visibility .35s;
   pointer-events: none;
+  transition: opacity .35s ease, visibility .35s ease;
 }
 
 .page.active {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0);
   pointer-events: auto;
 }
 
@@ -74,39 +68,40 @@ body {
   height: min(88vh, 790px);
   height: min(88dvh, 790px);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(20px, 5vw, 34px);
+
   background:
-    radial-gradient(ellipse at 15% 15%, rgba(255,255,255,.4), transparent 48%),
-    radial-gradient(ellipse at 85% 85%, rgba(216,168,127,.10), transparent 45%),
-    repeating-linear-gradient(0deg, rgba(155,112,54,.018) 0px, rgba(155,112,54,.018) 1px, transparent 1px, transparent 5px),
+    radial-gradient(ellipse at 15% 15%, rgba(255,255,255,.45), transparent 48%),
+    radial-gradient(ellipse at 85% 85%, rgba(216,168,127,.12), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(155,112,54,.025) 0px, rgba(155,112,54,.025) 1px, transparent 1px, transparent 5px),
     var(--paper);
-  border: 3px solid #bc8b32;
+
+  border: 4px solid #b98426;
   box-shadow:
     0 12px 32px rgba(73,44,28,.24),
     inset 0 0 0 4px #fff8e9,
-    inset 0 0 0 6px #d8b76e;
-  padding: clamp(20px, 5vw, 34px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    inset 0 0 0 7px #d8b76e;
 }
 
+/* Inner gold frame */
 .paper::before {
   content: "";
   position: absolute;
-  inset: 12px;
+  inset: 13px;
   border: 1.5px solid #b88832;
-  box-shadow:
-    inset 0 0 0 3px rgba(255,255,255,.65),
-    0 0 0 1px rgba(213,177,103,.4);
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,.5);
   pointer-events: none;
 }
 
 .paper::after {
   content: "❧";
   position: absolute;
-  bottom: 8px;
+  bottom: 7px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 27px;
@@ -115,19 +110,19 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* Floral rose corners */
+/* Decorative floral corners, drawn directly in CSS */
 .corner {
   position: absolute;
-  width: clamp(80px, 25vw, 116px);
-  height: clamp(80px, 25vw, 116px);
+  width: clamp(78px, 24vw, 112px);
+  height: clamp(78px, 24vw, 112px);
   z-index: 1;
   pointer-events: none;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cdefs%3E%3CradialGradient id='r' cx='35%25' cy='30%25'%3E%3Cstop stop-color='%23f7c9b8'/%3E%3Cstop offset='.55' stop-color='%23c96f78'/%3E%3Cstop offset='1' stop-color='%237d293c'/%3E%3C/radialGradient%3E%3CradialGradient id='p'%3E%3Cstop stop-color='%23fff0d9'/%3E%3Cstop offset='1' stop-color='%23d88d96'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M7 151 Q35 106 59 74 T151 5' fill='none' stroke='%23a67b2f' stroke-width='2.5'/%3E%3Cg fill='%237e8a5a' stroke='%23b58b3d' stroke-width='1.3'%3E%3Cpath d='M20 132 Q-1 99 24 94 Q42 111 20 132Z'/%3E%3Cpath d='M36 111 Q25 79 53 82 Q59 99 36 111Z'/%3E%3Cpath d='M57 84 Q47 52 76 57 Q81 75 57 84Z'/%3E%3Cpath d='M86 56 Q82 24 112 29 Q111 48 86 56Z'/%3E%3Cpath d='M102 37 Q122 11 137 29 Q128 47 102 37Z'/%3E%3Cpath d='M45 100 Q66 75 78 96 Q64 111 45 100Z'/%3E%3C/g%3E%3Cg stroke='%23ad7a32' stroke-width='1.4'%3E%3Cellipse cx='39' cy='43' rx='21' ry='27' fill='url(%23r)' transform='rotate(-32 39 43)'/%3E%3Cellipse cx='67' cy='40' rx='20' ry='27' fill='url(%23p)' transform='rotate(35 67 40)'/%3E%3Cellipse cx='52' cy='23' rx='20' ry='26' fill='url(%23p)'/%3E%3Cellipse cx='29' cy='25' rx='16' ry='22' fill='url(%23r)' transform='rotate(-40 29 25)'/%3E%3Cellipse cx='74' cy='24' rx='16' ry='22' fill='url(%23r)' transform='rotate(38 74 24)'/%3E%3Ccircle cx='52' cy='36' r='14' fill='%23f4d8b7'/%3E%3Cpath d='M46 34 Q51 23 58 32 Q65 40 53 46 Q43 42 46 34Z' fill='%23a64050'/%3E%3C/g%3E%3Cg stroke='%23ad7a32' stroke-width='1.2'%3E%3Cellipse cx='91' cy='81' rx='15' ry='20' fill='url(%23r)' transform='rotate(-30 91 81)'/%3E%3Cellipse cx='112' cy='79' rx='14' ry='20' fill='url(%23p)' transform='rotate(30 112 79)'/%3E%3Cellipse cx='101' cy='66' rx='15' ry='20' fill='url(%23r)'/%3E%3Ccircle cx='101' cy='77' r='10' fill='%23f5dfc0'/%3E%3Ccircle cx='101' cy='77' r='5' fill='%23a54150'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cdefs%3E%3CradialGradient id='r' cx='35%25' cy='30%25'%3E%3Cstop stop-color='%23f7c9b8'/%3E%3Cstop offset='.55' stop-color='%23c96f78'/%3E%3Cstop offset='1' stop-color='%237d293c'/%3E%3C/radialGradient%3E%3CradialGradient id='p'%3E%3Cstop stop-color='%23fff0d9'/%3E%3Cstop offset='1' stop-color='%23d88d96'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M7 151 Q35 106 59 74 T151 5' fill='none' stroke='%23a67b2f' stroke-width='2.5'/%3E%3Cg fill='%237e8a5a' stroke='%23b58b3d' stroke-width='1.3'%3E%3Cpath d='M20 132 Q-1 99 24 94 Q42 111 20 132Z'/%3E%3Cpath d='M36 111 Q25 79 53 82 Q59 99 36 111Z'/%3E%3Cpath d='M57 84 Q47 52 76 57 Q81 75 57 84Z'/%3E%3Cpath d='M86 56 Q82 24 112 29 Q111 48 86 56Z'/%3E%3Cpath d='M102 37 Q122 11 137 29 Q128 47 102 37Z'/%3E%3C/g%3E%3Cg stroke='%23ad7a32' stroke-width='1.4'%3E%3Cellipse cx='39' cy='43' rx='21' ry='27' fill='url(%23r)' transform='rotate(-32 39 43)'/%3E%3Cellipse cx='67' cy='40' rx='20' ry='27' fill='url(%23p)' transform='rotate(35 67 40)'/%3E%3Cellipse cx='52' cy='23' rx='20' ry='26' fill='url(%23p)'/%3E%3Cellipse cx='29' cy='25' rx='16' ry='22' fill='url(%23r)'/%3E%3Cellipse cx='74' cy='24' rx='16' ry='22' fill='url(%23r)'/%3E%3Ccircle cx='52' cy='36' r='14' fill='%23f4d8b7'/%3E%3Cpath d='M46 34 Q51 23 58 32 Q65 40 53 46 Q43 42 46 34Z' fill='%23a64050'/%3E%3C/g%3E%3Cg stroke='%23ad7a32' stroke-width='1.2'%3E%3Cellipse cx='91' cy='81' rx='15' ry='20' fill='url(%23r)'/%3E%3Cellipse cx='112' cy='79' rx='14' ry='20' fill='url(%23p)'/%3E%3Cellipse cx='101' cy='66' rx='15' ry='20' fill='url(%23r)'/%3E%3Ccircle cx='101' cy='77' r='10' fill='%23f5dfc0'/%3E%3Ccircle cx='101' cy='77' r='5' fill='%23a54150'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .corner.tl { top: 12px; left: 12px; }
@@ -135,7 +130,7 @@ body {
 .corner.bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
 .corner.br { bottom: 12px; right: 12px; transform: scale(-1); }
 
-/* Metallic gold Arabic Bismillah */
+/* Clear gold Bismillah */
 .bismillah {
   font-family: 'Noto Nastaliq Urdu', serif;
   font-size: clamp(24px, 6.5vw, 34px);
@@ -144,15 +139,7 @@ body {
   margin-bottom: 7px;
   position: relative;
   z-index: 2;
-  background: linear-gradient(
-    100deg,
-    #70430c 0%,
-    #c2912e 22%,
-    #f3d986 38%,
-    #a56d17 52%,
-    #f4dc92 70%,
-    #75480e 100%
-  );
+  background: linear-gradient(100deg,#70430c 0%,#c2912e 22%,#f3d986 38%,#a56d17 52%,#f4dc92 70%,#75480e 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -280,18 +267,19 @@ body {
   margin-top: 3px;
 }
 
-/* Only the main invitation gives a gentle swipe hint */
+/* The MAIN invitation page gently nudges left and right */
 @keyframes invitationNudge {
-  0%, 82%, 100% { transform: translateX(0); }
-  85% { transform: translateX(-4px); }
-  88% { transform: translateX(4px); }
-  91% { transform: translateX(-3px); }
-  94% { transform: translateX(3px); }
-  97% { transform: translateX(0); }
+  0%, 70%, 100% { translate: 0 0; }
+  74% { translate: -5px 0; }
+  78% { translate: 5px 0; }
+  82% { translate: -4px 0; }
+  86% { translate: 4px 0; }
+  90% { translate: 0 0; }
 }
 
-.page.active:first-child .paper {
-  animation: invitationNudge 5s ease-in-out infinite;
+.page:first-child.active .paper {
+  animation: invitationNudge 4s ease-in-out 2s infinite !important;
+  will-change: translate;
 }
 
 .hint {
@@ -322,7 +310,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page.active:first-child .paper { animation: none; }
+  .page:first-child.active .paper { animation: none !important; }
   .page { transition: none; }
 }
 
@@ -436,9 +424,12 @@ body {
   let current = 0;
   let startX = 0;
   let startY = 0;
+  let mouseDown = false;
+  let mouseStartX = 0;
 
   function showPage(index) {
     current = Math.max(0, Math.min(pages.length - 1, index));
+
     pages.forEach((page, i) => {
       page.classList.toggle('active', i === current);
     });
@@ -460,9 +451,6 @@ body {
     }
   }, { passive: true });
 
-  let mouseDown = false;
-  let mouseStartX = 0;
-
   book.addEventListener('mousedown', event => {
     mouseDown = true;
     mouseStartX = event.clientX;
@@ -471,6 +459,7 @@ body {
   window.addEventListener('mouseup', event => {
     if (!mouseDown) return;
     mouseDown = false;
+
     const dx = event.clientX - mouseStartX;
     if (Math.abs(dx) > 65) {
       showPage(current + (dx < 0 ? 1 : -1));
