@@ -53,26 +53,22 @@
         radial-gradient(ellipse at center, #f8efdf 0%, #e9dcc5 100%);
     }
 
-    .page {
+   .page {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:
-    max(8px, env(safe-area-inset-top))
-    max(8px, env(safe-area-inset-right))
-    max(8px, env(safe-area-inset-bottom))
-    max(8px, env(safe-area-inset-left));
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translateX(2%);
-      transition:
-        opacity 350ms ease,
-        transform 350ms ease,
-        visibility 350ms;
-    }
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(2%);
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease,
+    visibility 350ms;
+}
 
     .page.active {
       opacity: 1;
