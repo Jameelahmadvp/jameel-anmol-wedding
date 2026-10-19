@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Jameel & Anmol | Wedding Invitation</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jameel &amp; Anmol | Wedding Invitation</title>
+<meta name="theme-color" content="#49352f">
 <meta property="og:title" content="Jameel & Anmol — Wedding Invitation">
 <meta property="og:description" content="You are warmly invited to our wedding celebrations.">
 <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
@@ -19,30 +20,28 @@
 
 <style>
 :root {
-  --cream: #f8f0df;
-  --paper: #fff9ed;
+  --paper: #fbf3e3;
+  --paper-light: #fff9ed;
   --brown: #49352f;
   --wine: #78414b;
-  --gold: #bd9a58;
-  --taupe: #b9ada1;
+  --gold: #b9944e;
+  --frame: #c5b7a8;
 }
 
-* {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+* { box-sizing: border-box; }
 
 html, body {
-  margin: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
   overflow: hidden;
 }
 
 body {
-  background: var(--taupe);
+  background: #d9c9b5;
   color: var(--brown);
   font-family: "Cormorant Garamond", Georgia, serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .book {
@@ -55,54 +54,54 @@ body {
 }
 
 .page {
-  display: none;
   position: absolute;
   inset: 0;
-  padding: 12px 10px 28px;
+  display: none;
   align-items: center;
   justify-content: center;
+  padding: 10px 9px 25px;
 }
 
 .page.active {
   display: flex;
-  animation: fadein .25s ease-out;
+  animation: appear .22s ease-out;
 }
 
-@keyframes fadein {
-  from { opacity: .75; }
+@keyframes appear {
+  from { opacity: .7; }
   to { opacity: 1; }
 }
 
 .sheet {
   position: relative;
-  width: min(100%, 560px);
+  width: min(100%, 540px);
   height: 100%;
   max-height: 920px;
   overflow: hidden;
-  background: var(--paper);
-  border: 8px solid #d0c5b8;
-  box-shadow: 0 5px 18px #49352f20;
+  background:
+    radial-gradient(ellipse at center, #fffaf0 0%, var(--paper) 76%);
+  border: 5px solid var(--frame);
+  box-shadow: 0 5px 20px #49352f20;
+  padding: clamp(16px, 3.2vh, 30px) clamp(15px, 4vw, 28px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(22px, 5vh, 42px) clamp(17px, 5vw, 34px);
   text-align: center;
 }
 
-/* One simple printed-card border */
 .sheet::before {
   content: "";
   position: absolute;
-  inset: 10px;
-  border: 1px solid #54443b;
+  inset: 8px;
+  border: 1px solid #49352f;
   pointer-events: none;
 }
 
 .sheet::after {
   content: "";
   position: absolute;
-  inset: 14px;
-  border: 1px solid #d2b978;
+  inset: 12px;
+  border: 1px solid #d2b77b;
   pointer-events: none;
 }
 
@@ -110,141 +109,142 @@ body {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 470px;
+  max-width: 465px;
   margin: auto;
 }
 
-/* Small corner floral clusters */
+/* Delicate floral corner images */
 .flower {
   position: absolute;
   z-index: 1;
-  width: clamp(55px, 14vw, 88px);
-  height: clamp(55px, 14vw, 88px);
+  width: clamp(39px, 10vw, 67px);
+  height: clamp(39px, 10vw, 67px);
   object-fit: contain;
   pointer-events: none;
 }
 
-.tl { top: 8px; left: 7px; }
-.tr { top: 8px; right: 7px; transform: scaleX(-1); }
-.bl { bottom: 8px; left: 7px; transform: scaleY(-1); }
-.br { bottom: 8px; right: 7px; transform: scale(-1); }
+.tl { top: 9px; left: 8px; }
+.tr { top: 9px; right: 8px; transform: scaleX(-1); }
+.bl { bottom: 9px; left: 8px; transform: scaleY(-1); }
+.br { bottom: 9px; right: 8px; transform: scale(-1); }
 
 .arabic {
   font-family: "Noto Naskh Arabic", serif;
-  font-size: clamp(24px, 6vw, 35px);
-  line-height: 1.5;
-  color: #99752f;
-  margin: 0 0 8px;
+  color: #98702d;
+  font-size: clamp(23px, 5.6vw, 33px);
+  line-height: 1.35;
+  margin: 0 0 5px;
 }
 
 .parents {
-  font-size: clamp(19px, 4.7vw, 27px);
-  line-height: 1.15;
-  margin: 7px 0;
+  font-size: clamp(19px, 4.8vw, 26px);
+  line-height: 1.12;
+  margin: 5px 0;
 }
 
 .request {
-  font-size: clamp(17px, 4.3vw, 24px);
-  line-height: 1.2;
-  margin: 8px 0;
+  font-size: clamp(16px, 4.3vw, 23px);
+  line-height: 1.18;
+  margin: 5px 0;
 }
 
 .heading {
-  font-size: clamp(19px, 4.8vw, 29px);
+  font-size: clamp(19px, 5vw, 28px);
   font-weight: 500;
   letter-spacing: clamp(2px, .6vw, 4px);
-  margin: 9px 0;
+  line-height: 1.2;
+  margin: 7px 0;
 }
 
 .son {
-  font-size: clamp(17px, 4.2vw, 24px);
-  margin: 8px 0 1px;
+  font-size: clamp(17px, 4.3vw, 23px);
+  margin: 5px 0 0;
 }
 
 .name {
   font-family: "Great Vibes", cursive;
+  font-size: clamp(39px, 10vw, 62px);
   color: var(--wine);
-  font-size: clamp(42px, 10.8vw, 67px);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.03;
   margin: 0;
 }
 
 .with {
-  font-size: clamp(18px, 4.3vw, 24px);
+  font-size: clamp(17px, 4.2vw, 23px);
   font-style: italic;
   margin: 4px 0;
 }
 
 .daughter {
-  font-size: clamp(16px, 4vw, 23px);
-  line-height: 1.2;
-  margin: 9px 0 12px;
+  font-size: clamp(15px, 3.9vw, 21px);
+  line-height: 1.15;
+  margin: 7px 0;
 }
 
 .divider {
-  width: 70%;
   height: 1px;
-  margin: 10px auto;
+  width: 72%;
+  margin: 7px auto;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 
 .label {
-  font-size: 14px;
-  letter-spacing: 4px;
-  color: #9d7836;
-  margin: 7px 0 2px;
+  color: #9b762f;
+  font-size: clamp(12px, 3.2vw, 15px);
+  letter-spacing: 3px;
+  margin: 4px 0 2px;
 }
 
 .detail {
-  font-size: clamp(16px, 4vw, 22px);
-  line-height: 1.22;
-  margin: 4px 0;
+  font-size: clamp(15px, 4vw, 21px);
+  line-height: 1.16;
+  margin: 3px 0;
 }
 
 .contact {
-  font-size: clamp(14px, 3.5vw, 19px);
-  margin-top: 8px;
+  font-size: clamp(12px, 3.4vw, 17px);
+  margin-top: 5px;
   white-space: nowrap;
 }
 
 .event-title {
   font-family: "Great Vibes", cursive;
   color: var(--wine);
-  font-size: clamp(52px, 13vw, 78px);
-  line-height: 1.12;
-  margin: 5px 0;
+  font-size: clamp(48px, 12vw, 72px);
+  line-height: 1.1;
+  margin: 4px 0;
 }
 
 .event-date {
-  font-size: clamp(20px, 5vw, 29px);
+  font-size: clamp(20px, 5vw, 28px);
   line-height: 1.2;
-  margin: 10px 0;
+  margin: 9px 0;
 }
 
 .event-time {
-  font-size: clamp(20px, 4.8vw, 27px);
+  font-size: clamp(19px, 4.7vw, 26px);
   margin: 5px 0 13px;
 }
 
 .venue {
   font-family: "Great Vibes", cursive;
   color: var(--wine);
-  font-size: clamp(32px, 8vw, 47px);
-  line-height: 1.15;
+  font-size: clamp(31px, 8vw, 45px);
+  line-height: 1.13;
   margin: 5px 0;
 }
 
 .address {
-  font-size: clamp(17px, 4.1vw, 23px);
-  line-height: 1.25;
+  font-size: clamp(16px, 4.1vw, 22px);
+  line-height: 1.22;
   margin: 5px 0;
 }
 
 .schedule {
+  max-width: 330px;
   width: 100%;
-  max-width: 340px;
-  margin: 8px auto;
+  margin: 9px auto;
   font-size: clamp(16px, 4vw, 21px);
 }
 
@@ -252,46 +252,54 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  padding: 4px 0;
-  border-bottom: 1px dotted #b4a18c;
+  padding: 5px 0;
+  border-bottom: 1px dotted #b6a38b;
 }
 
-.schedule-row:last-child {
-  border-bottom: none;
-}
+.schedule-row:last-child { border-bottom: 0; }
 
 .small-note {
   font-size: 15px;
-  color: #8e754e;
-  margin-top: 14px;
+  color: #8b7047;
+  margin-top: 13px;
 }
 
-.swipe-hint {
+.hint {
   position: absolute;
-  bottom: max(6px, env(safe-area-inset-bottom));
+  z-index: 5;
+  bottom: max(5px, env(safe-area-inset-bottom));
   left: 0;
   right: 0;
   text-align: center;
-  color: #6d5a4c;
+  color: #806e59;
   font: 10px Arial, sans-serif;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
   pointer-events: none;
 }
 
-@media (max-height: 720px) {
-  .page { padding-top: 5px; padding-bottom: 25px; }
-  .sheet { padding: 14px 17px; }
-  .flower { width: 53px; height: 53px; }
-  .arabic { font-size: 24px; margin-bottom: 3px; }
-  .parents, .request { margin: 4px 0; }
-  .heading { margin: 5px 0; }
-  .son { margin: 4px 0 0; }
-  .name { font-size: clamp(38px, 8.8vw, 53px); }
-  .daughter { margin: 5px 0 7px; }
-  .divider { margin: 6px auto; }
-  .label { margin: 4px 0 1px; }
-  .event-date { margin: 6px 0; }
-  .event-time { margin: 3px 0 8px; }
+@media (max-height: 760px) {
+  .page { padding-top: 5px; padding-bottom: 22px; }
+  .sheet { padding-top: 12px; padding-bottom: 12px; }
+  .flower { width: 43px; height: 43px; }
+  .arabic { font-size: clamp(20px, 4.7vw, 27px); margin-bottom: 3px; }
+  .parents, .request { margin: 3px 0; }
+  .heading { margin: 4px 0; }
+  .son { margin-top: 3px; }
+  .name { font-size: clamp(36px, 8.5vw, 53px); }
+  .with { margin: 2px 0; }
+  .daughter { margin: 5px 0; }
+  .divider { margin: 5px auto; }
+  .label { margin-top: 3px; }
+  .detail { margin: 2px 0; }
+}
+
+@media (max-height: 620px) {
+  .page { padding-top: 3px; padding-bottom: 20px; }
+  .sheet { padding: 7px 14px; }
+  .content { transform: scale(.86); }
+  .arabic { font-size: 21px; }
+  .name { font-size: 38px; }
+  .flower { width: 35px; height: 35px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -303,145 +311,145 @@ body {
 <body>
 <main class="book" id="book">
 
-<!-- PAGE 1: MAIN INVITATION -->
-<section class="page active">
-  <div class="sheet">
-    <img class="flower tl" src="flowers.png" alt="">
-    <img class="flower tr" src="flowers.png" alt="">
-    <img class="flower bl" src="flowers.png" alt="">
-    <img class="flower br" src="flowers.png" alt="">
+  <!-- PAGE ONE: INVITATION -->
+  <section class="page active">
+    <div class="sheet">
+      <img class="flower tl" src="flowers.png" alt="">
+      <img class="flower tr" src="flowers.png" alt="">
+      <img class="flower bl" src="flowers.png" alt="">
+      <img class="flower br" src="flowers.png" alt="">
 
-    <div class="content">
-      <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <div class="content">
+        <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-      <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
-      <div class="request">Requests the pleasure of your company at the</div>
-      <div class="heading">WEDDING CEREMONY</div>
-      <div class="son">Of their Beloved Son</div>
+        <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
+        <div class="request">Requests the pleasure of your company at the</div>
+        <div class="heading">WEDDING CEREMONY</div>
+        <div class="son">Of their Beloved Son</div>
 
-      <div class="name">Muhammad Jameel Ahmad</div>
-      <div class="with">With</div>
-      <div class="name">Anmol Fatimaa</div>
+        <div class="name">Muhammad Jameel</div>
+        <div class="name">Ahmad</div>
 
-      <div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
-      <div class="divider"></div>
+        <div class="with">With</div>
+        <div class="name">Anmol Fatimaa</div>
 
-      <div class="label">R.S.V.P.</div>
-      <div class="detail">Malik Muhammad Ramzan</div>
-      <div class="detail">All Family Members, Relatives &amp; Friends</div>
+        <div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
+        <div class="divider"></div>
 
-      <div class="label">CONTACT</div>
-      <div class="contact">0322-6174129 · 0309-4035209</div>
-    </div>
-  </div>
-</section>
+        <div class="label">R.S.V.P.</div>
+        <div class="detail">Malik Muhammad Ramzan</div>
+        <div class="detail">All Family Members, Relatives &amp; Friends</div>
 
-<!-- PAGE 2: BARAAT -->
-<section class="page">
-  <div class="sheet">
-    <img class="flower tl" src="flowers.png" alt="">
-    <img class="flower tr" src="flowers.png" alt="">
-    <img class="flower bl" src="flowers.png" alt="">
-    <img class="flower br" src="flowers.png" alt="">
-
-    <div class="content">
-      <div class="arabic" lang="ar" dir="rtl">بسم الله الرحمن الرحيم</div>
-      <div class="event-title">Baraat</div>
-      <div class="divider"></div>
-
-      <div class="event-date">Saturday, 2 January 2027</div>
-      <div class="event-time">At 06:00 PM</div>
-
-      <div class="label">VENUE</div>
-      <div class="venue">Couples Marquee</div>
-      <div class="address">
-        Opposite Expo Center<br>
-        Johar Town, Lahore
+        <div class="label">CONTACT</div>
+        <div class="contact">0322-6174129 · 0309-4035209</div>
       </div>
-      <div class="small-note">We look forward to celebrating with you.</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PAGE 3: WALIMA -->
-<section class="page">
-  <div class="sheet">
-    <img class="flower tl" src="flowers.png" alt="">
-    <img class="flower tr" src="flowers.png" alt="">
-    <img class="flower bl" src="flowers.png" alt="">
-    <img class="flower br" src="flowers.png" alt="">
+  <!-- PAGE TWO: BARAAT -->
+  <section class="page">
+    <div class="sheet">
+      <img class="flower tl" src="flowers.png" alt="">
+      <img class="flower tr" src="flowers.png" alt="">
+      <img class="flower bl" src="flowers.png" alt="">
+      <img class="flower br" src="flowers.png" alt="">
 
-    <div class="content">
-      <div class="arabic" lang="ar" dir="rtl">بسم الله الرحمن الرحيم</div>
-      <div class="event-title">Walima</div>
-      <div class="divider"></div>
+      <div class="content">
+        <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <div class="event-title">Baraat</div>
+        <div class="divider"></div>
 
-      <div class="event-date">Sunday, 3 January 2027</div>
+        <div class="event-date">Saturday, 2 January 2027</div>
+        <div class="event-time">At 06:00 PM</div>
 
-      <div class="schedule">
-        <div class="schedule-row">
-          <span>Reception</span>
-          <span>06:30 PM</span>
+        <div class="label">VENUE</div>
+        <div class="venue">Couples Marquee</div>
+        <div class="address">
+          Opposite Expo Center<br>
+          Johar Town, Lahore
         </div>
-        <div class="schedule-row">
-          <span>Dinner</span>
-          <span>07:30 PM</span>
-        </div>
-      </div>
 
-      <div class="label">VENUE</div>
-      <div class="venue">Aiwan-e-Akbari</div>
-      <div class="address">
-        Main Ferozpur Road, Opp. 23<br>
-        Metro Bus Station, Lahore
+        <div class="small-note">We look forward to celebrating with you.</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="swipe-hint">SWIPE LEFT OR RIGHT TO TURN PAGES</div>
+  <!-- PAGE THREE: WALIMA -->
+  <section class="page">
+    <div class="sheet">
+      <img class="flower tl" src="flowers.png" alt="">
+      <img class="flower tr" src="flowers.png" alt="">
+      <img class="flower bl" src="flowers.png" alt="">
+      <img class="flower br" src="flowers.png" alt="">
+
+      <div class="content">
+        <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <div class="event-title">Walima</div>
+        <div class="divider"></div>
+
+        <div class="event-date">Sunday, 3 January 2027</div>
+
+        <div class="schedule">
+          <div class="schedule-row">
+            <span>Reception</span>
+            <span>06:30 PM</span>
+          </div>
+          <div class="schedule-row">
+            <span>Dinner</span>
+            <span>07:30 PM</span>
+          </div>
+        </div>
+
+        <div class="label">VENUE</div>
+        <div class="venue">Aiwan-e-Akbari</div>
+        <div class="address">
+          Main Ferozpur Road, Opp. 23<br>
+          Metro Bus Station, Lahore
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hint">SWIPE LEFT OR RIGHT TO TURN PAGES</div>
 </main>
 
 <script>
 (() => {
-  const pages = Array.from(document.querySelectorAll(".page"));
   const book = document.getElementById("book");
-  let current = 0;
+  const pages = Array.from(document.querySelectorAll(".page"));
+  let currentPage = 0;
   let startX = 0;
   let startY = 0;
-  let tracking = false;
 
   function showPage(index) {
-    const next = Math.max(0, Math.min(pages.length - 1, index));
-    if (next === current) return;
+    const nextPage = Math.max(0, Math.min(pages.length - 1, index));
+    if (nextPage === currentPage) return;
 
-    pages[current].classList.remove("active");
-    current = next;
-    pages[current].classList.add("active");
+    pages[currentPage].classList.remove("active");
+    currentPage = nextPage;
+    pages[currentPage].classList.add("active");
   }
 
   book.addEventListener("touchstart", event => {
     if (!event.touches.length) return;
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
-    tracking = true;
   }, { passive: true });
 
   book.addEventListener("touchend", event => {
-    if (!tracking || !event.changedTouches.length) return;
-    tracking = false;
+    if (!event.changedTouches.length) return;
 
     const dx = event.changedTouches[0].clientX - startX;
     const dy = event.changedTouches[0].clientY - startY;
 
     if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      showPage(current + (dx < 0 ? 1 : -1));
+      showPage(currentPage + (dx < 0 ? 1 : -1));
     }
   }, { passive: true });
 
   document.addEventListener("keydown", event => {
-    if (event.key === "ArrowRight") showPage(current + 1);
-    if (event.key === "ArrowLeft") showPage(current - 1);
+    if (event.key === "ArrowRight") showPage(currentPage + 1);
+    if (event.key === "ArrowLeft") showPage(currentPage - 1);
   });
 })();
 </script>
