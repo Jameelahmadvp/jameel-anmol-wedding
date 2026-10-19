@@ -4,13 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jameel & Anmol | Wedding Invitation</title>
-
 <meta name="theme-color" content="#4b352e">
 <meta property="og:title" content="Jameel & Anmol — Wedding Invitation">
 <meta property="og:description" content="You are warmly invited to our wedding celebrations.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
 <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,20 +18,20 @@
 :root {
   --paper: #fff7e9;
   --gold: #bd9747;
-  --gold-light: #e0c681;
+  --gold-light: #e4cd91;
   --brown: #49342f;
   --wine: #804451;
+  --leaf: #7b8460;
+  --pink: #dca3a0;
+  --rose: #b96870;
 }
 
-* {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body {
-  margin: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -58,31 +56,34 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px 22px;
+  padding: 9px 10px 22px;
 }
 
 .page.active {
   display: flex;
-  animation: appear .28s ease-out;
+  animation: pageIn .25s ease-out;
 }
 
-@keyframes appear {
-  from { opacity: .65; }
+@keyframes pageIn {
+  from { opacity: .7; }
   to { opacity: 1; }
 }
 
 .sheet {
-  position: relative;
   width: min(100%, 540px);
   height: 100%;
   max-height: 920px;
+  position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px 23px;
+  padding: 28px 23px;
   text-align: center;
-  background: var(--paper);
+  background:
+    radial-gradient(ellipse at 20% 20%, #fffdf5 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 80%, #f9ecd5 0%, transparent 48%),
+    var(--paper);
   border: 7px solid var(--gold);
   box-shadow:
     inset 0 0 0 3px #fffaf0,
@@ -90,21 +91,94 @@ body {
     0 7px 22px #59432b24;
 }
 
-/* Same uploaded floral artwork on every page */
-.floral-art {
+/* One consistent gold frame on every page */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Original CSS botanical artwork, repeated consistently */
+.botanical {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+  overflow: hidden;
   pointer-events: none;
-  user-select: none;
+  z-index: 1;
+}
+
+.flower-cluster {
+  position: absolute;
+  width: 105px;
+  height: 100px;
+  opacity: .92;
+}
+
+.flower-cluster.top-left { top: 3px; left: 3px; }
+.flower-cluster.top-right { top: 3px; right: 3px; transform: scaleX(-1); }
+.flower-cluster.bottom-left { bottom: 3px; left: 3px; transform: scaleY(-1); }
+.flower-cluster.bottom-right { bottom: 3px; right: 3px; transform: scale(-1); }
+
+.stem {
+  position: absolute;
+  width: 76px;
+  height: 60px;
+  left: 4px;
+  top: 6px;
+  border-top: 1.5px solid #a98448;
+  border-radius: 50%;
+  transform: rotate(32deg);
+}
+
+.leaf {
+  position: absolute;
+  width: 19px;
+  height: 10px;
+  background: var(--leaf);
+  border: 1px solid #b39a5c;
+  border-radius: 100% 0 100% 0;
+}
+
+.l1 { left: 11px; top: 21px; transform: rotate(20deg); }
+.l2 { left: 35px; top: 12px; transform: rotate(-28deg); }
+.l3 { left: 50px; top: 34px; transform: rotate(30deg); }
+.l4 { left: 20px; top: 49px; transform: rotate(-12deg); }
+.l5 { left: 67px; top: 51px; transform: rotate(25deg); }
+
+.bloom {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f9ded1, var(--pink) 58%, #bd7773);
+  border: 1px solid #c49a5a;
+  box-shadow: inset 1px 1px 3px #fff8d9;
+}
+
+.b1 { left: 26px; top: 27px; }
+.b2 { left: 45px; top: 19px; width: 23px; height: 23px; background: radial-gradient(circle at 35% 30%, #f7e3d3, #e4b2a6 65%, #bd7773); }
+.b3 { left: 47px; top: 42px; width: 25px; height: 25px; background: radial-gradient(circle at 35% 30%, #f6d3d0, #c8767b 70%); }
+.b4 { left: 19px; top: 48px; width: 22px; height: 22px; }
+.b5 { left: 64px; top: 36px; width: 19px; height: 19px; background: radial-gradient(circle at 35% 30%, #f5dfd1, #d39b9b); }
+
+.center {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 43px;
+  top: 38px;
+  border-radius: 50%;
+  background: #bd9145;
+  border: 1px solid #f4dfaa;
+  box-shadow: 0 0 0 2px #f7e8c9;
 }
 
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   max-width: 450px;
   margin: auto;
@@ -114,8 +188,8 @@ body {
   font-family: "Noto Naskh Arabic", serif;
   color: #a47728;
   font-size: clamp(24px, 6vw, 34px);
-  line-height: 1.45;
-  margin: 0 0 7px;
+  line-height: 1.4;
+  margin: 0 0 6px;
 }
 
 .parents {
@@ -238,9 +312,7 @@ body {
   border-bottom: 1px dotted #c1a66d;
 }
 
-.schedule-row:last-child {
-  border-bottom: none;
-}
+.schedule-row:last-child { border-bottom: none; }
 
 .small-note {
   font-size: 17px;
@@ -296,92 +368,92 @@ body {
 <body>
 <main class="book" id="book">
 
-  <!-- PAGE 1: MAIN INVITATION -->
   <section class="page active">
     <div class="sheet">
-      <img class="floral-art" src="flowers.png" alt="" aria-hidden="true">
+      <div class="botanical" aria-hidden="true">
+        <div class="flower-cluster top-left">
+          <i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
+          <i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i>
+        </div>
+        <div class="flower-cluster top-right">
+          <i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
+          <i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i>
+        </div>
+        <div class="flower-cluster bottom-left">
+          <i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
+          <i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i>
+        </div>
+        <div class="flower-cluster bottom-right">
+          <i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
+          <i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i>
+        </div>
+      </div>
 
       <div class="content">
         <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-
         <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
         <div class="request">Requests the pleasure of your company at the</div>
         <div class="heading">WEDDING CEREMONY</div>
         <div class="son">Of their Beloved Son</div>
-
         <div class="name">Muhammad Jameel</div>
         <div class="name">Ahmad</div>
-
         <div class="with">With</div>
         <div class="name">Anmol Fatimaa</div>
-
         <div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
         <div class="divider"></div>
-
         <div class="label">R.S.V.P.</div>
         <div class="detail">Malik Muhammad Ramzan</div>
         <div class="detail">All Family Members, Relatives &amp; Friends</div>
-
         <div class="label">CONTACT</div>
         <div class="contact">0322-6174129 · 0309-4035209</div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 2: BARAAT -->
   <section class="page">
     <div class="sheet">
-      <img class="floral-art" src="flowers.png" alt="" aria-hidden="true">
+      <div class="botanical" aria-hidden="true">
+        <div class="flower-cluster top-left"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+        <div class="flower-cluster top-right"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+        <div class="flower-cluster bottom-left"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+        <div class="flower-cluster bottom-right"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+      </div>
 
       <div class="content">
         <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
         <div class="event-title">Baraat</div>
         <div class="divider"></div>
-
         <div class="event-date">Saturday, 2 January 2027</div>
         <div class="event-time">At 06:00 PM</div>
-
         <div class="label">VENUE</div>
         <div class="venue">Couples Marquee</div>
-        <div class="address">
-          Opposite Expo Center<br>
-          Johar Town, Lahore
-        </div>
-
+        <div class="address">Opposite Expo Center<br>Johar Town, Lahore</div>
         <div class="small-note">We look forward to celebrating with you.</div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 3: WALIMA -->
   <section class="page">
     <div class="sheet">
-      <img class="floral-art" src="flowers.png" alt="" aria-hidden="true">
+      <div class="botanical" aria-hidden="true">
+        <div class="flower-cluster top-left"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+        <div class="flower-cluster top-right"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+        <div class="flower-cluster bottom-left"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+        <div class="flower-cluster bottom-right"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="bloom b4"></i><i class="bloom b5"></i><i class="center"></i></div>
+      </div>
 
       <div class="content">
         <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
         <div class="event-title">Walima</div>
         <div class="divider"></div>
-
         <div class="event-date">Sunday, 3 January 2027</div>
-
         <div class="schedule">
-          <div class="schedule-row">
-            <span>Reception</span>
-            <span>06:30 PM</span>
-          </div>
-          <div class="schedule-row">
-            <span>Dinner</span>
-            <span>07:30 PM</span>
-          </div>
+          <div class="schedule-row"><span>Reception</span><span>06:30 PM</span></div>
+          <div class="schedule-row"><span>Dinner</span><span>07:30 PM</span></div>
         </div>
-
         <div class="label">VENUE</div>
         <div class="venue">Aiwan-e-Akbari</div>
-        <div class="address">
-          Main Ferozpur Road, Opp. 23<br>
-          Metro Bus Station, Lahore
-        </div>
+        <div class="address">Main Ferozpur Road, Opp. 23<br>Metro Bus Station, Lahore</div>
       </div>
     </div>
   </section>
@@ -392,43 +464,35 @@ body {
 <script>
 (() => {
   const book = document.getElementById("book");
-  const pages = Array.from(document.querySelectorAll(".page"));
+  const pages = [...document.querySelectorAll(".page")];
+  let current = 0, startX = 0, startY = 0;
 
-  let currentPage = 0;
-  let startX = 0;
-  let startY = 0;
-
-  function showPage(index) {
-    const next = Math.max(0, Math.min(pages.length - 1, index));
-
-    if (next === currentPage) return;
-
-    pages[currentPage].classList.remove("active");
-    currentPage = next;
-    pages[currentPage].classList.add("active");
+  function showPage(n) {
+    const next = Math.max(0, Math.min(pages.length - 1, n));
+    if (next === current) return;
+    pages[current].classList.remove("active");
+    current = next;
+    pages[current].classList.add("active");
   }
 
-  book.addEventListener("touchstart", event => {
-    if (!event.touches.length) return;
-
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
+  book.addEventListener("touchstart", e => {
+    if (!e.touches.length) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
   }, { passive: true });
 
-  book.addEventListener("touchend", event => {
-    if (!event.changedTouches.length) return;
-
-    const dx = event.changedTouches[0].clientX - startX;
-    const dy = event.changedTouches[0].clientY - startY;
-
+  book.addEventListener("touchend", e => {
+    if (!e.changedTouches.length) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
     if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      showPage(currentPage + (dx < 0 ? 1 : -1));
+      showPage(current + (dx < 0 ? 1 : -1));
     }
   }, { passive: true });
 
-  document.addEventListener("keydown", event => {
-    if (event.key === "ArrowRight") showPage(currentPage + 1);
-    if (event.key === "ArrowLeft") showPage(currentPage - 1);
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") showPage(current + 1);
+    if (e.key === "ArrowLeft") showPage(current - 1);
   });
 })();
 </script>
