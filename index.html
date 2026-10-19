@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f8f0df">
-<title>Jameel &amp; Anmol | Wedding Invitation</title>
-<meta name="description" content="Wedding invitation of Muhammad Jameel Ahmad and Anmol Fatimaa.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jameel &amp; Anmol — Wedding Invitation">
-<meta property="og:description" content="Join us for the wedding celebrations.">
-<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
+<title>Jameel & Anmol | Wedding Invitation</title>
+
+<meta property="og:title" content="Jameel & Anmol — Wedding Invitation">
+<meta property="og:description" content="You are warmly invited to our wedding celebrations.">
 <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
+<meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
 
@@ -20,14 +19,18 @@
 
 <style>
 :root {
-  --paper: #fff8eb;
-  --gold: #bd984d;
-  --gold-dark: #98702d;
-  --wine: #783d49;
-  --ink: #493638;
+  --cream: #f8f0df;
+  --paper: #fff9ed;
+  --brown: #49352f;
+  --wine: #78414b;
+  --gold: #bd9a58;
+  --taupe: #b9ada1;
 }
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
 html, body {
   margin: 0;
@@ -37,8 +40,8 @@ html, body {
 }
 
 body {
-  color: var(--ink);
-  background: #ead9bd;
+  background: var(--taupe);
+  color: var(--brown);
   font-family: "Cormorant Garamond", Georgia, serif;
 }
 
@@ -52,46 +55,54 @@ body {
 }
 
 .page {
+  display: none;
   position: absolute;
   inset: 0;
-  display: none;
+  padding: 12px 10px 28px;
   align-items: center;
   justify-content: center;
-  padding: 12px 12px 35px;
 }
 
 .page.active {
   display: flex;
-  animation: appear .3s ease both;
+  animation: fadein .25s ease-out;
 }
 
-@keyframes appear {
-  from { opacity: .7; }
+@keyframes fadein {
+  from { opacity: .75; }
   to { opacity: 1; }
 }
 
-.paper {
+.sheet {
   position: relative;
-  width: min(100%, 620px);
+  width: min(100%, 560px);
   height: 100%;
-  max-height: 950px;
+  max-height: 920px;
   overflow: hidden;
+  background: var(--paper);
+  border: 8px solid #d0c5b8;
+  box-shadow: 0 5px 18px #49352f20;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: clamp(22px, 5vh, 42px) clamp(17px, 5vw, 34px);
   text-align: center;
-  padding: 28px clamp(18px, 5vw, 38px);
-  background: linear-gradient(145deg, #fffaf0, #fbf0dc);
-  border: 2px solid var(--gold);
-  box-shadow: inset 0 0 0 4px #fffaf0, 0 6px 20px #80643c20;
 }
 
-/* Only ONE delicate inner border */
-.paper::before {
+/* One simple printed-card border */
+.sheet::before {
   content: "";
   position: absolute;
-  inset: 8px;
-  border: 1px solid #d2b475;
+  inset: 10px;
+  border: 1px solid #54443b;
+  pointer-events: none;
+}
+
+.sheet::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid #d2b978;
   pointer-events: none;
 }
 
@@ -99,201 +110,192 @@ body {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 520px;
+  max-width: 470px;
+  margin: auto;
 }
 
-.flowers {
+/* Small corner floral clusters */
+.flower {
   position: absolute;
   z-index: 1;
-  width: clamp(60px, 13vw, 96px);
-  height: clamp(60px, 13vw, 96px);
+  width: clamp(55px, 14vw, 88px);
+  height: clamp(55px, 14vw, 88px);
   object-fit: contain;
   pointer-events: none;
-  opacity: .94;
 }
 
-.top-left { top: 8px; left: 8px; }
-.top-right { top: 8px; right: 8px; transform: scaleX(-1); }
-.bottom-left { bottom: 8px; left: 8px; transform: scaleY(-1); }
-.bottom-right { bottom: 8px; right: 8px; transform: scale(-1); }
+.tl { top: 8px; left: 7px; }
+.tr { top: 8px; right: 7px; transform: scaleX(-1); }
+.bl { bottom: 8px; left: 7px; transform: scaleY(-1); }
+.br { bottom: 8px; right: 7px; transform: scale(-1); }
 
-.bismillah {
+.arabic {
   font-family: "Noto Naskh Arabic", serif;
-  font-size: clamp(25px, 5.7vw, 39px);
-  font-weight: 500;
-  line-height: 1.45;
-  color: var(--gold-dark);
-  margin: 0 0 12px;
+  font-size: clamp(24px, 6vw, 35px);
+  line-height: 1.5;
+  color: #99752f;
+  margin: 0 0 8px;
 }
 
 .parents {
-  font-size: clamp(18px, 4.2vw, 27px);
-  line-height: 1.2;
-  margin: 8px 0;
-  font-weight: 400;
+  font-size: clamp(19px, 4.7vw, 27px);
+  line-height: 1.15;
+  margin: 7px 0;
 }
 
-.invite-line {
-  font-size: clamp(17px, 4.1vw, 25px);
+.request {
+  font-size: clamp(17px, 4.3vw, 24px);
   line-height: 1.2;
+  margin: 8px 0;
+}
+
+.heading {
+  font-size: clamp(19px, 4.8vw, 29px);
+  font-weight: 500;
+  letter-spacing: clamp(2px, .6vw, 4px);
   margin: 9px 0;
 }
 
-.ceremony {
-  font-size: clamp(18px, 4.5vw, 29px);
-  font-weight: 500;
-  letter-spacing: clamp(2px, .5vw, 4px);
-  margin: 10px 0;
-}
-
 .son {
-  font-size: clamp(17px, 4vw, 25px);
-  margin: 10px 0 3px;
+  font-size: clamp(17px, 4.2vw, 24px);
+  margin: 8px 0 1px;
 }
 
-.couple {
+.name {
   font-family: "Great Vibes", cursive;
   color: var(--wine);
-  font-size: clamp(45px, 10vw, 72px);
+  font-size: clamp(42px, 10.8vw, 67px);
   font-weight: 400;
-  line-height: 1.08;
-  margin: 3px 0;
+  line-height: 1.15;
+  margin: 0;
 }
 
-.ampersand {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(18px, 4vw, 25px);
+.with {
+  font-size: clamp(18px, 4.3vw, 24px);
   font-style: italic;
-  margin: 6px 0;
+  margin: 4px 0;
 }
 
 .daughter {
-  font-size: clamp(16px, 3.8vw, 24px);
+  font-size: clamp(16px, 4vw, 23px);
   line-height: 1.2;
-  margin: 10px 0 14px;
+  margin: 9px 0 12px;
 }
 
-.rule {
-  width: 72%;
+.divider {
+  width: 70%;
   height: 1px;
-  margin: 12px auto;
-  background: linear-gradient(90deg, transparent, #c09a50, transparent);
+  margin: 10px auto;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 
-.rsvp-label, .contact-label, .venue-label {
+.label {
   font-size: 14px;
-  color: var(--gold-dark);
   letter-spacing: 4px;
-  margin: 8px 0 4px;
+  color: #9d7836;
+  margin: 7px 0 2px;
 }
 
-.rsvp, .family {
-  font-size: clamp(16px, 3.8vw, 23px);
-  line-height: 1.25;
+.detail {
+  font-size: clamp(16px, 4vw, 22px);
+  line-height: 1.22;
   margin: 4px 0;
 }
 
 .contact {
-  font-size: clamp(14px, 3.4vw, 20px);
-  line-height: 1.2;
-  margin-top: 7px;
-}
-
-.event-intro {
-  font-size: clamp(18px, 4vw, 25px);
-  font-style: italic;
-  margin: 10px 0;
+  font-size: clamp(14px, 3.5vw, 19px);
+  margin-top: 8px;
+  white-space: nowrap;
 }
 
 .event-title {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(50px, 11vw, 76px);
-  line-height: 1.1;
   color: var(--wine);
-  margin: 6px 0;
+  font-size: clamp(52px, 13vw, 78px);
+  line-height: 1.12;
+  margin: 5px 0;
 }
 
 .event-date {
-  font-size: clamp(23px, 5.4vw, 35px);
-  line-height: 1.15;
-  margin: 12px 0 6px;
+  font-size: clamp(20px, 5vw, 29px);
+  line-height: 1.2;
+  margin: 10px 0;
 }
 
 .event-time {
-  font-size: clamp(21px, 4.7vw, 29px);
-  margin: 5px 0 16px;
+  font-size: clamp(20px, 4.8vw, 27px);
+  margin: 5px 0 13px;
 }
 
 .venue {
-  font-size: clamp(26px, 6vw, 40px);
-  line-height: 1.12;
-  margin: 7px 0;
+  font-family: "Great Vibes", cursive;
+  color: var(--wine);
+  font-size: clamp(32px, 8vw, 47px);
+  line-height: 1.15;
+  margin: 5px 0;
 }
 
 .address {
-  font-size: clamp(18px, 4.2vw, 26px);
+  font-size: clamp(17px, 4.1vw, 23px);
   line-height: 1.25;
-  margin: 7px 0;
+  margin: 5px 0;
 }
 
-.event-note {
-  font-size: clamp(17px, 4vw, 24px);
-  font-style: italic;
-  line-height: 1.25;
-  margin-top: 20px;
+.schedule {
+  width: 100%;
+  max-width: 340px;
+  margin: 8px auto;
+  font-size: clamp(16px, 4vw, 21px);
 }
 
-.page-number {
-  color: var(--gold-dark);
-  font-size: 12px;
-  letter-spacing: 3px;
-  margin-top: 16px;
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #b4a18c;
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.small-note {
+  font-size: 15px;
+  color: #8e754e;
+  margin-top: 14px;
 }
 
 .swipe-hint {
   position: absolute;
-  bottom: max(8px, env(safe-area-inset-bottom));
+  bottom: max(6px, env(safe-area-inset-bottom));
   left: 0;
   right: 0;
   text-align: center;
+  color: #6d5a4c;
   font: 10px Arial, sans-serif;
   letter-spacing: 1.5px;
-  color: #8e7c61;
   pointer-events: none;
 }
 
-@keyframes nudge {
-  0%, 80%, 100% { transform: translateX(0); }
-  83% { transform: translateX(-3px); }
-  86% { transform: translateX(3px); }
-  89% { transform: translateX(-2px); }
-  92% { transform: translateX(0); }
-}
-
-.page:first-child.active .paper {
-  animation: nudge 5s ease-in-out 2s infinite;
-}
-
-@media (max-height: 760px) {
-  .page { padding-top: 7px; padding-bottom: 30px; }
-  .paper { padding: 15px 18px; }
-  .flowers { width: clamp(48px, 10vw, 70px); height: clamp(48px, 10vw, 70px); }
-  .bismillah { font-size: clamp(22px, 4.5vw, 30px); margin-bottom: 5px; }
-  .parents { margin: 4px 0; }
-  .invite-line { margin: 5px 0; }
-  .ceremony { margin: 5px 0; }
-  .son { margin: 5px 0 2px; }
-  .couple { font-size: clamp(39px, 8vw, 57px); }
-  .daughter { margin: 6px 0 8px; }
-  .rule { margin: 7px auto; }
-  .rsvp-label, .contact-label { margin: 5px 0 2px; }
-  .event-date { margin: 7px 0 4px; }
-  .event-time { margin: 3px 0 9px; }
-  .event-note { margin-top: 10px; }
+@media (max-height: 720px) {
+  .page { padding-top: 5px; padding-bottom: 25px; }
+  .sheet { padding: 14px 17px; }
+  .flower { width: 53px; height: 53px; }
+  .arabic { font-size: 24px; margin-bottom: 3px; }
+  .parents, .request { margin: 4px 0; }
+  .heading { margin: 5px 0; }
+  .son { margin: 4px 0 0; }
+  .name { font-size: clamp(38px, 8.8vw, 53px); }
+  .daughter { margin: 5px 0 7px; }
+  .divider { margin: 6px auto; }
+  .label { margin: 4px 0 1px; }
+  .event-date { margin: 6px 0; }
+  .event-time { margin: 3px 0 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page.active, .page:first-child.active .paper { animation: none; }
+  .page.active { animation: none; }
 }
 </style>
 </head>
@@ -301,87 +303,100 @@ body {
 <body>
 <main class="book" id="book">
 
-<!-- PAGE 1 -->
+<!-- PAGE 1: MAIN INVITATION -->
 <section class="page active">
-<div class="paper">
-<img class="flowers top-left" src="flowers.png" alt="">
-<img class="flowers top-right" src="flowers.png" alt="">
-<img class="flowers bottom-left" src="flowers.png" alt="">
-<img class="flowers bottom-right" src="flowers.png" alt="">
+  <div class="sheet">
+    <img class="flower tl" src="flowers.png" alt="">
+    <img class="flower tr" src="flowers.png" alt="">
+    <img class="flower bl" src="flowers.png" alt="">
+    <img class="flower br" src="flowers.png" alt="">
 
-<div class="content">
-<div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="content">
+      <div class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-<div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
-<div class="invite-line">Requests the pleasure of your company at the</div>
-<div class="ceremony">WEDDING CEREMONY</div>
-<div class="son">Of their Beloved Son</div>
+      <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
+      <div class="request">Requests the pleasure of your company at the</div>
+      <div class="heading">WEDDING CEREMONY</div>
+      <div class="son">Of their Beloved Son</div>
 
-<div class="couple">Muhammad Jameel Ahmad</div>
-<div class="ampersand">With</div>
-<div class="couple">Anmol Fatimaa</div>
+      <div class="name">Muhammad Jameel Ahmad</div>
+      <div class="with">With</div>
+      <div class="name">Anmol Fatimaa</div>
 
-<div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
-<div class="rule"></div>
+      <div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
+      <div class="divider"></div>
 
-<div class="rsvp-label">R.S.V.P.</div>
-<div class="rsvp">Malik Muhammad Ramzan</div>
-<div class="family">All Family Members, Relatives &amp; Friends</div>
+      <div class="label">R.S.V.P.</div>
+      <div class="detail">Malik Muhammad Ramzan</div>
+      <div class="detail">All Family Members, Relatives &amp; Friends</div>
 
-<div class="contact-label">CONTACT</div>
-<div class="contact">0322-6174129 · 0309-4035209</div>
-</div>
-</div>
+      <div class="label">CONTACT</div>
+      <div class="contact">0322-6174129 · 0309-4035209</div>
+    </div>
+  </div>
 </section>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2: BARAAT -->
 <section class="page">
-<div class="paper">
-<img class="flowers top-left" src="flowers.png" alt="">
-<img class="flowers top-right" src="flowers.png" alt="">
-<img class="flowers bottom-left" src="flowers.png" alt="">
-<img class="flowers bottom-right" src="flowers.png" alt="">
+  <div class="sheet">
+    <img class="flower tl" src="flowers.png" alt="">
+    <img class="flower tr" src="flowers.png" alt="">
+    <img class="flower bl" src="flowers.png" alt="">
+    <img class="flower br" src="flowers.png" alt="">
 
-<div class="content">
-<div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-<div class="rule"></div>
-<div class="event-intro">With the blessings of Allah</div>
-<div class="event-title">Baraat</div>
-<div class="rule"></div>
-<div class="event-date">Saturday, 2 January 2027</div>
-<div class="event-time">6:00 PM</div>
-<div class="venue-label">VENUE</div>
-<div class="venue">Couples Marquee</div>
-<div class="address">Opposite Expo Center,<br>Johar Town, Lahore</div>
-<div class="event-note">Your presence will make<br>our celebration even more special.</div>
-<div class="page-number">— 02 —</div>
-</div>
-</div>
+    <div class="content">
+      <div class="arabic" lang="ar" dir="rtl">بسم الله الرحمن الرحيم</div>
+      <div class="event-title">Baraat</div>
+      <div class="divider"></div>
+
+      <div class="event-date">Saturday, 2 January 2027</div>
+      <div class="event-time">At 06:00 PM</div>
+
+      <div class="label">VENUE</div>
+      <div class="venue">Couples Marquee</div>
+      <div class="address">
+        Opposite Expo Center<br>
+        Johar Town, Lahore
+      </div>
+      <div class="small-note">We look forward to celebrating with you.</div>
+    </div>
+  </div>
 </section>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3: WALIMA -->
 <section class="page">
-<div class="paper">
-<img class="flowers top-left" src="flowers.png" alt="">
-<img class="flowers top-right" src="flowers.png" alt="">
-<img class="flowers bottom-left" src="flowers.png" alt="">
-<img class="flowers bottom-right" src="flowers.png" alt="">
+  <div class="sheet">
+    <img class="flower tl" src="flowers.png" alt="">
+    <img class="flower tr" src="flowers.png" alt="">
+    <img class="flower bl" src="flowers.png" alt="">
+    <img class="flower br" src="flowers.png" alt="">
 
-<div class="content">
-<div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-<div class="rule"></div>
-<div class="event-intro">Together with our families</div>
-<div class="event-title">Walima</div>
-<div class="rule"></div>
-<div class="event-date">Sunday, 3 January 2027</div>
-<div class="event-time">6:30 PM</div>
-<div class="venue-label">VENUE</div>
-<div class="venue">Aiwan-e-Akbari</div>
-<div class="address">Ferozpur Road, Lahore</div>
-<div class="event-note">We look forward to celebrating<br>this joyous occasion with you.</div>
-<div class="page-number">— 03 —</div>
-</div>
-</div>
+    <div class="content">
+      <div class="arabic" lang="ar" dir="rtl">بسم الله الرحمن الرحيم</div>
+      <div class="event-title">Walima</div>
+      <div class="divider"></div>
+
+      <div class="event-date">Sunday, 3 January 2027</div>
+
+      <div class="schedule">
+        <div class="schedule-row">
+          <span>Reception</span>
+          <span>06:30 PM</span>
+        </div>
+        <div class="schedule-row">
+          <span>Dinner</span>
+          <span>07:30 PM</span>
+        </div>
+      </div>
+
+      <div class="label">VENUE</div>
+      <div class="venue">Aiwan-e-Akbari</div>
+      <div class="address">
+        Main Ferozpur Road, Opp. 23<br>
+        Metro Bus Station, Lahore
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="swipe-hint">SWIPE LEFT OR RIGHT TO TURN PAGES</div>
@@ -389,41 +404,45 @@ body {
 
 <script>
 (() => {
-const book = document.getElementById("book");
-const pages = [...document.querySelectorAll(".page")];
-let current = 0, startX = 0, startY = 0, down = false;
+  const pages = Array.from(document.querySelectorAll(".page"));
+  const book = document.getElementById("book");
+  let current = 0;
+  let startX = 0;
+  let startY = 0;
+  let tracking = false;
 
-function showPage(n) {
-  n = Math.max(0, Math.min(pages.length - 1, n));
-  if (n === current) return;
-  pages[current].classList.remove("active");
-  current = n;
-  pages[current].classList.add("active");
-}
+  function showPage(index) {
+    const next = Math.max(0, Math.min(pages.length - 1, index));
+    if (next === current) return;
 
-book.addEventListener("pointerdown", e => {
-  if (e.pointerType === "mouse" && e.button !== 0) return;
-  startX = e.clientX;
-  startY = e.clientY;
-  down = true;
-});
-
-window.addEventListener("pointerup", e => {
-  if (!down) return;
-  down = false;
-  const dx = e.clientX - startX;
-  const dy = e.clientY - startY;
-  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-    showPage(current + (dx < 0 ? 1 : -1));
+    pages[current].classList.remove("active");
+    current = next;
+    pages[current].classList.add("active");
   }
-});
 
-window.addEventListener("pointercancel", () => down = false);
+  book.addEventListener("touchstart", event => {
+    if (!event.touches.length) return;
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    tracking = true;
+  }, { passive: true });
 
-document.addEventListener("keydown", e => {
-  if (e.key === "ArrowRight") showPage(current + 1);
-  if (e.key === "ArrowLeft") showPage(current - 1);
-});
+  book.addEventListener("touchend", event => {
+    if (!tracking || !event.changedTouches.length) return;
+    tracking = false;
+
+    const dx = event.changedTouches[0].clientX - startX;
+    const dy = event.changedTouches[0].clientY - startY;
+
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      showPage(current + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "ArrowRight") showPage(current + 1);
+    if (event.key === "ArrowLeft") showPage(current - 1);
+  });
 })();
 </script>
 </body>
