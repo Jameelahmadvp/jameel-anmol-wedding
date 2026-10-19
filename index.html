@@ -1,24 +1,34 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5eddd">
-<title>Jameel Ahmad & Anmol Fatimaa | Wedding Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ead9bd">
+<title>Jameel &amp; Anmol | Wedding Invitation</title>
+<meta name="description" content="Wedding invitation of Muhammad Jameel Ahmad and Anmol Fatimaa.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jameel &amp; Anmol — Wedding Invitation">
+<meta property="og:description" content="Please join us for the wedding celebrations of Jameel and Anmol.">
+<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
+<meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:image:secure_url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Pinyon+Script&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --paper: #f8f0df;
-  --paper-light: #fffaf0;
-  --gold: #aa8139;
-  --gold-dark: #79551e;
-  --ink: #433322;
-  --muted: #806c51;
+  --gold: #bd984d;
+  --gold-dark: #98702d;
+  --ink: #493638;
+  --wine: #783d49;
+  --paper: #fff8eb;
+  --outer: #ead9bd;
 }
 
 * {
@@ -34,18 +44,18 @@ html, body {
 }
 
 body {
-  background:
-    radial-gradient(ellipse at top, #fff8e9 0%, #e7d5b4 100%);
-  color: var(--ink);
   font-family: "Cormorant Garamond", serif;
+  color: var(--ink);
+  background: radial-gradient(ellipse at center, #fff8e9, #ead8bb 85%);
 }
 
 .book {
-  width: 100%;
-  height: 100%;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
-  touch-action: none;
+  touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -54,275 +64,313 @@ body {
   position: absolute;
   inset: 0;
   display: none;
-  padding: clamp(9px, 2.5vw, 22px);
   align-items: center;
   justify-content: center;
-  background:
-    radial-gradient(ellipse at center, #fffaf0 0%, #f3e6cd 100%);
+  padding: 4.5vh 3.5vw 54px;
 }
 
 .page.active {
   display: flex;
-  animation: pageAppear 0.45s ease both;
+  animation: pageIn .35s ease both;
 }
 
-@keyframes pageAppear {
-  from { opacity: 0.65; }
+@keyframes pageIn {
+  from { opacity: .7; }
   to { opacity: 1; }
 }
 
 .paper {
   position: relative;
-  width: min(100%, 510px);
+  width: min(100%, 650px);
   height: 100%;
-  max-height: 900px;
+  max-height: 1100px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: clamp(22px, 5vh, 44px) clamp(20px, 6vw, 42px);
+  padding: clamp(25px, 5vh, 48px) clamp(18px, 6vw, 44px);
   background:
-    linear-gradient(145deg, rgba(255,255,255,.5), transparent 40%),
-    radial-gradient(ellipse at center, #fffaf0 0%, #f5ead5 100%);
-  border: 1px solid #b99453;
+    radial-gradient(ellipse at 20% 20%, rgba(255,255,255,.6), transparent 50%),
+    linear-gradient(115deg, #fff9ed, #fff7e9 55%, #fbf0df);
+  border: 3px solid var(--gold);
   box-shadow:
-    inset 0 0 0 4px #f5e8ce,
-    inset 0 0 0 5px #c5a467,
-    inset 0 0 0 10px #fff8eb,
-    0 10px 35px rgba(81, 54, 18, 0.16);
+    inset 0 0 0 5px #fffaf0,
+    inset 0 0 0 7px #d1ad65,
+    0 8px 25px rgba(90,60,24,.15);
 }
 
 .paper::before {
   content: "";
   position: absolute;
-  inset: 14px;
-  border: 1px solid rgba(170,129,57,.65);
+  inset: 17px;
+  border: 1.5px solid #c7a45e;
   pointer-events: none;
 }
 
 .paper::after {
-  content: "✧";
+  content: "";
   position: absolute;
-  left: 50%;
-  bottom: 13px;
-  transform: translateX(-50%);
-  color: var(--gold);
-  font-size: 18px;
-  background: var(--paper);
-  padding: 0 10px;
-}
-
-.floral {
-  position: absolute;
-  width: clamp(65px, 19vw, 115px);
-  height: clamp(65px, 19vw, 115px);
-  color: var(--gold);
-  opacity: .78;
+  inset: 23px;
+  border: 1px solid #d9c18c;
   pointer-events: none;
-}
-
-.floral.top-left {
-  top: 12px;
-  left: 12px;
-}
-
-.floral.top-right {
-  top: 12px;
-  right: 12px;
-  transform: scaleX(-1);
-}
-
-.floral.bottom-left {
-  bottom: 12px;
-  left: 12px;
-  transform: scaleY(-1);
-}
-
-.floral.bottom-right {
-  bottom: 12px;
-  right: 12px;
-  transform: scale(-1);
 }
 
 .content {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 410px;
+  max-width: 540px;
 }
+
+.floral {
+  position: absolute;
+  z-index: 1;
+  width: clamp(82px, 22vw, 145px);
+  height: auto;
+  pointer-events: none;
+}
+
+.f-tl { top: 17px; left: 17px; }
+.f-tr { top: 17px; right: 17px; transform: scaleX(-1); }
+.f-bl { bottom: 17px; left: 17px; transform: scaleY(-1); }
+.f-br { bottom: 17px; right: 17px; transform: scale(-1); }
 
 .bismillah {
   font-family: "Noto Naskh Arabic", serif;
-  color: var(--gold-dark);
-  font-size: clamp(25px, 7vw, 37px);
-  font-weight: 600;
-  line-height: 1.7;
-  margin-bottom: 6px;
-}
-
-.small-line {
-  color: var(--gold-dark);
-  font-size: clamp(10px, 2.7vw, 13px);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin: 5px 0 12px;
-}
-
-.ornament {
-  color: var(--gold);
-  font-size: 22px;
-  letter-spacing: 6px;
-  margin: 5px 0;
-}
-
-.invite-line {
-  font-size: clamp(17px, 4.7vw, 23px);
-  font-style: italic;
-  line-height: 1.25;
-  color: #6f552f;
-  margin: 7px 0;
-}
-
-.ceremony {
-  font-size: clamp(12px, 3.1vw, 15px);
-  letter-spacing: 2.5px;
-  color: var(--gold-dark);
-  margin: 7px 0 12px;
-  font-weight: 600;
+  color: #a98137;
+  font-size: clamp(28px, 6.3vw, 47px);
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0 0 10px;
+  text-shadow: 0 1px 0 #fff0c7;
 }
 
 .parents {
-  font-size: clamp(14px, 3.8vw, 18px);
-  line-height: 1.35;
-  margin: 3px 0;
-}
-
-.couple {
-  font-size: clamp(29px, 8.3vw, 44px);
+  font-size: clamp(17px, 3.8vw, 25px);
   font-weight: 600;
-  line-height: 1.03;
-  color: var(--gold-dark);
-  margin: 5px 0;
+  margin: 8px 0 19px;
+  color: #39282a;
+  line-height: 1.2;
 }
 
-.ampersand {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(28px, 7vw, 38px);
-  line-height: 1;
-  color: var(--gold);
-  margin: 2px 0;
+.invite {
+  font-size: clamp(16px, 3.6vw, 23px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.ceremony {
+  font-size: clamp(18px, 4.2vw, 28px);
+  letter-spacing: clamp(2px, .55vw, 5px);
+  font-weight: 600;
+  margin: 8px 0;
+  color: #38282b;
+}
+
+.son {
+  font-size: clamp(16px, 3.6vw, 23px);
+  margin: 8px 0 4px;
+  font-weight: 400;
+}
+
+.name {
+  font-family: "Pinyon Script", cursive;
+  color: var(--wine);
+  font-size: clamp(48px, 11vw, 76px);
+  font-weight: 400;
+  line-height: .98;
+  margin: 7px auto 2px;
+}
+
+.name .line {
+  display: block;
+}
+
+.with {
+  font-style: italic;
+  font-size: clamp(18px, 3.7vw, 25px);
+  margin: 10px 0 0;
 }
 
 .daughter {
-  font-size: clamp(14px, 3.7vw, 17px);
-  margin-top: 4px;
+  font-size: clamp(15px, 3.5vw, 23px);
+  line-height: 1.2;
+  margin: 12px 0 16px;
+  font-weight: 400;
 }
 
-.rsvp {
-  font-size: clamp(13px, 3.4vw, 16px);
-  line-height: 1.35;
-  margin-top: 11px;
+.gold-rule {
+  height: 3px;
+  width: 76%;
+  max-width: 380px;
+  margin: 0 auto 17px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b58a36,
+    #ead6a0,
+    #b58a36,
+    transparent
+  );
+}
+
+.label {
+  color: #a27a31;
+  letter-spacing: 5px;
+  font-size: clamp(13px, 3vw, 18px);
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.rsvp-name,
+.family {
+  font-size: clamp(15px, 3.4vw, 22px);
+  line-height: 1.3;
+  margin: 4px 0;
+  font-weight: 400;
 }
 
 .contact {
-  font-size: clamp(12px, 3.2vw, 15px);
-  letter-spacing: .5px;
-  margin-top: 4px;
-  color: var(--gold-dark);
+  font-size: clamp(14px, 3vw, 19px);
+  margin-top: 13px;
+  font-weight: 400;
 }
 
-.event-title {
-  font-size: clamp(34px, 10vw, 52px);
-  font-weight: 600;
-  color: var(--gold-dark);
-  line-height: 1;
-  margin: 13px 0;
+.ornament {
+  font-size: 23px;
+  color: #b48a3d;
+  margin: 7px 0;
 }
 
 .event-intro {
-  font-size: clamp(16px, 4.4vw, 21px);
+  font-size: clamp(19px, 4.2vw, 27px);
   font-style: italic;
-  margin: 5px 0 10px;
+  margin: 12px 0;
+}
+
+.event-title {
+  font-size: clamp(47px, 11vw, 74px);
+  font-weight: 500;
+  color: var(--wine);
+  line-height: 1;
+  margin: 10px 0;
 }
 
 .event-date {
-  font-size: clamp(23px, 6.6vw, 32px);
-  line-height: 1.1;
+  font-size: clamp(25px, 6vw, 39px);
   font-weight: 600;
-  margin: 7px 0;
-  color: var(--gold-dark);
+  color: #4a3030;
+  line-height: 1.12;
+  margin: 12px 0;
 }
 
 .event-time {
-  font-size: clamp(19px, 5.2vw, 24px);
-  margin: 5px 0 12px;
+  font-size: clamp(22px, 5vw, 32px);
+  margin: 8px 0 20px;
 }
 
 .venue-label {
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: var(--gold-dark);
-  margin: 8px 0;
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: #a27a31;
+  margin: 12px 0;
 }
 
 .venue {
-  font-size: clamp(20px, 5.6vw, 27px);
-  line-height: 1.13;
+  font-size: clamp(27px, 6.4vw, 42px);
   font-weight: 600;
-  margin: 4px 0;
+  line-height: 1.1;
+  margin: 6px 0;
 }
 
 .address {
-  font-size: clamp(16px, 4.3vw, 20px);
+  font-size: clamp(19px, 4.6vw, 28px);
   line-height: 1.2;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 .event-note {
-  font-size: clamp(15px, 4vw, 18px);
+  font-size: clamp(18px, 4.2vw, 25px);
   font-style: italic;
-  line-height: 1.3;
-  margin-top: 15px;
+  line-height: 1.25;
+  margin-top: 20px;
 }
 
 .page-number {
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--gold-dark);
-  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #a27a31;
+  margin-top: 18px;
 }
 
-@keyframes invitationNudge {
-  0%, 15%, 100% { transform: translateX(0); }
-  3% { transform: translateX(-5px); }
-  6% { transform: translateX(5px); }
-  9% { transform: translateX(-4px); }
-  12% { transform: translateX(4px); }
+.swipe-hint {
+  position: absolute;
+  z-index: 10;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #8f8068;
+  letter-spacing: 2px;
+  font-family: Arial, sans-serif;
+  font-size: clamp(10px, 2.6vw, 14px);
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+@keyframes nudge {
+  0%, 65%, 100% { transform: translateX(0); }
+  68% { transform: translateX(-4px); }
+  71% { transform: translateX(4px); }
+  74% { transform: translateX(-3px); }
+  77% { transform: translateX(3px); }
+  80% { transform: translateX(0); }
 }
 
 .page:first-child.active .paper {
-  animation: invitationNudge 4s ease-in-out 2s infinite;
+  animation: nudge 5s ease-in-out 2s infinite;
 }
 
-@media (max-height: 690px) {
-  .paper {
-    padding-top: 17px;
-    padding-bottom: 17px;
-  }
+@media (max-height: 760px) {
+  .page { padding-top: 10px; padding-bottom: 48px; }
 
-  .bismillah { font-size: 25px; margin-bottom: 0; }
-  .small-line { margin: 2px 0 6px; }
-  .ornament { margin: 1px 0; }
-  .invite-line { margin: 3px 0; }
-  .ceremony { margin: 4px 0 7px; }
-  .couple { font-size: clamp(27px, 7.5vw, 36px); }
-  .rsvp { margin-top: 6px; }
-  .event-title { margin: 8px 0; }
-  .event-date { font-size: 24px; }
-  .event-time { margin: 3px 0 8px; }
-  .event-note { margin-top: 8px; }
+  .paper { padding: 18px 18px; }
+  .paper::before { inset: 13px; }
+  .paper::after { inset: 18px; }
+  .floral { width: clamp(65px, 17vw, 112px); }
+
+  .bismillah { font-size: clamp(24px, 5.2vw, 35px); margin-bottom: 2px; }
+  .parents { margin: 5px 0 9px; }
+  .invite { margin-bottom: 5px; }
+  .ceremony { margin: 4px 0; }
+  .son { margin: 4px 0 2px; }
+  .name { font-size: clamp(39px, 8.5vw, 59px); margin: 3px auto; }
+  .with { margin: 4px 0 0; }
+  .daughter { margin: 7px 0 10px; }
+  .gold-rule { margin-bottom: 9px; }
+  .label { margin: 5px 0; }
+  .contact { margin-top: 7px; }
+
+  .event-title { font-size: clamp(40px, 9vw, 60px); margin: 6px 0; }
+  .event-date { font-size: clamp(22px, 5vw, 31px); margin: 7px 0; }
+  .event-time { margin: 4px 0 10px; }
+  .event-note { margin-top: 10px; }
+}
+
+@media (max-height: 620px) {
+  .floral { width: 58px; }
+  .bismillah { font-size: 22px; }
+  .parents { font-size: 15px; }
+  .invite { font-size: 13px; }
+  .ceremony { font-size: 15px; }
+  .name { font-size: 36px; }
+  .son, .daughter, .rsvp-name, .family { font-size: 12px; }
+  .label { font-size: 10px; }
+  .contact { font-size: 11px; }
+  .gold-rule { height: 2px; }
+  .paper { padding: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -335,285 +383,179 @@ body {
 <body>
 <main class="book" id="book" aria-label="Wedding invitation booklet">
 
-  <!-- PAGE 1: MAIN INVITATION -->
-  <section class="page active">
-    <div class="paper">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<g id="rose-corner" stroke="#9d773b" stroke-width="1.2" stroke-linejoin="round">
+  <path d="M4 6 Q32 18 49 44 T84 72" fill="none"/>
+  <path d="M15 20 Q4 5 17 1 Q31 1 29 17 Q24 27 15 20Z" fill="#b75b6a"/>
+  <path d="M26 18 Q22 1 38 4 Q51 11 39 24 Q31 28 26 18Z" fill="#e4a6ad"/>
+  <path d="M25 27 Q12 23 16 36 Q27 45 34 32Z" fill="#c45d6c"/>
+  <path d="M36 29 Q43 17 52 27 Q57 38 43 40Z" fill="#d88b99"/>
+  <ellipse cx="29" cy="20" rx="6" ry="8" fill="#f8e7ca"/>
+  <ellipse cx="29" cy="20" rx="2.5" ry="4" fill="#9b6a31"/>
+  <path d="M45 42 Q51 25 64 31 Q65 45 45 42Z" fill="#d79aa2"/>
+  <path d="M52 50 Q64 39 72 49 Q66 61 52 50Z" fill="#b85b68"/>
+  <ellipse cx="60" cy="47" rx="4" ry="5" fill="#f8e7ca"/>
+  <path d="M49 39 Q42 26 35 31 Q34 42 49 39Z" fill="#73805b"/>
+  <path d="M63 59 Q75 46 81 57 Q78 69 63 59Z" fill="#78845b"/>
+  <path d="M17 37 Q2 31 3 45 Q13 51 17 37Z" fill="#7b865d"/>
+  <path d="M39 44 Q29 36 27 48 Q32 56 39 44Z" fill="#7b865d"/>
+  <path d="M67 29 Q69 14 82 17 Q82 30 67 29Z" fill="#7b865d"/>
+</g>
+</defs>
+</svg>
 
-      <svg class="floral top-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <path d="M35 55 Q57 37 66 54 Q54 70 35 55Z"/>
-          <circle cx="46" cy="36" r="5"/>
-          <circle cx="59" cy="58" r="4"/>
-          <path d="M5 5 Q17 12 24 8"/>
-        </g>
-      </svg>
-      <svg class="floral top-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <path d="M35 55 Q57 37 66 54 Q54 70 35 55Z"/>
-          <circle cx="46" cy="36" r="5"/>
-          <circle cx="59" cy="58" r="4"/>
-        </g>
-      </svg>
-      <svg class="floral bottom-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <circle cx="46" cy="36" r="5"/>
-        </g>
-      </svg>
-      <svg class="floral bottom-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <circle cx="46" cy="36" r="5"/>
-        </g>
-      </svg>
+<!-- PAGE 1 -->
+<section class="page active">
+<div class="paper">
+  <svg class="floral f-tl" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-tr" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-bl" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-br" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
 
-      <div class="content">
-        <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-        <div class="ornament">— ❦ —</div>
-        <div class="invite-line">Requests the pleasure of your company at the</div>
-        <div class="ceremony">WEDDING CEREMONY</div>
+  <div class="content">
+    <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-        <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
-        <div class="small-line">Request the honour of your presence</div>
+    <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
+    <div class="invite">Requests the pleasure of your company at the</div>
+    <div class="ceremony">WEDDING CEREMONY</div>
+    <div class="son">Of their Beloved Son</div>
 
-        <div class="couple">Muhammad Jameel Ahmad</div>
-        <div class="ampersand">&amp;</div>
-        <div class="couple">Anmol Fatimaa</div>
-
-        <div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
-        <div class="ornament">✧ ❦ ✧</div>
-
-        <div class="rsvp">
-          <strong>RSVP: Malik Muhammad Ramzan</strong><br>
-          All Family Members, Relatives &amp; Friends
-        </div>
-        <div class="contact">0322-6174129 · 0309-4035209</div>
-      </div>
+    <div class="name">
+      <span class="line">Muhammad Jameel</span>
+      <span class="line">Ahmad</span>
     </div>
-  </section>
 
-  <!-- PAGE 2: BARAAT -->
-  <section class="page">
-    <div class="paper">
+    <div class="with">With</div>
+    <div class="name">Anmol Fatimaa</div>
 
-      <svg class="floral top-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <circle cx="46" cy="36" r="5"/>
-        </g>
-      </svg>
-      <svg class="floral top-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <circle cx="46" cy="36" r="5"/>
-        </g>
-      </svg>
-      <svg class="floral bottom-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-        </g>
-      </svg>
-      <svg class="floral bottom-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-        </g>
-      </svg>
+    <div class="daughter">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
+    <div class="gold-rule"></div>
 
-      <div class="content">
-        <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-        <div class="ornament">— ❦ —</div>
-        <div class="event-intro">With the blessings of Allah</div>
-        <div class="event-title">Baraat</div>
-        <div class="ornament">✧ ❦ ✧</div>
+    <div class="label">R.S.V.P.</div>
+    <div class="rsvp-name">Malik Muhammad Ramzan</div>
+    <div class="family">All Family Members, Relatives &amp; Friends</div>
 
-        <div class="event-date">Saturday, 2 January 2027</div>
-        <div class="event-time">6:00 PM</div>
+    <div class="label" style="margin-top:16px">CONTACT</div>
+    <div class="contact">0322-6174129 · 0309-4035209</div>
+  </div>
+</div>
+</section>
 
-        <div class="venue-label">VENUE</div>
-        <div class="venue">Couples Marquee</div>
-        <div class="address">
-          Opposite Expo Center,<br>
-          Johar Town, Lahore
-        </div>
+<!-- PAGE 2: BARAAT -->
+<section class="page">
+<div class="paper">
+  <svg class="floral f-tl" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-tr" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-bl" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-br" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
 
-        <div class="event-note">
-          Your presence will make<br>
-          our celebration even more special.
-        </div>
-        <div class="page-number">— 02 —</div>
-      </div>
-    </div>
-  </section>
+  <div class="content">
+    <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="ornament">✧ ❦ ✧</div>
+    <div class="event-intro">With the blessings of Allah</div>
+    <div class="event-title">Baraat</div>
+    <div class="ornament">— ❦ —</div>
 
-  <!-- PAGE 3: WALIMA -->
-  <section class="page">
-    <div class="paper">
+    <div class="event-date">Saturday, 2 January 2027</div>
+    <div class="event-time">6:00 PM</div>
 
-      <svg class="floral top-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <circle cx="46" cy="36" r="5"/>
-        </g>
-      </svg>
-      <svg class="floral top-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <circle cx="46" cy="36" r="5"/>
-        </g>
-      </svg>
-      <svg class="floral bottom-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-        </g>
-      </svg>
-      <svg class="floral bottom-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1.4">
-          <path d="M5 5 Q38 20 35 55 Q30 83 7 105"/>
-          <path d="M10 25 Q32 12 40 29 Q25 43 10 25Z"/>
-          <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
-          <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
-          <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-        </g>
-      </svg>
+    <div class="venue-label">VENUE</div>
+    <div class="venue">Couples Marquee</div>
+    <div class="address">Opposite Expo Center,<br>Johar Town, Lahore</div>
 
-      <div class="content">
-        <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-        <div class="ornament">— ❦ —</div>
-        <div class="event-intro">Together with our families</div>
-        <div class="event-title">Walima</div>
-        <div class="ornament">✧ ❦ ✧</div>
+    <div class="event-note">Your presence will make<br>our celebration even more special.</div>
+    <div class="page-number">— 02 —</div>
+  </div>
+</div>
+</section>
 
-        <div class="event-date">Sunday, 3 January 2027</div>
-        <div class="event-time">6:30 PM</div>
+<!-- PAGE 3: WALIMA -->
+<section class="page">
+<div class="paper">
+  <svg class="floral f-tl" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-tr" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-bl" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
+  <svg class="floral f-br" viewBox="0 0 100 90"><use href="#rose-corner"/></svg>
 
-        <div class="venue-label">VENUE</div>
-        <div class="venue">Aiwan-e-Akbari</div>
-        <div class="address">Ferozpur Road, Lahore</div>
+  <div class="content">
+    <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="ornament">✧ ❦ ✧</div>
+    <div class="event-intro">Together with our families</div>
+    <div class="event-title">Walima</div>
+    <div class="ornament">— ❦ —</div>
 
-        <div class="event-note">
-          We look forward to celebrating<br>
-          this joyous occasion with you.
-        </div>
-        <div class="page-number">— 03 —</div>
-      </div>
-    </div>
-  </section>
+    <div class="event-date">Sunday, 3 January 2027</div>
+    <div class="event-time">6:30 PM</div>
 
+    <div class="venue-label">VENUE</div>
+    <div class="venue">Aiwan-e-Akbari</div>
+    <div class="address">Ferozpur Road, Lahore</div>
+
+    <div class="event-note">We look forward to celebrating<br>this joyous occasion with you.</div>
+    <div class="page-number">— 03 —</div>
+  </div>
+</div>
+</section>
+
+<div class="swipe-hint">SWIPE LEFT OR RIGHT TO TURN PAGES</div>
 </main>
 
 <script>
 (() => {
   const book = document.getElementById("book");
   const pages = Array.from(document.querySelectorAll(".page"));
-
-  let currentPage = 0;
+  let current = 0;
   let startX = 0;
   let startY = 0;
   let startTime = 0;
-  let activePointer = null;
+  let pointerDown = false;
 
   function showPage(index) {
     const next = Math.max(0, Math.min(pages.length - 1, index));
-    if (next === currentPage) return;
+    if (next === current) return;
 
-    currentPage = next;
-
+    current = next;
     pages.forEach((page, i) => {
-      page.classList.toggle("active", i === currentPage);
+      page.classList.toggle("active", i === current);
     });
   }
 
-  book.addEventListener("pointerdown", (event) => {
+  book.addEventListener("pointerdown", event => {
     if (event.pointerType === "mouse" && event.button !== 0) return;
 
-    activePointer = event.pointerId;
+    pointerDown = true;
     startX = event.clientX;
     startY = event.clientY;
     startTime = Date.now();
   });
 
-  window.addEventListener("pointerup", (event) => {
-    if (activePointer === null || event.pointerId !== activePointer) return;
+  window.addEventListener("pointerup", event => {
+    if (!pointerDown) return;
+    pointerDown = false;
 
     const dx = event.clientX - startX;
     const dy = event.clientY - startY;
     const elapsed = Date.now() - startTime;
 
-    activePointer = null;
-
     if (
       Math.abs(dx) >= 35 &&
       Math.abs(dx) > Math.abs(dy) * 1.15 &&
-      elapsed < 1500
+      elapsed < 1800
     ) {
-      if (dx < 0) {
-        showPage(currentPage + 1);
-      } else {
-        showPage(currentPage - 1);
-      }
+      showPage(current + (dx < 0 ? 1 : -1));
     }
   });
 
   window.addEventListener("pointercancel", () => {
-    activePointer = null;
+    pointerDown = false;
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") showPage(currentPage + 1);
-    if (event.key === "ArrowLeft") showPage(currentPage - 1);
+  document.addEventListener("keydown", event => {
+    if (event.key === "ArrowRight") showPage(current + 1);
+    if (event.key === "ArrowLeft") showPage(current - 1);
   });
 })();
 </script>
 </body>
 </html>
-```
