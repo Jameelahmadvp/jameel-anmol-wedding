@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#fff8eb">
+<meta name="theme-color" content="#c9b39a">
 <title>Jameel & Anmol | Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,13 @@
 
 <style>
 :root {
-  --paper: #fff9ed;
-  --gold: #c99b3b;
-  --gold-light: #f4df9b;
-  --gold-dark: #805719;
-  --wine: #74363f;
-  --ink: #39282b;
+  --paper: #fff6e5;
+  --gold: #b88428;
+  --gold-light: #f5dfa0;
+  --gold-dark: #75480e;
+  --wine: #74333e;
+  --ink: #392629;
+  --outer: #c8b19a;
 }
 
 * { box-sizing: border-box; }
@@ -30,9 +31,9 @@ html, body {
 }
 
 body {
-  background:
-    radial-gradient(ellipse at top, #fff9ed, #ead8c1 80%, #d7c0a6);
   color: var(--ink);
+  background:
+    radial-gradient(ellipse at center, #ead8c0 0%, #d2bca4 75%, #c4aa91 100%);
   font-family: 'Cormorant Garamond', Georgia, serif;
   -webkit-tap-highlight-color: transparent;
   touch-action: pan-y;
@@ -44,7 +45,6 @@ body {
   height: 100dvh;
   position: relative;
   overflow: hidden;
-  perspective: 1400px;
 }
 
 .page {
@@ -53,18 +53,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px;
+  padding: 12px 14px 44px;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(30px) rotateY(-2deg);
-  transition: opacity .4s ease, transform .5s ease, visibility .4s;
+  transform: translateX(22px);
+  transition: opacity .35s ease, transform .4s ease, visibility .35s;
   pointer-events: none;
 }
 
 .page.active {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0) rotateY(0);
+  transform: translateX(0);
   pointer-events: auto;
 }
 
@@ -75,15 +75,16 @@ body {
   height: min(88dvh, 790px);
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 15% 15%, rgba(232,195,130,.12), transparent 40%),
-    radial-gradient(ellipse at 85% 85%, rgba(177,111,90,.09), transparent 40%),
+    radial-gradient(ellipse at 15% 15%, rgba(255,255,255,.4), transparent 48%),
+    radial-gradient(ellipse at 85% 85%, rgba(216,168,127,.10), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(155,112,54,.018) 0px, rgba(155,112,54,.018) 1px, transparent 1px, transparent 5px),
     var(--paper);
-  border: 2px solid #c69a43;
+  border: 3px solid #bc8b32;
   box-shadow:
-    0 12px 38px rgba(67,43,32,.20),
-    inset 0 0 0 4px #fff9ed,
-    inset 0 0 0 5px #dfbd72;
-  padding: clamp(20px, 5.5vw, 36px);
+    0 12px 32px rgba(73,44,28,.24),
+    inset 0 0 0 4px #fff8e9,
+    inset 0 0 0 6px #d8b76e;
+  padding: clamp(20px, 5vw, 34px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,76 +96,71 @@ body {
   content: "";
   position: absolute;
   inset: 12px;
-  border: 1px solid #c79b45;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,.7);
+  border: 1.5px solid #b88832;
+  box-shadow:
+    inset 0 0 0 3px rgba(255,255,255,.65),
+    0 0 0 1px rgba(213,177,103,.4);
   pointer-events: none;
 }
 
 .paper::after {
   content: "❧";
   position: absolute;
-  bottom: 10px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 27px;
   line-height: 1;
-  background: linear-gradient(110deg, #805719, #f1d68c, #a77520, #e9c66b, #805719);
+  background: linear-gradient(100deg,#75480e,#e7c56b,#a56d16,#f4dc95,#75480e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  z-index: 2;
 }
 
-/* Floral corner illustrations: roses, petals and gold foliage */
+/* Floral rose corners */
 .corner {
   position: absolute;
-  width: clamp(76px, 23vw, 112px);
-  height: clamp(76px, 23vw, 112px);
+  width: clamp(80px, 25vw, 116px);
+  height: clamp(80px, 25vw, 116px);
   z-index: 1;
   pointer-events: none;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Cpath d='M4 143 Q25 112 50 82 T139 5' fill='none' stroke='%23a47b36' stroke-width='2.5'/%3E%3Cpath d='M15 125 Q0 91 34 91 Q38 112 15 125 M34 100 Q25 65 59 70 Q61 91 34 100 M65 69 Q55 37 88 39 Q91 58 65 69 M93 41 Q88 12 118 15 Q119 34 93 41 M41 88 Q58 61 75 84 Q64 101 41 88 M84 51 Q106 31 117 55 Q101 70 84 51' fill='%237d8a60' stroke='%23b59a5c' stroke-width='1.5'/%3E%3Cg stroke='%23b68b43' stroke-width='1.3'%3E%3Cellipse cx='37' cy='49' rx='17' ry='23' fill='%23a84753' transform='rotate(-34 37 49)'/%3E%3Cellipse cx='61' cy='45' rx='17' ry='23' fill='%23cf7b7b' transform='rotate(35 61 45)'/%3E%3Cellipse cx='48' cy='29' rx='17' ry='22' fill='%23f0c6b8'/%3E%3Cellipse cx='30' cy='30' rx='14' ry='20' fill='%23bd626a' transform='rotate(-42 30 30)'/%3E%3Cellipse cx='66' cy='28' rx='14' ry='20' fill='%23d9a09c' transform='rotate(42 66 28)'/%3E%3Cellipse cx='48' cy='39' rx='12' ry='15' fill='%23f6ddc5'/%3E%3Cpath d='M42 37 Q48 26 54 37 Q57 43 48 47 Q39 43 42 37' fill='%23a64e55'/%3E%3C/g%3E%3Cg stroke='%23b68b43' stroke-width='1.1'%3E%3Cellipse cx='83' cy='83' rx='12' ry='17' fill='%23a74e56' transform='rotate(-35 83 83)'/%3E%3Cellipse cx='103' cy='80' rx='12' ry='17' fill='%23e3b2a5' transform='rotate(35 103 80)'/%3E%3Cellipse cx='94' cy='67' rx='13' ry='17' fill='%23c87878'/%3E%3Cellipse cx='94' cy='75' rx='9' ry='11' fill='%23f3d8c4'/%3E%3Ccircle cx='94' cy='74' r='4' fill='%23a95159'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cdefs%3E%3CradialGradient id='r' cx='35%25' cy='30%25'%3E%3Cstop stop-color='%23f7c9b8'/%3E%3Cstop offset='.55' stop-color='%23c96f78'/%3E%3Cstop offset='1' stop-color='%237d293c'/%3E%3C/radialGradient%3E%3CradialGradient id='p'%3E%3Cstop stop-color='%23fff0d9'/%3E%3Cstop offset='1' stop-color='%23d88d96'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M7 151 Q35 106 59 74 T151 5' fill='none' stroke='%23a67b2f' stroke-width='2.5'/%3E%3Cg fill='%237e8a5a' stroke='%23b58b3d' stroke-width='1.3'%3E%3Cpath d='M20 132 Q-1 99 24 94 Q42 111 20 132Z'/%3E%3Cpath d='M36 111 Q25 79 53 82 Q59 99 36 111Z'/%3E%3Cpath d='M57 84 Q47 52 76 57 Q81 75 57 84Z'/%3E%3Cpath d='M86 56 Q82 24 112 29 Q111 48 86 56Z'/%3E%3Cpath d='M102 37 Q122 11 137 29 Q128 47 102 37Z'/%3E%3Cpath d='M45 100 Q66 75 78 96 Q64 111 45 100Z'/%3E%3C/g%3E%3Cg stroke='%23ad7a32' stroke-width='1.4'%3E%3Cellipse cx='39' cy='43' rx='21' ry='27' fill='url(%23r)' transform='rotate(-32 39 43)'/%3E%3Cellipse cx='67' cy='40' rx='20' ry='27' fill='url(%23p)' transform='rotate(35 67 40)'/%3E%3Cellipse cx='52' cy='23' rx='20' ry='26' fill='url(%23p)'/%3E%3Cellipse cx='29' cy='25' rx='16' ry='22' fill='url(%23r)' transform='rotate(-40 29 25)'/%3E%3Cellipse cx='74' cy='24' rx='16' ry='22' fill='url(%23r)' transform='rotate(38 74 24)'/%3E%3Ccircle cx='52' cy='36' r='14' fill='%23f4d8b7'/%3E%3Cpath d='M46 34 Q51 23 58 32 Q65 40 53 46 Q43 42 46 34Z' fill='%23a64050'/%3E%3C/g%3E%3Cg stroke='%23ad7a32' stroke-width='1.2'%3E%3Cellipse cx='91' cy='81' rx='15' ry='20' fill='url(%23r)' transform='rotate(-30 91 81)'/%3E%3Cellipse cx='112' cy='79' rx='14' ry='20' fill='url(%23p)' transform='rotate(30 112 79)'/%3E%3Cellipse cx='101' cy='66' rx='15' ry='20' fill='url(%23r)'/%3E%3Ccircle cx='101' cy='77' r='10' fill='%23f5dfc0'/%3E%3Ccircle cx='101' cy='77' r='5' fill='%23a54150'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-.corner.tl { top: 10px; left: 10px; }
-.corner.tr { top: 10px; right: 10px; transform: scaleX(-1); }
-.corner.bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
-.corner.br { bottom: 10px; right: 10px; transform: scale(-1); }
+.corner.tl { top: 12px; left: 12px; }
+.corner.tr { top: 12px; right: 12px; transform: scaleX(-1); }
+.corner.bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
+.corner.br { bottom: 12px; right: 12px; transform: scale(-1); }
 
-/* Rich metallic gold calligraphy */
+/* Metallic gold Arabic Bismillah */
 .bismillah {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: clamp(24px, 6.5vw, 34px);
+  line-height: 1.9;
+  direction: rtl;
+  margin-bottom: 7px;
+  position: relative;
+  z-index: 2;
   background: linear-gradient(
-    110deg,
-    #805719 0%,
-    #bd8b2d 20%,
-    #f1d68b 38%,
-    #9b6b1f 53%,
-    #e8c56c 72%,
-    #805719 100%
+    100deg,
+    #70430c 0%,
+    #c2912e 22%,
+    #f3d986 38%,
+    #a56d17 52%,
+    #f4dc92 70%,
+    #75480e 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-family: 'Noto Nastaliq Urdu', serif;
-  font-size: clamp(22px, 6vw, 31px);
-  line-height: 1.9;
-  margin-bottom: 8px;
-  direction: rtl;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 .5px .3px rgba(108,71,16,.35));
-}
-
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--wine);
-  margin: 4px 0 12px;
+  filter: drop-shadow(0 .5px .5px rgba(94,57,9,.3));
 }
 
 .parents {
-  font-size: clamp(16px, 4.3vw, 20px);
+  font-size: clamp(16px, 4.4vw, 20px);
   font-weight: 700;
   margin: 4px 0;
   position: relative;
@@ -172,18 +168,18 @@ body {
 }
 
 .small {
-  font-size: clamp(12px, 3.4vw, 15px);
+  font-size: clamp(12px, 3.5vw, 15px);
   line-height: 1.5;
 }
 
 .invite-line {
-  font-size: clamp(13px, 3.6vw, 16px);
+  font-size: clamp(13px, 3.7vw, 16px);
   line-height: 1.45;
   margin: 8px 0 3px;
 }
 
 .ceremony {
-  font-size: 17px;
+  font-size: clamp(15px, 4.2vw, 18px);
   letter-spacing: 2px;
   font-weight: 700;
   margin: 3px 0;
@@ -206,16 +202,10 @@ body {
 }
 
 .divider {
-  width: 65%;
+  width: 68%;
   height: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    #a87927,
-    #f0d68f,
-    #b18535,
-    transparent
-  );
+  flex-shrink: 0;
+  background: linear-gradient(to right, transparent, #98651a, #f0d68c, #ae7c24, transparent);
   margin: 10px auto;
 }
 
@@ -229,13 +219,21 @@ body {
 
 .urdu-title {
   font-family: 'Noto Nastaliq Urdu', serif;
-  font-size: 21px;
-  background: linear-gradient(110deg, #805719, #d4ac50, #94661b);
+  font-size: 22px;
+  background: linear-gradient(100deg,#75480e,#e4c36d,#94611a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   direction: rtl;
   margin: 0 0 2px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 4px 0 8px;
 }
 
 .date {
@@ -251,7 +249,7 @@ body {
 }
 
 .label {
-  background: linear-gradient(100deg, #805719, #d0a548, #f1d68b, #a77520);
+  background: linear-gradient(100deg,#75480e,#d0a548,#f1d68b,#94611a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -282,22 +280,36 @@ body {
   margin-top: 3px;
 }
 
+/* Only the main invitation gives a gentle swipe hint */
+@keyframes invitationNudge {
+  0%, 82%, 100% { transform: translateX(0); }
+  85% { transform: translateX(-4px); }
+  88% { transform: translateX(4px); }
+  91% { transform: translateX(-3px); }
+  94% { transform: translateX(3px); }
+  97% { transform: translateX(0); }
+}
+
+.page.active:first-child .paper {
+  animation: invitationNudge 5s ease-in-out infinite;
+}
+
 .hint {
   position: absolute;
-  bottom: 9px;
+  bottom: 12px;
   left: 0;
   right: 0;
-  color: #765e48;
+  color: #76563d;
   font: 10px Arial, sans-serif;
   letter-spacing: 1.5px;
   text-align: center;
-  opacity: .7;
+  opacity: .85;
   pointer-events: none;
 }
 
 @media (max-height: 650px) {
-  .page { padding: 8px; }
-  .paper { height: 94vh; height: 94dvh; padding: 18px 24px; }
+  .page { padding: 8px 10px 38px; }
+  .paper { height: 92vh; height: 92dvh; padding: 16px 22px; }
   .bismillah { font-size: 22px; margin-bottom: 0; }
   .name { font-size: 33px; margin: 3px 0; }
   .section-title { font-size: 40px; }
@@ -305,8 +317,13 @@ body {
   .date { margin: 5px 0 2px; }
   .time { margin: 2px 0 6px; }
   .venue { font-size: 30px; }
-  .paper::after { bottom: 7px; }
-  .corner { width: 75px; height: 75px; }
+  .paper::after { bottom: 6px; }
+  .corner { width: 72px; height: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page.active:first-child .paper { animation: none; }
+  .page { transition: none; }
 }
 
 @media (min-width: 700px) {
@@ -318,7 +335,7 @@ body {
 <body>
 <main class="book" id="book">
 
-  <!-- PAGE 1: CENTRAL INVITATION -->
+  <!-- PAGE 1: MAIN INVITATION -->
   <section class="page active" aria-label="Wedding invitation">
     <div class="paper">
       <span class="corner tl"></span>
@@ -327,7 +344,6 @@ body {
       <span class="corner br"></span>
 
       <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-
       <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
       <div class="invite-line">Requests the pleasure of your company at the</div>
       <div class="ceremony">WEDDING CEREMONY</div>
@@ -336,10 +352,9 @@ body {
       <div class="name">Muhammad Jameel Ahmad</div>
       <div class="with">With</div>
       <div class="name">Anmol Fatimaa</div>
-
       <div class="small">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
-      <div class="divider"></div>
 
+      <div class="divider"></div>
       <div class="label">R.S.V.P.</div>
       <div class="rsvp">
         Malik Muhammad Ramzan<br>
@@ -365,7 +380,6 @@ body {
       <div class="divider"></div>
 
       <div class="small">With the blessings of our families,<br>we invite you to celebrate with us</div>
-
       <div class="date">Saturday, 2nd January 2027</div>
       <div class="time">6:00 PM</div>
 
@@ -396,7 +410,6 @@ body {
       <div class="divider"></div>
 
       <div class="small">We would be delighted<br>to celebrate with you</div>
-
       <div class="date">Sunday, 3rd January 2027</div>
       <div class="time">6:30 PM</div>
 
