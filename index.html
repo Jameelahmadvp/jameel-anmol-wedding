@@ -4,7 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5eddd">
-<title>Jameel Ahmad & Anmol Fatimaa | Wedding Invitation</title>
+
+<title>Jameel &amp; Anmol | Wedding Invitation</title>
+<meta name="description" content="You are cordially invited to celebrate the wedding of Muhammad Jameel Ahmad and Anmol Fatimaa. Open our digital wedding invitation.">
+
+<!-- WhatsApp / social media link preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jameel &amp; Anmol Wedding">
+<meta property="og:title" content="Jameel &amp; Anmol — Wedding Invitation">
+<meta property="og:description" content="You are invited to celebrate our wedding. Open the digital invitation for Baraat and Walima details.">
+<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
+<meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:image:secure_url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Jameel and Anmol wedding invitation outer cover">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jameel &amp; Anmol — Wedding Invitation">
+<meta name="twitter:description" content="Open our digital wedding invitation.">
+<meta name="twitter:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +30,9 @@
 <style>
 :root {
   --paper: #f8f0df;
-  --paper-light: #fffaf0;
   --gold: #aa8139;
   --gold-dark: #79551e;
   --ink: #433322;
-  --muted: #806c51;
 }
 
 * {
@@ -33,8 +48,7 @@ html, body {
 }
 
 body {
-  background:
-    radial-gradient(ellipse at top, #fff8e9 0%, #e7d5b4 100%);
+  background: radial-gradient(ellipse at top, #fff8e9, #e7d5b4);
   color: var(--ink);
   font-family: "Cormorant Garamond", serif;
 }
@@ -56,17 +70,16 @@ body {
   padding: clamp(9px, 2.5vw, 22px);
   align-items: center;
   justify-content: center;
-  background:
-    radial-gradient(ellipse at center, #fffaf0 0%, #f3e6cd 100%);
+  background: radial-gradient(ellipse at center, #fffaf0, #f3e6cd);
 }
 
 .page.active {
   display: flex;
-  animation: pageAppear 0.45s ease both;
+  animation: pageAppear .4s ease both;
 }
 
 @keyframes pageAppear {
-  from { opacity: 0.65; }
+  from { opacity: .65; }
   to { opacity: 1; }
 }
 
@@ -84,13 +97,13 @@ body {
   padding: clamp(22px, 5vh, 44px) clamp(20px, 6vw, 42px);
   background:
     linear-gradient(145deg, rgba(255,255,255,.5), transparent 40%),
-    radial-gradient(ellipse at center, #fffaf0 0%, #f5ead5 100%);
+    radial-gradient(ellipse at center, #fffaf0, #f5ead5);
   border: 1px solid #b99453;
   box-shadow:
     inset 0 0 0 4px #f5e8ce,
     inset 0 0 0 5px #c5a467,
     inset 0 0 0 10px #fff8eb,
-    0 10px 35px rgba(81, 54, 18, 0.16);
+    0 10px 35px rgba(81,54,18,.16);
 }
 
 .paper::before {
@@ -122,28 +135,10 @@ body {
   pointer-events: none;
 }
 
-.floral.top-left {
-  top: 12px;
-  left: 12px;
-}
-
-.floral.top-right {
-  top: 12px;
-  right: 12px;
-  transform: scaleX(-1);
-}
-
-.floral.bottom-left {
-  bottom: 12px;
-  left: 12px;
-  transform: scaleY(-1);
-}
-
-.floral.bottom-right {
-  bottom: 12px;
-  right: 12px;
-  transform: scale(-1);
-}
+.top-left { top: 12px; left: 12px; }
+.top-right { top: 12px; right: 12px; transform: scaleX(-1); }
+.bottom-left { bottom: 12px; left: 12px; transform: scaleY(-1); }
+.bottom-right { bottom: 12px; right: 12px; transform: scale(-1); }
 
 .content {
   position: relative;
@@ -293,6 +288,7 @@ body {
   margin-top: 14px;
 }
 
+/* First page nudges after 2 seconds */
 @keyframes invitationNudge {
   0%, 15%, 100% { transform: translateX(0); }
   3% { transform: translateX(-5px); }
@@ -306,11 +302,7 @@ body {
 }
 
 @media (max-height: 690px) {
-  .paper {
-    padding-top: 17px;
-    padding-bottom: 17px;
-  }
-
+  .paper { padding-top: 17px; padding-bottom: 17px; }
   .bismillah { font-size: 25px; margin-bottom: 0; }
   .small-line { margin: 2px 0 6px; }
   .ornament { margin: 1px 0; }
@@ -349,7 +341,6 @@ body {
           <path d="M35 55 Q57 37 66 54 Q54 70 35 55Z"/>
           <circle cx="46" cy="36" r="5"/>
           <circle cx="59" cy="58" r="4"/>
-          <path d="M5 5 Q17 12 24 8"/>
         </g>
       </svg>
       <svg class="floral top-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
@@ -360,9 +351,7 @@ body {
           <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
           <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
           <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <path d="M35 55 Q57 37 66 54 Q54 70 35 55Z"/>
           <circle cx="46" cy="36" r="5"/>
-          <circle cx="59" cy="58" r="4"/>
         </g>
       </svg>
       <svg class="floral bottom-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
@@ -372,8 +361,6 @@ body {
           <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
           <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
           <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <circle cx="46" cy="36" r="5"/>
         </g>
       </svg>
       <svg class="floral bottom-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
@@ -383,8 +370,6 @@ body {
           <path d="M22 45 Q49 31 53 50 Q37 65 22 45Z"/>
           <path d="M31 65 Q57 55 61 73 Q45 87 31 65Z"/>
           <path d="M12 81 Q34 67 42 84 Q29 99 12 81Z"/>
-          <path d="M37 18 Q47 4 60 14 Q58 29 37 18Z"/>
-          <circle cx="46" cy="36" r="5"/>
         </g>
       </svg>
 
@@ -595,11 +580,7 @@ body {
       Math.abs(dx) > Math.abs(dy) * 1.15 &&
       elapsed < 1500
     ) {
-      if (dx < 0) {
-        showPage(currentPage + 1);
-      } else {
-        showPage(currentPage - 1);
-      }
+      showPage(currentPage + (dx < 0 ? 1 : -1));
     }
   });
 
