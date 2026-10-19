@@ -1,716 +1,438 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f7f1e7">
-<title>Muhammad Jameel Ahmad & Anmol Fatimaa
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#f5ecdf">
+<title>Jameel & Anmol | Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+:root {
+  --paper: #fffaf0;
+  --gold: #b18a48;
+  --dark-gold: #80602f;
+  --wine: #713b42;
+  --ink: #39282b;
 }
 
-:root {
-  --gold: #b18a3c;
-  --dark-gold: #73552c;
-  --ink: #342820;
-  --paper: #fffdf8;
-}
+* { box-sizing: border-box; }
 
 html, body {
+  margin: 0;
   width: 100%;
   height: 100%;
-  margin: 0;
   overflow: hidden;
-  background: var(--paper);
-  font-family: 'Montserrat', sans-serif;
-  overscroll-behavior: none;
 }
 
 body {
+  background:
+    radial-gradient(ellipse at top, #fff8ed 0%, #e8d9c7 75%, #d4c0a9 100%);
   color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
 }
 
-.booklet {
-  position: relative;
+.book {
   width: 100%;
-  height: 100vh;
   height: 100dvh;
+  position: relative;
   overflow: hidden;
-  background: var(--paper);
-  touch-action: pan-y;
+  perspective: 1400px;
 }
 
 .page {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  padding:
-    max(12px, env(safe-area-inset-top))
-    12px
-    max(12px, env(safe-area-inset-bottom));
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background: #f7f1e7;
-  transform: translateX(100%);
+  align-items: center;
+  padding: 16px;
+  opacity: 0;
   visibility: hidden;
-  z-index: 0;
-  transition:
-    transform .55s cubic-bezier(.22,.72,.2,1),
-    visibility 0s linear .55s;
+  transform: translateX(35px) rotateY(-3deg);
+  transition: opacity .45s ease, transform .55s ease, visibility .45s;
+  pointer-events: none;
 }
 
 .page.active {
-  transform: translateX(0);
+  opacity: 1;
   visibility: visible;
-  z-index: 2;
-  transition:
-    transform .55s cubic-bezier(.22,.72,.2,1),
-    visibility 0s;
-}
-
-.page.past {
-  transform: translateX(-100%);
-  visibility: hidden;
-  z-index: 1;
+  transform: translateX(0) rotateY(0);
+  pointer-events: auto;
 }
 
 .paper {
   position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 650px;
-  max-height: 100%;
+  width: min(100%, 480px);
+  height: min(88dvh, 790px);
+  min-height: 0;
   overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(194,153,99,.10), transparent 38%),
+    radial-gradient(ellipse at 80% 85%, rgba(151,83,75,.08), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(145,111,70,.018) 0px, rgba(145,111,70,.018) 1px, transparent 1px, transparent 4px),
+    var(--paper);
+  border: 1px solid #c9a96b;
+  box-shadow: 0 12px 40px rgba(67,43,32,.18);
+  padding: clamp(20px, 5.5vw, 36px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 24px 20px;
-  background: var(--paper);
-  border: 1px solid #c8b99f;
 }
 
 .paper::before {
   content: "";
   position: absolute;
-  inset: 8px;
-  border: 1px solid #d9cbb5;
+  inset: 10px;
+  border: 1px solid rgba(177,138,72,.75);
   pointer-events: none;
 }
 
 .paper::after {
-  content: "";
+  content: "❧";
   position: absolute;
-  inset: 14px;
-  border: 1px solid #eee3d2;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.corner {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  opacity: .88;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 28% 28%, #a34f51 0 7%, transparent 8%),
+    radial-gradient(ellipse at 42% 18%, #d9b47a 0 8%, transparent 9%),
+    radial-gradient(ellipse at 17% 44%, #b77c76 0 8%, transparent 9%),
+    radial-gradient(ellipse at 47% 43%, #d3a75e 0 9%, transparent 10%),
+    radial-gradient(ellipse at 65% 25%, #8b4d4b 0 7%, transparent 8%),
+    radial-gradient(ellipse at 70% 55%, #b87d70 0 8%, transparent 9%),
+    radial-gradient(ellipse at 25% 68%, #b68a54 0 7%, transparent 8%),
+    radial-gradient(ellipse at 48% 65%, #a75c58 0 8%, transparent 9%),
+    radial-gradient(ellipse at 58% 83%, #d5b477 0 7%, transparent 8%);
+}
+
+.corner.tl { top: 9px; left: 9px; }
+.corner.tr { top: 9px; right: 9px; transform: scaleX(-1); }
+.corner.bl { bottom: 9px; left: 9px; transform: scaleY(-1); }
+.corner.br { bottom: 9px; right: 9px; transform: scale(-1); }
+
+.bismillah {
+  color: var(--dark-gold);
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: clamp(23px, 6vw, 31px);
+  line-height: 1.9;
+  margin-bottom: 8px;
+  direction: rtl;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 4px 0 12px;
+}
+
+.parents {
+  font-size: clamp(16px, 4.3vw, 20px);
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.small {
+  font-size: clamp(12px, 3.4vw, 15px);
+  line-height: 1.5;
+}
+
+.invite-line {
+  font-size: clamp(13px, 3.6vw, 16px);
+  line-height: 1.45;
+  margin: 8px 0 3px;
+}
+
+.ceremony {
+  font-size: 17px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 3px 0;
+}
+
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(35px, 9vw, 48px);
+  line-height: 1.2;
+  color: var(--wine);
+  margin: 8px 0 3px;
+}
+
+.with {
+  font-size: 14px;
+  font-style: italic;
+  margin: 3px 0;
+}
+
+.divider {
+  width: 65%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 10px auto;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  color: var(--wine);
+  font-size: clamp(43px, 11vw, 56px);
+  line-height: 1.2;
+  margin: 5px 0;
+}
+
+.urdu-title {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 21px;
+  color: var(--dark-gold);
+  direction: rtl;
+  margin: 0 0 2px;
+}
+
+.date {
+  font-size: clamp(19px, 5vw, 24px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 10px 0 3px;
+}
+
+.time {
+  font-size: 19px;
+  margin: 4px 0 12px;
+}
+
+.label {
+  color: var(--dark-gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+
+.venue {
+  font-family: 'Great Vibes', cursive;
+  color: var(--wine);
+  font-size: clamp(30px, 8vw, 39px);
+  line-height: 1.3;
+  margin: 3px 0;
+}
+
+.address {
+  font-size: clamp(15px, 4vw, 18px);
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+.rsvp {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 3px;
+}
+
+.hint {
+  position: absolute;
+  bottom: 9px;
+  left: 0;
+  right: 0;
+  color: #765e48;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1.5px;
+  text-align: center;
+  opacity: .7;
   pointer-events: none;
 }
 
-.inner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 460px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@media (max-height: 650px) {
+  .page { padding: 8px; }
+  .paper { height: 94dvh; padding: 18px 24px; }
+  .bismillah { font-size: 22px; margin-bottom: 0; }
+  .name { font-size: 34px; margin: 3px 0; }
+  .section-title { font-size: 40px; }
+  .divider { margin: 5px auto; }
+  .date { margin: 5px 0 2px; }
+  .time { margin: 2px 0 6px; }
+  .venue { font-size: 30px; }
+  .paper::after { bottom: 7px; }
 }
 
-/* COVER PHOTO */
-
-.cover .paper {
-  background: #f3e7d4;
-  border-color: #bca57e;
-}
-
-.cover-photo {
-  position: absolute;
-  inset: 0;
-  background-image: url("angan-scene.jpg");
-  background-position: center;
-  background-size: cover;
-  transform: scale(1.02);
-  animation: slowZoom 25s ease-in-out infinite alternate;
-}
-
-.cover-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255,248,235,.76) 0%,
-    rgba(255,248,235,.60) 48%,
-    rgba(255,248,235,.78) 100%
-  );
-}
-
-.cover .paper::before {
-  border-color: rgba(164,126,67,.65);
-}
-
-.cover .paper::after {
-  border-color: rgba(255,255,255,.8);
-}
-
-/* COVER TYPOGRAPHY */
-
-.gold-bismillah {
-  font-family: serif;
-  font-size: clamp(23px, 6vw, 32px);
-  color: var(--gold);
-  line-height: 1.9;
-  margin-bottom: 9px;
-  text-shadow: 0 1px 1px #fff;
-}
-
-.parent-name {
-  font-size: clamp(13px, 3.4vw, 16px);
-  font-weight: 700;
-  line-height: 1.5;
-  color: #FFD700;
-  margin: 2px 0 7px;
-}
-
-.invitation-line {
-  font-size: clamp(10px, 2.8vw, 12px);
-  line-height: 1.65;
-  color: #FFD700;
-  margin: 1px 0 4px;
-}
-
-.ceremony-heading {
-  font-size: clamp(13px, 3.6vw, 16px);
-  font-weight: 700;
-  letter-spacing: .8px;
-  line-height: 1.5;
-  color: #FFD700;
-  margin: 2px 0 6px;
-}
-
-.small-line {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  color: #70573b;
-  margin-bottom: 4px;
-}
-
-.cover-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(34px, 8.6vw, 47px);
-  font-weight: 400;
-  line-height: 1.25;
-  color: #FFD700;
-  margin: 4px 0;
-}
-
-.cover-with {
-  font-size: 12px;
-  font-weight: 600;
-  margin: 3px 0;
-  color: #795a34;
-}
-
-.bride-parents {
-  font-size: clamp(9px, 2.5vw, 11px);
-  font-weight: 600;
-  line-height: 1.55;
-  color: #49351f;
-  margin-top: 3px;
-}
-
-.gold-line {
-  width: 88px;
-  height: 1px;
-  background: var(--gold);
-  margin: 9px auto;
-}
-
-.rsvp-heading,
-.contact-heading {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .6px;
-  margin-top: 3px;
-  color: #49351f;
-}
-
-.rsvp-name,
-.rsvp-note,
-.contact-number {
-  font-size: clamp(9px, 2.35vw, 10.5px);
-  line-height: 1.55;
-  color: #594531;
-}
-
-.contact-heading {
-  margin-top: 7px;
-}
-
-/* EVENT PAGES */
-
-.event-page .paper {
-  background:
-    linear-gradient(rgba(255,253,248,.92),rgba(255,253,248,.92)),
-    url("angan-scene.jpg") center/cover no-repeat;
-}
-
-.event-inner {
-  padding: 12px 0;
-}
-
-.event-kicker {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  line-height: 1.8;
-  text-transform: uppercase;
-  color: #82673e;
-  margin-bottom: 7px;
-}
-
-.event-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(50px, 13vw, 68px);
-  font-weight: 400;
-  line-height: 1.2;
-  color: #49351f;
-  margin: 0 0 5px;
-}
-
-.event-intro {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  line-height: 1.5;
-  color: #765f47;
-  margin: 4px 0 15px;
-}
-
-.event-date {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(20px, 5.5vw, 27px);
-  line-height: 1.5;
-  color: #3c3025;
-  margin: 4px 0;
-}
-
-.event-time {
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #69513a;
-  margin: 7px 0 22px;
-}
-
-.venue-label {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #82673e;
-  margin-bottom: 6px;
-}
-
-.venue-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-  font-size: clamp(28px, 7.4vw, 37px);
-  line-height: 1.25;
-  color: #3c3025;
-  margin: 3px 0 7px;
-}
-
-.venue-address {
-  font-size: 12px;
-  line-height: 1.9;
-  color: #655548;
-}
-
-.event-names {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(30px, 8vw, 39px);
-  line-height: 1.3;
-  color: #8b6939;
-  margin-top: 23px;
-}
-
-@keyframes slowZoom {
-  from { transform: scale(1.02); }
-  to { transform: scale(1.09); }
-}
-
-@media (max-width: 380px) {
-  .page {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
-
-  .paper {
-    padding: 18px 15px;
-  }
-
-  .gold-bismillah {
-    font-size: 23px;
-    margin-bottom: 5px;
-  }
-
-  .cover-name {
-    font-size: 34px;
-  }
-
-  .gold-line {
-    margin: 7px auto;
-  }
-
-  .event-intro {
-    margin-bottom: 10px;
-  }
-
-  .event-time {
-    margin-bottom: 16px;
-  }
-
-  .event-names {
-    margin-top: 17px;
-  }
-}
-
-@media (max-height: 700px) {
-  .paper {
-    padding-top: 13px;
-    padding-bottom: 13px;
-  }
-
-  .gold-bismillah {
-    font-size: 22px;
-    margin-bottom: 2px;
-  }
-
-  .parent-name {
-    margin-bottom: 3px;
-  }
-
-  .cover-name {
-    font-size: 31px;
-    margin: 2px 0;
-  }
-
-  .gold-line {
-    margin: 5px auto;
-  }
-
-  .contact-heading {
-    margin-top: 3px;
-  }
-
-  .event-time {
-    margin-bottom: 12px;
-  }
-
-  .event-names {
-    margin-top: 13px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page {
-    transition-duration: .2s;
-  }
-
-  .cover-photo {
-    animation: none;
-  }
+@media (min-width: 700px) {
+  .paper { width: min(85vw, 530px); }
 }
 </style>
 </head>
 
 <body>
-<main class="booklet" id="booklet">
+<main class="book" id="book">
 
-  <!-- PAGE 1: COVER -->
-  <section class="page cover active" aria-label="Wedding invitation cover">
+  <!-- PAGE 1: CENTRAL INVITATION -->
+  <section class="page active" aria-label="Wedding invitation">
     <div class="paper">
-      <div class="cover-photo"></div>
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
 
-      <div class="inner cover-inner">
+      <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-        <div class="gold-bismillah" lang="ar" dir="rtl">
-          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-        </div>
+      <div class="parents">Mr. &amp; Mrs. Mushtaq Ahmad</div>
+      <div class="invite-line">Requests the pleasure of your company at the</div>
+      <div class="ceremony">WEDDING CEREMONY</div>
+      <div class="small">Of their Beloved Son</div>
 
-        <div class="parent-name">
-          Mr. &amp; Mrs. Mushtaq Ahmad
-        </div>
+      <div class="name">Muhammad Jameel Ahmad</div>
+      <div class="with">With</div>
+      <div class="name">Anmol Fatimaa</div>
 
-        <div class="invitation-line">
-          Requests the pleasure of your company at the
-        </div>
+      <div class="small">Daughter of Mr. &amp; Mrs. Muhammad Ahmad</div>
+      <div class="divider"></div>
 
-        <div class="ceremony-heading">
-          WEDDING CEREMONY
-        </div>
-
-        <div class="small-line">
-          Of their Beloved Son
-        </div>
-
-        <div class="cover-name">
-          Muhammad Jameel Ahmad
-        </div>
-
-        <div class="cover-with">With</div>
-
-        <div class="cover-name">
-          Anmol Fatimaa
-        </div>
-
-        <div class="bride-parents">
-          Daughter of Mr. &amp; Mrs. Muhammad Ahmad
-        </div>
-
-        <div class="gold-line"></div>
-
-        <div class="rsvp-heading">R.S.V.P.</div>
-        <div class="rsvp-name">Malik Muhammad Ramzan</div>
-        <div class="rsvp-note">
-          All Family Members, Relatives &amp; Friends
-        </div>
-
-        <div class="contact-heading">Contact</div>
-        <div class="contact-number">
-          0322-6174129 · 0309-4035209
-        </div>
-
+      <div class="label">R.S.V.P.</div>
+      <div class="rsvp">
+        Malik Muhammad Ramzan<br>
+        All Family Members, Relatives &amp; Friends
       </div>
+
+      <div class="label" style="margin-top:10px">Contact</div>
+      <div class="rsvp">0322-6174129 · 0309-4035209</div>
     </div>
   </section>
 
   <!-- PAGE 2: BARAAT -->
-  <section class="page event-page" aria-label="Baraat invitation">
+  <section class="page" aria-label="Baraat details">
     <div class="paper">
-      <div class="inner event-inner">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
 
-        <div class="event-kicker">The Wedding Celebration</div>
-        <h1 class="event-title">Baraat</h1>
+      <div class="eyebrow">The Wedding Celebration</div>
+      <div class="urdu-title">دعوتِ بارات</div>
+      <div class="section-title">Baraat</div>
+      <div class="divider"></div>
 
-        <div class="gold-line"></div>
+      <div class="small">With the blessings of our families,<br>we invite you to celebrate with us</div>
 
-        <div class="event-intro">
-          With the blessings of our families,<br>
-          we invite you to celebrate
-        </div>
+      <div class="date">Saturday, 2nd January 2027</div>
+      <div class="time">6:00 PM</div>
 
-        <div class="event-date">
-          Saturday, 2nd January, 2027
-        </div>
-
-        <div class="event-time">6:00 PM</div>
-
-        <div class="venue-label">Venue</div>
-
-        <div class="venue-name">Couples Marquee</div>
-
-        <div class="venue-address">
-          Opposite Expo Center<br>
-          Johar Town, Lahore
-        </div>
-
-        <div class="event-names">
-          Jameel &amp; Anmol
-        </div>
-
+      <div class="divider"></div>
+      <div class="label">Venue</div>
+      <div class="venue">Couples Marquee</div>
+      <div class="address">
+        Opposite Expo Center<br>
+        Johar Town, Lahore
       </div>
+
+      <div class="divider"></div>
+      <div class="small" style="font-style:italic">Jameel &amp; Anmol</div>
     </div>
   </section>
 
   <!-- PAGE 3: WALIMA -->
-  <section class="page event-page" aria-label="Walima invitation">
+  <section class="page" aria-label="Walima details">
     <div class="paper">
-      <div class="inner event-inner">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
 
-        <div class="event-kicker">The Reception</div>
-        <h1 class="event-title">Walima</h1>
+      <div class="eyebrow">The Reception</div>
+      <div class="urdu-title">دعوتِ ولیمہ</div>
+      <div class="section-title">Walima</div>
+      <div class="divider"></div>
 
-        <div class="gold-line"></div>
+      <div class="small">We would be delighted<br>to celebrate with you</div>
 
-        <div class="event-intro">
-          We would be delighted<br>
-          to celebrate with you
-        </div>
+      <div class="date">Sunday, 3rd January 2027</div>
+      <div class="time">6:30 PM</div>
 
-        <div class="event-date">
-          Sunday, 3rd January, 2027
-        </div>
-
-        <div class="event-time">6:30 PM</div>
-
-        <div class="venue-label">Venue</div>
-
-        <div class="venue-name">Aiwan-e-Akbari</div>
-
-        <div class="venue-address">
-          Main Ferozpur Road<br>
-          Lahore
-        </div>
-
-        <div class="event-names">
-          Jameel &amp; Anmol
-        </div>
-
+      <div class="divider"></div>
+      <div class="label">Venue</div>
+      <div class="venue">Aiwan-e-Akbari</div>
+      <div class="address">
+        Ferozpur Road<br>
+        Lahore
       </div>
+
+      <div class="divider"></div>
+      <div class="small" style="font-style:italic">Jameel &amp; Anmol</div>
     </div>
   </section>
 
+  <div class="hint">SWIPE LEFT OR RIGHT TO TURN PAGES</div>
 </main>
 
 <script>
 (() => {
-  const booklet = document.getElementById("booklet");
-  const pages = Array.from(document.querySelectorAll(".page"));
-
+  const pages = Array.from(document.querySelectorAll('.page'));
+  const book = document.getElementById('book');
   let current = 0;
   let startX = 0;
   let startY = 0;
-  let tracking = false;
-  let animating = false;
 
-  function initialisePages() {
-    pages.forEach((page, index) => {
-      page.classList.remove("active", "past");
-      page.style.visibility = index === 0 ? "visible" : "hidden";
-      page.style.transform =
-        index === 0 ? "translateX(0)" : "translateX(100%)";
-
-      if (index === 0) {
-        page.classList.add("active");
-      }
+  function showPage(index) {
+    current = Math.max(0, Math.min(pages.length - 1, index));
+    pages.forEach((page, i) => {
+      page.classList.toggle('active', i === current);
     });
   }
 
-  function showPage(target) {
-    if (
-      animating ||
-      target < 0 ||
-      target >= pages.length ||
-      target === current
-    ) return;
-
-    animating = true;
-
-    const outgoing = pages[current];
-    const incoming = pages[target];
-    const direction = target > current ? 1 : -1;
-
-    incoming.style.transition = "none";
-    incoming.style.visibility = "visible";
-    incoming.style.zIndex = "3";
-    incoming.style.transform =
-      direction > 0 ? "translateX(100%)" : "translateX(-100%)";
-
-    void incoming.offsetWidth;
-
-    incoming.style.transition = "";
-    incoming.style.transform = "translateX(0)";
-
-    outgoing.style.transform =
-      direction > 0 ? "translateX(-100%)" : "translateX(100%)";
-
-    outgoing.classList.remove("active");
-    outgoing.classList.add("past");
-
-    current = target;
-    incoming.classList.remove("past");
-    incoming.classList.add("active");
-
-    window.setTimeout(() => {
-      pages.forEach((page, index) => {
-        page.style.zIndex = "";
-
-        if (index === current) {
-          page.classList.add("active");
-          page.classList.remove("past");
-          page.style.visibility = "visible";
-          page.style.transform = "translateX(0)";
-        } else if (index < current) {
-          page.classList.remove("active");
-          page.classList.add("past");
-          page.style.visibility = "hidden";
-          page.style.transform = "translateX(-100%)";
-        } else {
-          page.classList.remove("active", "past");
-          page.style.visibility = "hidden";
-          page.style.transform = "translateX(100%)";
-        }
-
-        page.style.transition = "";
-      });
-
-      animating = false;
-    }, 570);
-  }
-
-  booklet.addEventListener("touchstart", event => {
-    if (event.touches.length !== 1) return;
-
-    const touch = event.touches[0];
+  book.addEventListener('touchstart', event => {
+    const touch = event.changedTouches[0];
     startX = touch.clientX;
     startY = touch.clientY;
-    tracking = true;
   }, { passive: true });
 
-  booklet.addEventListener("touchend", event => {
-    if (!tracking) return;
-    tracking = false;
-
+  book.addEventListener('touchend', event => {
     const touch = event.changedTouches[0];
     const dx = touch.clientX - startX;
     const dy = touch.clientY - startY;
 
-    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) {
-      return;
-    }
-
-    if (dx < 0) {
-      showPage(current + 1);
-    } else {
-      showPage(current - 1);
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      showPage(current + (dx < 0 ? 1 : -1));
     }
   }, { passive: true });
 
   let mouseDown = false;
+  let mouseStartX = 0;
 
-  booklet.addEventListener("mousedown", event => {
+  book.addEventListener('mousedown', event => {
     mouseDown = true;
-    startX = event.clientX;
-    startY = event.clientY;
+    mouseStartX = event.clientX;
   });
 
-  window.addEventListener("mouseup", event => {
+  window.addEventListener('mouseup', event => {
     if (!mouseDown) return;
     mouseDown = false;
-
-    const dx = event.clientX - startX;
-    const dy = event.clientY - startY;
-
-    if (Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy)) return;
-
-    showPage(current + (dx < 0 ? 1 : -1));
+    const dx = event.clientX - mouseStartX;
+    if (Math.abs(dx) > 65) {
+      showPage(current + (dx < 0 ? 1 : -1));
+    }
   });
 
-  document.addEventListener("keydown", event => {
-    if (event.key === "ArrowRight") showPage(current + 1);
-    if (event.key === "ArrowLeft") showPage(current - 1);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight') showPage(current + 1);
+    if (event.key === 'ArrowLeft') showPage(current - 1);
   });
-
-  initialisePages();
 })();
 </script>
 </body>
