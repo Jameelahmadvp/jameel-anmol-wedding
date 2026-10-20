@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 
 <title>Jameel & Anmol Wedding Invitation</title>
 
 <meta property="og:title" content="Jameel & Anmol Wedding Invitation">
-<meta property="og:description" content="You are cordially invited to celebrate the wedding of Muhammad Jameel Ahmad and Anmol Fatimaa.">
+<meta property="og:description" content="Muhammad Jameel Ahmad & Anmol Fatimaa">
 <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
 <meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
 <meta property="og:type" content="website">
@@ -28,7 +28,6 @@ html, body {
 }
 
 body {
-  font-family: Georgia, serif;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
 }
@@ -41,7 +40,8 @@ body {
   height: 100dvh;
   overflow: hidden;
   background: #fff7e8;
-  touch-action: pan-y;
+  touch-action: none;
+  user-select: none;
 }
 
 .page {
@@ -50,8 +50,6 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   background: #fff7e8;
   isolation: isolate;
@@ -71,7 +69,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(18px);
-  opacity: 0.42;
+  opacity: .42;
   transform: scale(1.05);
 }
 
@@ -80,7 +78,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(255, 247, 232, 0.30);
+  background: rgba(255,247,232,.30);
 }
 
 .page img {
@@ -89,44 +87,45 @@ body {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  user-select: none;
-  -webkit-user-drag: none;
   pointer-events: none;
+  -webkit-user-drag: none;
 }
 
-/* First page: gentle shake to hint that the card can be swiped */
-.page:first-child.active img {
-  animation: invitationNudge 4s ease-in-out 2s infinite;
+/* Noticeable cover shake */
+.page.cover.active img {
+  animation: coverShake 3.2s ease-in-out 2s infinite;
+  transform-origin: center;
 }
 
-@keyframes invitationNudge {
-  0%, 75%, 100% {
-    transform: translateX(0) rotate(0);
+@keyframes coverShake {
+  0%, 58%, 100% {
+    transform: translateX(0) rotate(0) scale(1);
   }
-
+  62% {
+    transform: translateX(-12px) rotate(-1deg) scale(.99);
+  }
+  66% {
+    transform: translateX(12px) rotate(1deg) scale(.99);
+  }
+  70% {
+    transform: translateX(-10px) rotate(-.8deg) scale(.995);
+  }
+  74% {
+    transform: translateX(10px) rotate(.8deg) scale(.995);
+  }
   78% {
-    transform: translateX(-4px) rotate(-0.35deg);
+    transform: translateX(-5px) rotate(-.3deg);
   }
-
-  81% {
-    transform: translateX(4px) rotate(0.35deg);
+  82% {
+    transform: translateX(5px) rotate(.3deg);
   }
-
-  84% {
-    transform: translateX(-3px) rotate(-0.2deg);
-  }
-
-  87% {
-    transform: translateX(3px) rotate(0.2deg);
-  }
-
-  90% {
-    transform: translateX(0) rotate(0);
+  86% {
+    transform: translateX(0) rotate(0) scale(1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page:first-child.active img {
+  .page.cover.active img {
     animation: none;
   }
 }
@@ -136,7 +135,7 @@ body {
 <body>
 <main id="book">
 
-  <section class="page active">
+  <section class="page cover active">
     <img src="Page%201.png" alt="Wedding invitation cover">
   </section>
 
@@ -151,20 +150,23 @@ body {
 </main>
 
 <script>
-const pages = Array.from(document.querySelectorAll(".page"));
 const book = document.getElementById("book");
+const pages = Array.from(document.querySelectorAll(".page"));
 let currentPage = 0;
+let startX = 0;
+let startY = 0;
+let pointerStart = false;
 
-function preparePages() {
-  pages.forEach((page) => {
-    const img = page.querySelector("img");
+pages.forEach((page) => {
+  const img = page.querySelector("img");
+  page.style.setProperty(
+    "--page-image",
+    'url("' + img.getAttribute("src") + '")'
+  );
 
-    page.style.setProperty(
-      "--page-image",
-      'url("' + img.getAttribute("src") + '")'
-    );
-  });
-}
+  const preload = new Image();
+  preload.src = img.src;
+});
 
 function showPage(index) {
   if (index < 0 || index >= pages.length) return;
@@ -174,52 +176,34 @@ function showPage(index) {
   pages[currentPage].classList.add("active");
 }
 
-let startX = 0;
-let startY = 0;
-
-book.addEventListener("touchstart", function(event) {
-  const touch = event.changedTouches[0];
-  startX = touch.clientX;
-  startY = touch.clientY;
+/* Swipe in either direction */
+book.addEventListener("pointerdown", function(event) {
+  startX = event.clientX;
+  startY = event.clientY;
+  pointerStart = true;
 }, { passive: true });
 
-book.addEventListener("touchend", function(event) {
-  const touch = event.changedTouches[0];
-  const diffX = touch.clientX - startX;
-  const diffY = touch.clientY - startY;
+book.addEventListener("pointerup", function(event) {
+  if (!pointerStart) return;
+  pointerStart = false;
 
-  if (
-    Math.abs(diffX) > 45 &&
-    Math.abs(diffX) > Math.abs(diffY)
-  ) {
-    if (diffX < 0) {
-      showPage(currentPage + 1);
-    } else {
-      showPage(currentPage - 1);
-    }
+  const diffX = event.clientX - startX;
+  const diffY = event.clientY - startY;
+
+  if (Math.abs(diffX) < 35) return;
+  if (Math.abs(diffX) <= Math.abs(diffY)) return;
+
+  if (diffX < 0) {
+    // Swipe left: next page
+    showPage(currentPage + 1);
+  } else {
+    // Swipe right: previous page
+    showPage(currentPage - 1);
   }
 }, { passive: true });
 
-let mouseStartX = null;
-
-book.addEventListener("mousedown", function(event) {
-  mouseStartX = event.clientX;
-});
-
-book.addEventListener("mouseup", function(event) {
-  if (mouseStartX === null) return;
-
-  const diff = event.clientX - mouseStartX;
-
-  if (Math.abs(diff) > 55) {
-    if (diff < 0) {
-      showPage(currentPage + 1);
-    } else {
-      showPage(currentPage - 1);
-    }
-  }
-
-  mouseStartX = null;
+book.addEventListener("pointercancel", function() {
+  pointerStart = false;
 });
 
 document.addEventListener("keydown", function(event) {
@@ -230,13 +214,6 @@ document.addEventListener("keydown", function(event) {
   if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
     showPage(currentPage - 1);
   }
-});
-
-preparePages();
-
-pages.forEach((page) => {
-  const preload = new Image();
-  preload.src = page.querySelector("img").src;
 });
 </script>
 </body>
