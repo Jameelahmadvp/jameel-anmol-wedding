@@ -1,18 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<title>Jameel & Anmol | Wedding Invitation</title>
 <meta name="theme-color" content="#fff7e9">
+
+<title>Jameel &amp; Anmol | Wedding Invitation</title>
 <meta name="description" content="Wedding invitation of Jameel Ahmad and Anmol Fatima.">
 
-<meta property="og:title" content="Jameel & Anmol — Wedding Invitation">
+<meta property="og:title" content="Jameel &amp; Anmol — Wedding Invitation">
 <meta property="og:description" content="You are cordially invited to celebrate our wedding.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
 <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
 
 <style>
 * {
@@ -40,7 +43,7 @@ body {
   position: fixed;
   inset: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   height: 100dvh;
   overflow: hidden;
   background: #fff7e9;
@@ -54,36 +57,68 @@ body {
   height: 100%;
   display: none;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
   background: #fff7e9;
+  isolation: isolate;
 }
 
 .page.active {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: showPage .25s ease-out;
+  animation: showPage 0.28s ease-out;
 }
 
+/* Use the same page artwork to fill the background softly */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+  z-index: -2;
+  background-image: var(--page-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(18px);
+  transform: scale(1.06);
+  opacity: 0.38;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 247, 233, 0.48);
+}
+
+/* Preserve the complete invitation image */
 .page img {
   display: block;
-
-  /* Fill the complete mobile screen */
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   max-width: none;
   max-height: none;
-
-  /* Keep artwork proportional; no stretching */
   object-fit: contain;
   object-position: center center;
-
   pointer-events: none;
   -webkit-user-drag: none;
 }
 
 @keyframes showPage {
-  from { opacity: .7; }
+  from { opacity: 0.75; }
   to { opacity: 1; }
+}
+
+/* Small screens: preserve the whole card, never crop it */
+@media (max-width: 600px) {
+  .page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -107,14 +142,14 @@ body {
   <section class="page" aria-label="Baraat invitation">
     <img
       src="Page%202.png"
-      alt="Baraat details"
+      alt="Baraat invitation details"
       draggable="false">
   </section>
 
   <section class="page" aria-label="Walima invitation">
     <img
       src="Page%203.png"
-      alt="Walima details"
+      alt="Walima invitation details"
       draggable="false">
   </section>
 
@@ -131,22 +166,39 @@ body {
   let startTime = 0;
   let animating = false;
 
+  // Prepare a matching blurred background for each page
+  pages.forEach(page => {
+    const img = page.querySelector("img");
+
+    page.style.setProperty(
+      "--page-image",
+      'url("' + img.getAttribute("src") + '")'
+    );
+
+    // Preload the page artwork
+    const preload = new Image();
+    preload.src = img.getAttribute("src");
+  });
+
   function showPage(next) {
     if (
       animating ||
       next < 0 ||
       next >= pages.length ||
       next === current
-    ) return;
+    ) {
+      return;
+    }
 
     animating = true;
+
     pages[current].classList.remove("active");
     current = next;
     pages[current].classList.add("active");
 
     setTimeout(() => {
       animating = false;
-    }, 270);
+    }, 300);
   }
 
   book.addEventListener("touchstart", event => {
@@ -165,28 +217,30 @@ body {
     const elapsed = Date.now() - startTime;
 
     if (
-      elapsed > 800 ||
+      elapsed > 1000 ||
       Math.abs(dx) < 40 ||
       Math.abs(dx) < Math.abs(dy) * 1.2
-    ) return;
+    ) {
+      return;
+    }
 
-    if (dx < 0) showPage(current + 1);
-    else showPage(current - 1);
+    if (dx < 0) {
+      showPage(current + 1);
+    } else {
+      showPage(current - 1);
+    }
   }, { passive: true });
 
   document.addEventListener("keydown", event => {
-    if (event.key === "ArrowRight") showPage(current + 1);
-    if (event.key === "ArrowLeft") showPage(current - 1);
-  });
+    if (event.key === "ArrowRight") {
+      showPage(current + 1);
+    }
 
-  /* Preload both event pages */
-  pages.forEach(page => {
-    const img = page.querySelector("img");
-    const preload = new Image();
-    preload.src = img.src;
+    if (event.key === "ArrowLeft") {
+      showPage(current - 1);
+    }
   });
 })();
 </script>
-
 </body>
 </html>
