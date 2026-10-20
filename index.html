@@ -1,266 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Jameel & Anmol Wedding Invitation</title>
+  <title>Jameel & Anmol — Wedding Invitation</title>
 
-<meta property="og:title" content="Jameel & Anmol Wedding Invitation">
-<meta property="og:description" content="Muhammad Jameel Ahmad & Anmol Fatimaa">
-<meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
-<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#fff7e8">
+  <!-- WhatsApp Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jameel Ahmad & Anmol Fatima — Wedding Invitation">
+  <meta property="og:description" content="You are cordially invited to celebrate the wedding of Jameel Ahmad and Anmol Fatima.">
+  <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/Page%201.png">
+  <meta property="og:image:alt" content="Jameel and Anmol Wedding Invitation Cover">
+  <meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#211912">
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #fff7e8;
-}
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #211912;
+      overscroll-behavior: none;
+    }
 
-body {
-  -webkit-tap-highlight-color: transparent;
-  overscroll-behavior: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+    }
 
-#book {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  height: 100dvh;
-  overflow: hidden;
-  background: #fff7e8;
-  touch-action: pan-y;
-}
+    .book {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #211912;
+    }
 
-.page {
-  position: absolute;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #fff7e8;
-  isolation: isolate;
-}
+    .page {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #211912;
+    }
 
-.page.active {
-  display: flex;
-}
+    .page.active {
+      display: flex;
+      animation: pageAppear 0.35s ease;
+    }
 
-.page::before {
-  content: "";
-  position: absolute;
-  inset: -25px;
-  z-index: -2;
-  background-image: var(--page-image);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: blur(18px);
-  opacity: 0.42;
-  transform: scale(1.05);
-}
+    .page img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
 
-.page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: rgba(255, 247, 232, 0.30);
-}
+    /* Subtle movement on the first cover only */
+    .cover.active img {
+      animation: coverShake 3s ease-in-out infinite;
+    }
 
-.page img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  pointer-events: none;
-  -webkit-user-drag: none;
-}
+    @keyframes coverShake {
+      0%, 72%, 100% {
+        transform: translateX(0) rotate(0);
+      }
 
-/* Stronger cover shake */
-.page.cover.active img {
-  animation: coverShake 3s ease-in-out 2s infinite;
-  transform-origin: center;
-}
+      74% {
+        transform: translateX(-3px) rotate(-0.25deg);
+      }
 
-@keyframes coverShake {
-  0%, 55%, 100% {
-    transform: translateX(0) rotate(0);
-  }
-  60% {
-    transform: translateX(-18px) rotate(-1.5deg);
-  }
-  65% {
-    transform: translateX(18px) rotate(1.5deg);
-  }
-  70% {
-    transform: translateX(-14px) rotate(-1deg);
-  }
-  75% {
-    transform: translateX(14px) rotate(1deg);
-  }
-  80% {
-    transform: translateX(-7px);
-  }
-  85% {
-    transform: translateX(7px);
-  }
-  90% {
-    transform: translateX(0) rotate(0);
-  }
-}
+      76% {
+        transform: translateX(3px) rotate(0.25deg);
+      }
 
-@media (prefers-reduced-motion: reduce) {
-  .page.cover.active img {
-    animation: none;
-  }
-}
-</style>
+      78% {
+        transform: translateX(-3px) rotate(-0.2deg);
+      }
+
+      80% {
+        transform: translateX(3px) rotate(0.2deg);
+      }
+
+      82% {
+        transform: translateX(0) rotate(0);
+      }
+    }
+
+    @keyframes pageAppear {
+      from {
+        opacity: 0.65;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cover.active img {
+        animation: none;
+      }
+
+      .page.active {
+        animation: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<main id="book">
+  <main class="book" id="book">
 
-  <section class="page cover active">
-    <img src="Page%201.png" alt="Wedding invitation cover" draggable="false">
-  </section>
+    <section class="page cover active">
+      <img
+        src="Page%201.png"
+        alt="Wedding invitation cover"
+        draggable="false"
+      >
+    </section>
 
-  <section class="page">
-    <img src="Page%202.png" alt="Baraat invitation" draggable="false">
-  </section>
+    <section class="page">
+      <img
+        src="Page%202.png"
+        alt="Baraat invitation"
+        draggable="false"
+      >
+    </section>
 
-  <section class="page">
-    <img src="Page%203.png" alt="Walima invitation" draggable="false">
-  </section>
+    <section class="page">
+      <img
+        src="Page%203.png"
+        alt="Walima invitation"
+        draggable="false"
+      >
+    </section>
 
-</main>
+  </main>
 
-<script>
-const book = document.getElementById("book");
-const pages = Array.from(document.querySelectorAll(".page"));
+  <script>
+    (() => {
+      const pages = Array.from(document.querySelectorAll(".page"));
+      const book = document.getElementById("book");
 
-let currentPage = 0;
-let startX = 0;
-let startY = 0;
-let startTime = 0;
-let pointerActive = false;
+      let currentPage = 0;
+      let startX = 0;
+      let startY = 0;
+      let startTime = 0;
 
-function preparePages() {
-  pages.forEach((page) => {
-    const img = page.querySelector("img");
+      function showPage(index) {
+        if (index < 0 || index >= pages.length) return;
 
-    page.style.setProperty(
-      "--page-image",
-      'url("' + img.getAttribute("src") + '")'
-    );
+        currentPage = index;
 
-    const preload = new Image();
-    preload.src = img.src;
-  });
-}
+        pages.forEach((page, i) => {
+          page.classList.toggle("active", i === currentPage);
+          page.setAttribute(
+            "aria-hidden",
+            i === currentPage ? "false" : "true"
+          );
+        });
+      }
 
-function showPage(index) {
-  if (index < 0 || index >= pages.length) return;
+      function nextPage() {
+        if (currentPage < pages.length - 1) {
+          showPage(currentPage + 1);
+        }
+      }
 
-  pages[currentPage].classList.remove("active");
-  currentPage = index;
-  pages[currentPage].classList.add("active");
-}
+      function previousPage() {
+        if (currentPage > 0) {
+          showPage(currentPage - 1);
+        }
+      }
 
-/* Touch swipe: both directions */
-book.addEventListener("touchstart", function(event) {
-  if (event.touches.length !== 1) return;
+      book.addEventListener("touchstart", function (event) {
+        if (!event.changedTouches.length) return;
 
-  const touch = event.touches[0];
-  startX = touch.clientX;
-  startY = touch.clientY;
-  startTime = Date.now();
-  pointerActive = true;
-}, { passive: true });
+        const touch = event.changedTouches[0];
 
-book.addEventListener("touchend", function(event) {
-  if (!pointerActive) return;
-  pointerActive = false;
+        startX = touch.clientX;
+        startY = touch.clientY;
+        startTime = Date.now();
+      }, { passive: true });
 
-  const touch = event.changedTouches[0];
-  const diffX = touch.clientX - startX;
-  const diffY = touch.clientY - startY;
-  const elapsed = Date.now() - startTime;
+      book.addEventListener("touchend", function (event) {
+        if (!event.changedTouches.length) return;
 
-  if (Math.abs(diffX) < 35) return;
-  if (Math.abs(diffX) <= Math.abs(diffY)) return;
-  if (elapsed > 1200) return;
+        const touch = event.changedTouches[0];
+        const differenceX = touch.clientX - startX;
+        const differenceY = touch.clientY - startY;
+        const elapsed = Date.now() - startTime;
 
-  if (diffX < 0) {
-    // Swipe left: next page
-    showPage(currentPage + 1);
-  } else {
-    // Swipe right: previous page
-    showPage(currentPage - 1);
-  }
-}, { passive: true });
+        if (
+          Math.abs(differenceX) > 45 &&
+          Math.abs(differenceX) > Math.abs(differenceY) * 1.2 &&
+          elapsed < 1000
+        ) {
+          if (differenceX < 0) {
+            nextPage();
+          } else {
+            previousPage();
+          }
+        }
+      }, { passive: true });
 
-book.addEventListener("touchcancel", function() {
-  pointerActive = false;
-});
+      /* Desktop mouse swipe support */
+      let mouseDown = false;
+      let mouseStartX = 0;
+      let mouseStartY = 0;
 
-/* Mouse dragging on computers */
-let mouseDown = false;
-let mouseStartX = 0;
-let mouseStartY = 0;
+      book.addEventListener("mousedown", function (event) {
+        mouseDown = true;
+        mouseStartX = event.clientX;
+        mouseStartY = event.clientY;
+      });
 
-book.addEventListener("mousedown", function(event) {
-  mouseDown = true;
-  mouseStartX = event.clientX;
-  mouseStartY = event.clientY;
-});
+      window.addEventListener("mouseup", function (event) {
+        if (!mouseDown) return;
 
-document.addEventListener("mouseup", function(event) {
-  if (!mouseDown) return;
-  mouseDown = false;
+        mouseDown = false;
 
-  const diffX = event.clientX - mouseStartX;
-  const diffY = event.clientY - mouseStartY;
+        const differenceX = event.clientX - mouseStartX;
+        const differenceY = event.clientY - mouseStartY;
 
-  if (Math.abs(diffX) < 35) return;
-  if (Math.abs(diffX) <= Math.abs(diffY)) return;
+        if (
+          Math.abs(differenceX) > 45 &&
+          Math.abs(differenceX) > Math.abs(differenceY)
+        ) {
+          if (differenceX < 0) {
+            nextPage();
+          } else {
+            previousPage();
+          }
+        }
+      });
 
-  if (diffX < 0) {
-    showPage(currentPage + 1);
-  } else {
-    showPage(currentPage - 1);
-  }
-});
+      /* Keyboard support */
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          previousPage();
+        } else if (event.key === "ArrowRight") {
+          nextPage();
+        }
+      });
 
-/* Keyboard support */
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-    showPage(currentPage + 1);
-  }
+      /* Prevent image dragging */
+      book.addEventListener("dragstart", function (event) {
+        event.preventDefault();
+      });
 
-  if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-    showPage(currentPage - 1);
-  }
-});
-
-preparePages();
-</script>
+      showPage(0);
+    })();
+  </script>
 </body>
 </html>
