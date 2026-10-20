@@ -1,226 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <title>Jameel & Anmol Wedding Invitation</title>
+<title>Jameel & Anmol Wedding Invitation</title>
 
-  <meta property="og:title" content="Jameel & Anmol Wedding Invitation">
-  <meta property="og:description" content="You are cordially invited to celebrate the wedding of Muhammad Jameel Ahmad and Anmol Fatimaa.">
-  <meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
-  <meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
-  <meta property="og:type" content="website">
+<meta property="og:title" content="Jameel & Anmol Wedding Invitation">
+<meta property="og:description" content="You are cordially invited to celebrate the wedding of Muhammad Jameel Ahmad and Anmol Fatimaa.">
+<meta property="og:image" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/coverpng.png">
+<meta property="og:url" content="https://jameelahmadvp.github.io/jameel-anmol-wedding/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fff7e8">
 
-  <meta name="theme-color" content="#fff7e8">
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff7e8;
+}
 
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #fff7e8;
-    }
+body {
+  font-family: Georgia, serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
 
-    body {
-      font-family: Georgia, serif;
-      -webkit-tap-highlight-color: transparent;
-      overscroll-behavior: none;
-    }
+#book {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #fff7e8;
+  touch-action: pan-y;
+}
 
-    #book {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      height: 100dvh;
-      overflow: hidden;
-      background: #fff7e8;
-      touch-action: pan-y;
-    }
+.page {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff7e8;
+  isolation: isolate;
+}
 
-    .page {
-      position: absolute;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #fff7e8;
-      isolation: isolate;
-    }
+.page.active {
+  display: flex;
+}
 
-    .page.active {
-      display: flex;
-    }
+.page::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+  z-index: -2;
+  background-image: var(--page-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(18px);
+  opacity: 0.42;
+  transform: scale(1.05);
+}
 
-    /* Soft background fills the space around the card */
-    .page::before {
-      content: "";
-      position: absolute;
-      inset: -25px;
-      z-index: -2;
-      background-image: var(--page-image);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      filter: blur(18px);
-      opacity: 0.42;
-      transform: scale(1.05);
-    }
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 247, 232, 0.30);
+}
 
-    .page::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: rgba(255, 247, 232, 0.30);
-    }
+.page img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
 
-    .page img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      user-select: none;
-      -webkit-user-drag: none;
-      pointer-events: none;
-    }
+/* First page: gentle shake to hint that the card can be swiped */
+.page:first-child.active img {
+  animation: invitationNudge 4s ease-in-out 2s infinite;
+}
 
-    @media (orientation: portrait) {
-      .page img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-    }
+@keyframes invitationNudge {
+  0%, 75%, 100% {
+    transform: translateX(0) rotate(0);
+  }
 
-    @media (orientation: landscape) {
-      .page img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-    }
-  </style>
+  78% {
+    transform: translateX(-4px) rotate(-0.35deg);
+  }
+
+  81% {
+    transform: translateX(4px) rotate(0.35deg);
+  }
+
+  84% {
+    transform: translateX(-3px) rotate(-0.2deg);
+  }
+
+  87% {
+    transform: translateX(3px) rotate(0.2deg);
+  }
+
+  90% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page:first-child.active img {
+    animation: none;
+  }
+}
+</style>
 </head>
 
 <body>
-  <main id="book">
+<main id="book">
 
-    <section class="page active">
-      <img src="Page%201.png" alt="Wedding invitation cover">
-    </section>
+  <section class="page active">
+    <img src="Page%201.png" alt="Wedding invitation cover">
+  </section>
 
-    <section class="page">
-      <img src="Page%202.png" alt="Baraat invitation">
-    </section>
+  <section class="page">
+    <img src="Page%202.png" alt="Baraat invitation">
+  </section>
 
-    <section class="page">
-      <img src="Page%203.png" alt="Walima invitation">
-    </section>
+  <section class="page">
+    <img src="Page%203.png" alt="Walima invitation">
+  </section>
 
-  </main>
+</main>
 
-  <script>
-    const pages = Array.from(document.querySelectorAll(".page"));
-    let currentPage = 0;
+<script>
+const pages = Array.from(document.querySelectorAll(".page"));
+const book = document.getElementById("book");
+let currentPage = 0;
 
-    function preparePages() {
-      pages.forEach((page) => {
-        const img = page.querySelector("img");
-        page.style.setProperty(
-          "--page-image",
-          'url("' + img.getAttribute("src") + '")'
-        );
-      });
+function preparePages() {
+  pages.forEach((page) => {
+    const img = page.querySelector("img");
+
+    page.style.setProperty(
+      "--page-image",
+      'url("' + img.getAttribute("src") + '")'
+    );
+  });
+}
+
+function showPage(index) {
+  if (index < 0 || index >= pages.length) return;
+
+  pages[currentPage].classList.remove("active");
+  currentPage = index;
+  pages[currentPage].classList.add("active");
+}
+
+let startX = 0;
+let startY = 0;
+
+book.addEventListener("touchstart", function(event) {
+  const touch = event.changedTouches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
+}, { passive: true });
+
+book.addEventListener("touchend", function(event) {
+  const touch = event.changedTouches[0];
+  const diffX = touch.clientX - startX;
+  const diffY = touch.clientY - startY;
+
+  if (
+    Math.abs(diffX) > 45 &&
+    Math.abs(diffX) > Math.abs(diffY)
+  ) {
+    if (diffX < 0) {
+      showPage(currentPage + 1);
+    } else {
+      showPage(currentPage - 1);
     }
+  }
+}, { passive: true });
 
-    function showPage(index) {
-      if (index < 0 || index >= pages.length) return;
+let mouseStartX = null;
 
-      pages[currentPage].classList.remove("active");
-      currentPage = index;
-      pages[currentPage].classList.add("active");
+book.addEventListener("mousedown", function(event) {
+  mouseStartX = event.clientX;
+});
+
+book.addEventListener("mouseup", function(event) {
+  if (mouseStartX === null) return;
+
+  const diff = event.clientX - mouseStartX;
+
+  if (Math.abs(diff) > 55) {
+    if (diff < 0) {
+      showPage(currentPage + 1);
+    } else {
+      showPage(currentPage - 1);
     }
+  }
 
-    let startX = 0;
-    let startY = 0;
+  mouseStartX = null;
+});
 
-    const book = document.getElementById("book");
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+    showPage(currentPage + 1);
+  }
 
-    book.addEventListener("touchstart", function (event) {
-      const touch = event.changedTouches[0];
-      startX = touch.clientX;
-      startY = touch.clientY;
-    }, { passive: true });
+  if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+    showPage(currentPage - 1);
+  }
+});
 
-    book.addEventListener("touchend", function (event) {
-      const touch = event.changedTouches[0];
-      const diffX = touch.clientX - startX;
-      const diffY = touch.clientY - startY;
+preparePages();
 
-      if (Math.abs(diffX) > 45 &&
-          Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX < 0) {
-          showPage(currentPage + 1);
-        } else {
-          showPage(currentPage - 1);
-        }
-      }
-    }, { passive: true });
-
-    /* Support mouse/trackpad dragging and keyboard arrows */
-    let mouseStartX = null;
-
-    book.addEventListener("mousedown", function (event) {
-      mouseStartX = event.clientX;
-    });
-
-    book.addEventListener("mouseup", function (event) {
-      if (mouseStartX === null) return;
-
-      const diff = event.clientX - mouseStartX;
-
-      if (Math.abs(diff) > 55) {
-        if (diff < 0) {
-          showPage(currentPage + 1);
-        } else {
-          showPage(currentPage - 1);
-        }
-      }
-
-      mouseStartX = null;
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-        showPage(currentPage + 1);
-      }
-
-      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-        showPage(currentPage - 1);
-      }
-    });
-
-    preparePages();
-
-    /* Preload the remaining pages */
-    pages.forEach((page) => {
-      const img = page.querySelector("img");
-      const preload = new Image();
-      preload.src = img.src;
-    });
-  </script>
+pages.forEach((page) => {
+  const preload = new Image();
+  preload.src = page.querySelector("img").src;
+});
+</script>
 </body>
 </html>
